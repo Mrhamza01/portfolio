@@ -13,7 +13,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
+        "z-10 flex size-12 items-center justify-center rounded-full border-2 border-border bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
         className,
       )}
     >
@@ -24,7 +24,7 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle";
 
-export default function Idea ({
+export default function Idea({
   className,
 }: {
   className?: string;
@@ -41,22 +41,12 @@ export default function Idea ({
   return (
     <div
       className={cn(
-        "relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background",
+        "relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background p-10 md:shadow-xl",
         className,
       )}
       ref={containerRef}
     >
-      <div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-10">
-        <div className="flex flex-col justify-center">
-          <Circle ref={div7Ref}>
-            <Icons.user />
-          </Circle>
-        </div>
-        <div className="flex flex-col justify-center">
-          <Circle ref={div6Ref} className="size-16">
-            <Icons.openai />
-          </Circle>
-        </div>
+      <div className="flex size-full flex-row items-stretch justify-between gap-10 max-w-lg">
         <div className="flex flex-col justify-center gap-2">
           <Circle ref={div1Ref}>
             <Icons.googleDrive />
@@ -74,44 +64,47 @@ export default function Idea ({
             <Icons.notion />
           </Circle>
         </div>
+        <div className="flex flex-col justify-center">
+          <Circle ref={div6Ref} className="size-16">
+            <Icons.openai />
+          </Circle>
+        </div>
+        <div className="flex flex-col justify-center">
+          <Circle ref={div7Ref}>
+            <Icons.user />
+          </Circle>
+        </div>
       </div>
 
-      {/* AnimatedBeams */}
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div1Ref}
         toRef={div6Ref}
-        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div2Ref}
         toRef={div6Ref}
-        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div3Ref}
         toRef={div6Ref}
-        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div4Ref}
         toRef={div6Ref}
-        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div5Ref}
         toRef={div6Ref}
-        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div6Ref}
         toRef={div7Ref}
-        duration={3}
       />
     </div>
   );
