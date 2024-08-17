@@ -1,0 +1,72 @@
+$maincolor: rgb(3, 3, 37);
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .project-box {
+      height: fit-content;
+      width: 100%; // Ensure the card takes up the full width
+      max-width: 330px; // Limit the maximum width of the card
+      overflow: hidden;
+      position: relative; // Make sure child elements are positioned correctly
+    }
+  
+    ul {
+      margin: 10px;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+  
+      li {
+        border: solid 2px #00e9ff;
+        border-radius: 10px;
+      }
+    }
+  
+    .Box1 {
+      cursor: pointer;
+  
+      .image {
+        z-index: 1;
+        width: 100%; // Ensure image is responsive
+        height: 100%; // Maintain height proportion
+        object-fit: cover; // Make sure image does not stretch
+      }
+  
+      h3,
+      .title {
+        opacity: 0;
+      }
+  
+      &:hover {
+        background-color: $maincolor;
+  
+        .image {
+          opacity: 0.2;
+          z-index: 0;
+        }
+  
+        h3 {
+          opacity: 1;
+          z-index: 1;
+          color: rgb(255, 255, 255);
+        }
+  
+        .title {
+          opacity: 1;
+          z-index: 1;
+        }
+      }
+    }
+  
+    .box {
+      display: flex;
+      gap: 1.75rem;
+      flex-wrap: wrap; // Ensures wrapping of cards
+      justify-content: center; // Aligns the cards at the center
+      max-width: 100%; // Ensures the cards don't overflow the container
+    }
+  }
+  
