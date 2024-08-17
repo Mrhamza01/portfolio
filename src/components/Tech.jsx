@@ -1,10 +1,8 @@
 import React from "react";
-
-import { BallCanvas } from "./canvas";
+import { motion } from "framer-motion";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
 import { textVariant } from "../utils/motion";
-import { motion } from "framer-motion";
 import { styles } from "../styles";
 
 const Tech = () => {
@@ -15,13 +13,20 @@ const Tech = () => {
           Tools
         </h2>
       </motion.div>
-    <div className='flex flex-row flex-wrap justify-center gap-10'>
-      {technologies.map((technology) => (
-        <div style={{height: '5rem', width: "5rem"}} key={technology.name}>
-          <BallCanvas icon={technology.icon} />
-        </div>
-      ))}
-    </div>
+      <div className="flex flex-row flex-wrap justify-center gap-10">
+        {technologies.map((technology) => (
+          <div
+            key={technology.name}
+            className="relative w-20 h-20 rounded-full shadow-lg overflow-hidden animate-float flex items-center justify-center "
+          >
+            <img
+              src={technology.icon}
+              alt={technology.name}
+              className="w-3/4 h-3/4 object-contain" // Ensure the image fits properly
+            />
+          </div>
+        ))}
+      </div>
     </>
   );
 };

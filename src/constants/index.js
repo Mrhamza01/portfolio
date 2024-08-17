@@ -61,58 +61,91 @@ import {
   
   const technologies = [
     {
-      name: "HTML 5",
-      icon: html,
+      name: "HTML5",
+      icon: "https://img.icons8.com/color/480/000000/html-5.png",
     },
     {
-      name: "CSS 3",
-      icon: css,
+      name: "CSS3",
+      icon: "https://img.icons8.com/color/480/000000/css3.png",
     },
     {
       name: "JavaScript",
-      icon: javascript,
-    },
-    {
-      name:"Bootstrap",
-      icon: "https://img.icons8.com/color/480/000000/bootstrap.png",
-    },
-    {
-      name:"Google Cloud",
-      icon: "https://img.icons8.com/color/480/000000/google-cloud.png",
-    },
-    {
-      name:"C++ tool",
-      icon: "https://img.icons8.com/color/480/000000/c-plus-plus-logo.png",
-    },
-    {
-      name: "React JS",
-      icon: reactjs,
+      icon: "https://img.icons8.com/color/480/000000/javascript.png",
     },
     {
       name: "Tailwind CSS",
-      icon: tailwind,
+      icon: "https://img.icons8.com/color/480/000000/tailwindcss.png",
     },
     {
-      name: "Node JS",
-      icon: nodejs,
+      name: "TypeScript",
+      icon: "https://img.icons8.com/color/480/000000/typescript.png",
+    },
+    {
+      name: "React JS",
+      icon: "https://img.icons8.com/color/480/000000/react-native.png",
+    },
+    {
+      name: "Next.js",
+      icon: "https://img.icons8.com/color/480/000000/nextjs.png",
+    },
+    {
+      name: "Laravel",
+      icon: "https://img.icons8.com/?size=100&id=hUvxmdu7Rloj&format=png&color=FFFFFF",
+    },
+    {
+      name: "Prisma",
+      icon: "https://img.icons8.com/?size=100&id=YKKmRFS8Utmm&format=png&color=000000",
+    },
+    {
+      name: "PostgreSQL",
+      icon: "https://img.icons8.com/?size=100&id=38561&format=png&color=000000",
+    },
+    {
+      name: "MySQL",
+      icon: "https://img.icons8.com/color/480/000000/mysql-logo.png",
     },
     {
       name: "MongoDB",
-      icon: mongodb,
+      icon: "https://img.icons8.com/color/480/000000/mongodb.png",
     },
     {
-      name: "Three JS",
-      icon: threejs,
+      name: "Docker",
+      icon: "https://img.icons8.com/color/480/000000/docker.png",
     },
     {
-      name: "git",
-      icon: git,
+      name: "Git",
+      icon: "https://img.icons8.com/color/480/000000/git.png",
     },
     {
-      name:"MySql",
-      icon: "https://img.icons8.com/color/480/000000/mysql-logo.png",
+      name: "GraphQL",
+      icon: "https://img.icons8.com/color/480/000000/graphql.png",
     },
+    {
+      name: "Vite",
+      icon: "https://img.icons8.com/color/480/000000/vite.png",
+    },
+    // {
+    //   name: "Shadcn",
+    //   icon: "https://img.icons8.com/color/480/000000/shadcn.png",
+    // },
+    {
+      name: "Material-UI",
+      icon: "https://img.icons8.com/color/480/000000/material-ui.png",
+    },
+    // {
+    //   name: "Google Cloud",
+    //   icon: "https://img.icons8.com/color/480/000000/google-cloud.png",
+    // },
+    // {
+    //   name: "C++",
+    //   icon: "https://img.icons8.com/color/480/000000/c-plus-plus-logo.png",
+    // },
+    // {
+    //   name: "Bootstrap",
+    //   icon: "https://img.icons8.com/color/480/000000/bootstrap.png",
+    // },
   ];
+  
 
   const list = [
     // {
