@@ -1,0 +1,123 @@
+{
+    "nav": {
+        "home": "ہوم",
+        "about": "میرے بارے میں",
+        "experience": "تجربہ",
+        "projects": "پروجیکٹس",
+        "skills": "مہارتیں",
+        "certificates": "سرٹیفکیٹس",
+        "testimonials": "تعریفیں",
+        "blog": "بلاگ",
+        "roadmaps": "روڈ میپس",
+        "contact": "رابطہ"
+    },
+    "hero": {
+        "greeting": "ہیلو، میں ہوں",
+        "title": "سینئر سافٹ ویئر انجینئر اور ٹیم لیڈ",
+        "subtitle": "قابل توسیع SaaS اور ERP پلیٹ فارمز کی تعمیر",
+        "cta": {
+            "viewWork": "میرا کام دیکھیں",
+            "contactMe": "مجھ سے رابطہ کریں",
+            "downloadResume": "ریزیومے ڈاؤن لوڈ کریں"
+        }
+    },
+    "about": {
+        "title": "میرے بارے میں",
+        "subtitle": "مجھے بہتر طریقے سے جانیں",
+        "achievements": "اہم کامیابیاں",
+        "futureGoals": "مستقبل کے اہداف"
+    },
+    "experience": {
+        "title": "کام کا تجربہ",
+        "subtitle": "میرا پیشہ ورانہ سفر",
+        "current": "موجودہ",
+        "responsibilities": "اہم ذمہ داریاں",
+        "achievements": "کامیابیاں",
+        "technologies": "استعمال شدہ ٹیکنالوجیز"
+    },
+    "education": {
+        "title": "تعلیم",
+        "subtitle": "تعلیمی پس منظر"
+    },
+    "projects": {
+        "title": "نمایاں پروجیکٹس",
+        "subtitle": "جو چیزیں میں نے بنائی ہیں",
+        "viewDemo": "ڈیمو دیکھیں",
+        "viewCode": "کوڈ دیکھیں",
+        "highlights": "پروجیکٹ کی خاص باتیں",
+        "allProjects": "تمام پروجیکٹس دیکھیں"
+    },
+    "skills": {
+        "title": "مہارتیں اور مہارت",
+        "subtitle": "ٹیکنالوجیز جن کے ساتھ میں کام کرتا ہوں",
+        "languages": "زبانیں"
+    },
+    "certificates": {
+        "title": "سرٹیفکیٹس",
+        "subtitle": "پیشہ ورانہ سرٹیفکیٹس",
+        "viewCredential": "سند دیکھیں",
+        "issuedBy": "جاری کنندہ"
+    },
+    "testimonials": {
+        "title": "تعریفیں",
+        "subtitle": "لوگ میرے بارے میں کیا کہتے ہیں"
+    },
+    "blog": {
+        "title": "بلاگ اور مضامین",
+        "subtitle": "خیالات اور بصیرت",
+        "readMore": "مزید پڑھیں",
+        "readTime": "منٹ پڑھیں",
+        "featured": "نمایاں پوسٹس",
+        "allPosts": "تمام پوسٹس"
+    },
+    "roadmaps": {
+        "title": "سیکھنے کے روڈ میپس",
+        "subtitle": "وہ راستے جن پر میں نے چل کر یہاں تک پہنچا",
+        "difficulty": "مشکل",
+        "estimatedTime": "تخمینہ شدہ وقت",
+        "phases": "مراحل",
+        "topics": "سیکھنے کے موضوعات",
+        "resources": "تجویز کردہ وسائل",
+        "projects": "مشق کے پروجیکٹس",
+        "viewRoadmap": "مکمل روڈ میپ دیکھیں"
+    },
+    "contact": {
+        "title": "رابطے میں رہیں",
+        "subtitle": "آئیں مل کر کام کریں",
+        "form": {
+            "name": "آپ کا نام",
+            "email": "آپ کا ای میل",
+            "subject": "موضوع",
+            "message": "پیغام",
+            "send": "پیغام بھیجیں",
+            "sending": "بھیجا جا رہا ہے...",
+            "success": "پیغام کامیابی سے بھیج دیا گیا!",
+            "error": "پیغام بھیجنے میں ناکامی۔ براہ کرم دوبارہ کوشش کریں۔"
+        },
+        "info": {
+            "email": "ای میل",
+            "location": "مقام",
+            "availability": "دستیابی"
+        }
+    },
+    "common": {
+        "loading": "لوڈ ہو رہا ہے...",
+        "error": "کچھ غلط ہو گیا",
+        "notFound": "نہیں ملا",
+        "backToHome": "ہوم پر واپس",
+        "learnMore": "مزید جانیں",
+        "viewMore": "مزید دیکھیں",
+        "close": "بند کریں",
+        "open": "کھولیں",
+        "search": "تلاش کریں",
+        "filter": "فلٹر",
+        "sort": "ترتیب دیں",
+        "theme": "تھیم",
+        "language": "زبان"
+    },
+    "footer": {
+        "rights": "تمام حقوق محفوظ ہیں",
+        "builtWith": "بنایا گیا",
+        "social": "مجھ سے جڑیں"
+    }
+}
