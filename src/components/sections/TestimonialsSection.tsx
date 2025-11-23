@@ -2,7 +2,7 @@
 
 import { useTestimonials } from '@/constants/translated/testimonials';
 import { useLanguageStore } from '@/store/useLanguageStore';
-import { Quote, Star } from 'lucide-react';
+import { Quote, Star, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function TestimonialsSection() {
@@ -54,7 +54,20 @@ export function TestimonialsSection() {
                                 <div className="flex items-center gap-4">
                                     <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-accent" />
                                     <div>
-                                        <p className="font-semibold text-foreground">{testimonial.name}</p>
+                                        <div className="flex items-center gap-2">
+                                            <p className="font-semibold text-foreground">{testimonial.name}</p>
+                                            {testimonial.linkedin && (
+                                                <a
+                                                    href={testimonial.linkedin}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-muted-foreground hover:text-[#0077b5] transition-colors"
+                                                    title="View LinkedIn Profile"
+                                                >
+                                                    <Linkedin className="h-4 w-4" />
+                                                </a>
+                                            )}
+                                        </div>
                                         <p className="text-sm text-muted-foreground">
                                             {testimonial.role} at {testimonial.company}
                                         </p>
