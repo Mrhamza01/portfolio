@@ -1,12 +1,13 @@
 'use client';
 
-import { certificates } from '@/constants/certificates';
+import { useCertificates } from '@/constants/translated/certificates';
 import { useLanguageStore } from '@/store/useLanguageStore';
 import { Award, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function CertificatesSection() {
     const { t } = useLanguageStore();
+    const certificates = useCertificates();
 
     return (
         <section id="certificates" className="py-20 bg-background">

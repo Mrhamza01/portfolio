@@ -1,12 +1,13 @@
 'use client';
 
-import { projects } from '@/constants/projects';
+import { useProjects } from '@/constants/translated/projects';
 import { useLanguageStore } from '@/store/useLanguageStore';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function ProjectsSection() {
     const { t } = useLanguageStore();
+    const projects = useProjects();
 
     return (
         <section id="projects" className="py-20 bg-background">

@@ -1,6 +1,6 @@
 'use client';
 
-import { personalInfo } from '@/constants/info';
+import { usePersonalInfo } from '@/constants/translated/info';
 import { socialLinks } from '@/constants/social-links';
 import { useLanguageStore } from '@/store/useLanguageStore';
 import { Mail, MapPin, Send } from 'lucide-react';
@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 
 export function ContactSection() {
     const { t } = useLanguageStore();
+    const personalInfo = usePersonalInfo();
     const [formData, setFormData] = useState({
         name: '',
         email: '',

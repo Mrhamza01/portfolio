@@ -1,6 +1,6 @@
 'use client';
 
-import { personalInfo } from '@/constants/info';
+import { usePersonalInfo } from '@/constants/translated/info';
 import { socialLinks } from '@/constants/social-links';
 import { useLanguageStore } from '@/store/useLanguageStore';
 import { ArrowRight, Download, Github, Linkedin, Mail, Globe, Sparkles } from 'lucide-react';
@@ -16,6 +16,7 @@ const iconMap: Record<string, any> = {
 
 export function HeroSection() {
     const { t } = useLanguageStore();
+    const personalInfo = usePersonalInfo();
     const heroRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const subtitleRef = useRef<HTMLParagraphElement>(null);

@@ -1,12 +1,13 @@
 'use client';
 
-import { testimonials } from '@/constants/testimonials';
+import { useTestimonials } from '@/constants/translated/testimonials';
 import { useLanguageStore } from '@/store/useLanguageStore';
 import { Quote, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function TestimonialsSection() {
     const { t } = useLanguageStore();
+    const testimonials = useTestimonials();
 
     return (
         <section id="testimonials" className="py-20 bg-background">

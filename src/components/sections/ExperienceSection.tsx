@@ -1,12 +1,13 @@
 'use client';
 
-import { experiences } from '@/constants/experience';
+import { useExperiences } from '@/constants/translated/experience';
 import { useLanguageStore } from '@/store/useLanguageStore';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function ExperienceSection() {
     const { t } = useLanguageStore();
+    const experiences = useExperiences();
 
     const formatDate = (date: string) => {
         if (date === 'Present') return t('experience.current');

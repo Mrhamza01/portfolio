@@ -1,6 +1,6 @@
 'use client';
 
-import { skillCategories } from '@/constants/skills';
+import { useSkillCategories } from '@/constants/translated/skills';
 import { useLanguageStore } from '@/store/useLanguageStore';
 import { motion } from 'framer-motion';
 
@@ -20,6 +20,7 @@ const levelWidths = {
 
 export function SkillsSection() {
     const { t } = useLanguageStore();
+    const skillCategories = useSkillCategories();
 
     return (
         <section id="skills" className="py-20 bg-background">
