@@ -8,28 +8,6 @@ import { motion } from 'framer-motion';
 export function ProjectsSection() {
     const { t } = useLanguageStore();
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                ease: 'easeOut',
-            },
-        },
-    };
-
     return (
         <section id="projects" className="py-20 bg-background">
             <div className="container mx-auto px-4">
@@ -47,16 +25,19 @@ export function ProjectsSection() {
 
                 {/* Projects Grid */}
                 <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true, margin: '-100px' }}
+                    transition={{ staggerChildren: 0.2 }}
                     className="grid gap-8 md:grid-cols-2 lg:grid-cols-2"
                 >
-                    {projects.map((project) => (
+                    {projects.map((project, index) => (
                         <motion.div
                             key={project.id}
-                            variants={itemVariants}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
                             className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
                         >
                             {/* Project Image */}
