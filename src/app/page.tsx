@@ -12,7 +12,7 @@ import { BlogSection } from '@/components/sections/BlogSection';
 import { RoadmapsSection } from '@/components/sections/RoadmapsSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { Footer } from '@/components/Footer';
-import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { FloatingButtons } from '@/components/FloatingButtons';
 import { AnimatedBackground } from '@/components/AnimatedBackground';
 import { useEffect } from 'react';
 import { useThemeStore } from '@/store/useThemeStore';
@@ -44,7 +44,7 @@ export default function Home() {
       <RoadmapsSection />
       <ContactSection />
       <Footer />
-      <WhatsAppButton />
+      <FloatingButtons />
     </main>
   );
 }

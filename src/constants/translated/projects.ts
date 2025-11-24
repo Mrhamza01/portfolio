@@ -52,6 +52,15 @@ const projectsUr = [
             'تیز پروسیسنگ اور جوابی اوقات',
         ],
     },
+    {
+        ...projects[4],
+    },
+    {
+        ...projects[5],
+    },
+    {
+        ...projects[6],
+    },
 ];
 
 export function useProjects() {

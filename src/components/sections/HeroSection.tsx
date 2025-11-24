@@ -3,9 +3,10 @@
 import { usePersonalInfo } from '@/constants/translated/info';
 import { socialLinks } from '@/constants/social-links';
 import { useLanguageStore } from '@/store/useLanguageStore';
-import { ArrowRight, Download, Github, Linkedin, Mail, Globe, Sparkles } from 'lucide-react';
+import { ArrowRight, Download, Github, Linkedin, Mail, Globe, Sparkles, Bot } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import Link from 'next/link';
 
 const iconMap: Record<string, any> = {
     github: Github,
@@ -234,7 +235,7 @@ export function HeroSection() {
                     </div>
 
                     {/* CTA Buttons with 3D effects */}
-                    <div ref={ctaRef} className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                    <div ref={ctaRef} className="flex flex-col items-center justify-center gap-4 sm:flex-row flex-wrap">
                         <a
                             href="#projects"
                             className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-accent to-secondary px-8 py-4 text-lg font-semibold text-white shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all duration-500 hover:scale-110 hover:shadow-[0_0_50px_rgba(168,85,247,0.8)] overflow-hidden"
@@ -252,6 +253,14 @@ export function HeroSection() {
                             <Download className="h-5 w-5 transition-transform group-hover:scale-110" />
                             <span>{t('hero.cta.downloadResume')}</span>
                         </a>
+
+                        <Link
+                            href="/ai-chat"
+                            className="group relative inline-flex items-center gap-2 rounded-full border-2 border-accent bg-black/40 backdrop-blur-sm px-8 py-4 text-lg font-semibold text-white transition-all duration-500 hover:scale-110 hover:bg-accent hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]"
+                        >
+                            <Bot className="h-5 w-5 transition-transform group-hover:scale-110" />
+                            <span>Chat with AI</span>
+                        </Link>
                     </div>
                 </div>
             </div>

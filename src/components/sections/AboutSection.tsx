@@ -11,6 +11,16 @@ export function AboutSection() {
     const achievements = useAchievements();
     const futureGoals = useFutureGoals();
 
+    // Helper to render text with bold markers
+    const renderWithBold = (text: string) => {
+        return text.split(/(\*\*.*?\*\*)/g).map((part, index) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+                return <strong key={index} className="font-bold text-foreground">{part.slice(2, -2)}</strong>;
+            }
+            return part;
+        });
+    };
+
     return (
         <section id="about" className="py-20 bg-muted/30">
             <div className="container mx-auto px-4">
@@ -35,7 +45,7 @@ export function AboutSection() {
                         className="rounded-2xl border border-border bg-card p-8 shadow-lg"
                     >
                         <p className="text-lg leading-relaxed text-muted-foreground whitespace-pre-line">
-                            {personalInfo.bio}
+                            {renderWithBold(personalInfo.bio)}
                         </p>
                     </motion.div>
 
@@ -54,7 +64,7 @@ export function AboutSection() {
                             {achievements.map((achievement, index) => (
                                 <div key={index} className="flex items-start gap-3">
                                     <CheckCircle2 className="h-6 w-6 flex-shrink-0 text-primary mt-0.5" />
-                                    <p className="text-muted-foreground">{achievement}</p>
+                                    <p className="text-muted-foreground">{renderWithBold(achievement)}</p>
                                 </div>
                             ))}
                         </div>

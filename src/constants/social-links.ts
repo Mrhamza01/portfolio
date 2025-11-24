@@ -11,7 +11,7 @@ export const socialLinks: SocialLink[] = [
     {
         id: 'linkedin',
         platform: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/hamzaghafoor',
+        url: 'https://www.linkedin.com/in/hamza-ghafoor',
         icon: 'linkedin',
         username: 'hamzaghafoor',
         color: '#0A66C2',
@@ -19,7 +19,7 @@ export const socialLinks: SocialLink[] = [
     {
         id: 'github',
         platform: 'GitHub',
-        url: 'https://github.com/hamzaghafoor',
+        url: 'https://github.com/Mrhamza01',
         icon: 'github',
         username: 'hamzaghafoor',
         color: '#181717',
@@ -39,14 +39,14 @@ export const socialLinks: SocialLink[] = [
         username: 'hamza.kamboh035@gmail.com',
         color: '#EA4335',
     },
-    {
-        id: 'twitter',
-        platform: 'Twitter',
-        url: 'https://twitter.com/hamzaghafoor',
-        icon: 'twitter',
-        username: '@hamzaghafoor',
-        color: '#1DA1F2',
-    },
+    // {
+    //     id: 'twitter',
+    //     platform: 'Twitter',
+    //     url: 'https://twitter.com/hamzaghafoor',
+    //     icon: 'twitter',
+    //     username: '@hamzaghafoor',
+    //     color: '#1DA1F2',
+    // },
 ];
 
 export const whatsappConfig = {

@@ -9,7 +9,8 @@
         "testimonials": "Testimonials",
         "blog": "Blog",
         "roadmaps": "Roadmaps",
-        "contact": "Contact"
+        "contact": "Contact",
+        "aiChat": "AI Chat"
     },
     "hero": {
         "greeting": "Hi, I'm",

@@ -3,9 +3,10 @@
 import { useLanguageStore } from '@/store/useLanguageStore';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Bot } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { personalInfo } from '@/constants/info';
+import Link from 'next/link';
 
 const navItems = [
     { key: 'about', href: '#about' },
@@ -17,6 +18,7 @@ const navItems = [
     { key: 'blog', href: '#blog' },
     { key: 'roadmaps', href: '#roadmaps' },
     { key: 'contact', href: '#contact' },
+    { key: 'aiChat', href: '/ai-chat', isPage: true },
 ];
 
 export function Navigation() {
@@ -53,13 +55,24 @@ export function Navigation() {
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-8">
                         {navItems.map((item) => (
-                            <a
-                                key={item.key}
-                                href={item.href}
-                                className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-                            >
-                                {t(`nav.${item.key}`)}
-                            </a>
+                            item.isPage ? (
+                                <Link
+                                    key={item.key}
+                                    href={item.href}
+                                    className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary flex items-center gap-1"
+                                >
+                                    <Bot className="h-4 w-4" />
+                                    {t(`nav.${item.key}`)}
+                                </Link>
+                            ) : (
+                                <a
+                                    key={item.key}
+                                    href={item.href}
+                                    className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+                                >
+                                    {t(`nav.${item.key}`)}
+                                </a>
+                            )
                         ))}
                     </div>
 
@@ -84,14 +97,26 @@ export function Navigation() {
                     <div className="lg:hidden py-4 border-t border-border">
                         <div className="flex flex-col gap-2">
                             {navItems.map((item) => (
-                                <a
-                                    key={item.key}
-                                    href={item.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className="px-4 py-2 text-sm font-medium text-foreground/80 rounded-lg transition-colors hover:bg-accent hover:text-primary"
-                                >
-                                    {t(`nav.${item.key}`)}
-                                </a>
+                                item.isPage ? (
+                                    <Link
+                                        key={item.key}
+                                        href={item.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className="px-4 py-2 text-sm font-medium text-foreground/80 rounded-lg transition-colors hover:bg-accent hover:text-primary flex items-center gap-2"
+                                    >
+                                        <Bot className="h-4 w-4" />
+                                        {t(`nav.${item.key}`)}
+                                    </Link>
+                                ) : (
+                                    <a
+                                        key={item.key}
+                                        href={item.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className="px-4 py-2 text-sm font-medium text-foreground/80 rounded-lg transition-colors hover:bg-accent hover:text-primary"
+                                    >
+                                        {t(`nav.${item.key}`)}
+                                    </a>
+                                )
                             ))}
                         </div>
                     </div>

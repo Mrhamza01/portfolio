@@ -3,10 +3,18 @@
 import { usePersonalInfo } from '@/constants/translated/info';
 import { socialLinks } from '@/constants/social-links';
 import { useLanguageStore } from '@/store/useLanguageStore';
-import { Mail, MapPin, Send } from 'lucide-react';
+import { MapPin, Send } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Heart, Linkedin, Github, Mail, Globe, Twitter } from 'lucide-react';
 
+const iconMap: Record<string, any> = {
+    linkedin: Linkedin,
+    github: Github,
+    mail: Mail,
+    globe: Globe,
+    twitter: Twitter,
+};
 export function ContactSection() {
     const { t } = useLanguageStore();
     const personalInfo = usePersonalInfo();
@@ -94,25 +102,27 @@ export function ContactSection() {
                             </div>
                         </div>
 
-                        {/* Social Links */}
+                        {/* Social */}
                         <div>
-                            <h4 className="mb-4 text-lg font-semibold text-foreground">
+                            <h4 className="mb-4 text-sm font-semibold text-foreground">
                                 {t('footer.social')}
                             </h4>
-                            <div className="flex flex-wrap gap-3">
-                                {socialLinks.map((link) => (
-                                    <a
-                                        key={link.id}
-                                        href={link.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-lg"
-                                        aria-label={link.platform}
-                                        style={{ '--hover-color': link.color } as React.CSSProperties}
-                                    >
-                                        <span className="text-xl">{link.platform.charAt(0)}</span>
-                                    </a>
-                                ))}
+                            <div className="flex gap-3">
+                                {socialLinks.slice(0, 4).map((link) => {
+                                    const Icon = iconMap[link.icon] || Globe;
+                                    return (
+                                        <a
+                                            key={link.id}
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground hover:scale-110"
+                                            aria-label={link.platform}
+                                        >
+                                            <Icon className="h-5 w-5" />
+                                        </a>
+                                    );
+                                })}
                             </div>
                         </div>
                     </motion.div>

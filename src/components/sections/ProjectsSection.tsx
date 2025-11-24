@@ -2,8 +2,9 @@
 
 import { useProjects } from '@/constants/translated/projects';
 import { useLanguageStore } from '@/store/useLanguageStore';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export function ProjectsSection() {
     const { t } = useLanguageStore();
@@ -24,115 +25,121 @@ export function ProjectsSection() {
                     </p>
                 </div>
 
-                {/* Projects Grid */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    transition={{ staggerChildren: 0.2 }}
-                    className="grid gap-8 md:grid-cols-2 lg:grid-cols-2"
-                >
+                {/* Projects Masonry Layout */}
+                <div className="columns-1 gap-8 space-y-8 md:columns-2 lg:columns-3">
                     {projects.map((project, index) => (
-                        <motion.div
-                            key={project.id}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
-                        >
-                            {/* Project Image */}
-                            <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
-                                {project.image ? (
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                ) : (
-                                    <div className="flex h-full items-center justify-center">
-                                        <span className="text-6xl font-bold text-primary/20">
-                                            {project.title.charAt(0)}
+                        <div key={project.id} className="break-inside-avoid">
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
+                            >
+                                {/* Project Image */}
+                                <Link href={`/projects/${project.id}`} target="_blank" className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 block cursor-pointer">
+                                    {project.image ? (
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        />
+                                    ) : (
+                                        <div className="flex h-full items-center justify-center">
+                                            <span className="text-6xl font-bold text-primary/20">
+                                                {project.title.charAt(0)}
+                                            </span>
+                                        </div>
+                                    )}
+
+                                    {/* Featured Badge */}
+                                    {project.featured && (
+                                        <div className="absolute top-4 right-4 rounded-full bg-gradient-to-r from-primary to-accent px-4 py-1 text-xs font-semibold text-white shadow-lg">
+                                            Featured
+                                        </div>
+                                    )}
+                                </Link>
+
+                                {/* Project Content */}
+                                <div className="flex flex-1 flex-col p-6">
+                                    {/* Category & Status */}
+                                    <div className="mb-3 flex items-center gap-2">
+                                        <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                                            {project.category}
+                                        </span>
+                                        <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+                                            {project.status}
                                         </span>
                                     </div>
-                                )}
 
-                                {/* Featured Badge */}
-                                {project.featured && (
-                                    <div className="absolute top-4 right-4 rounded-full bg-gradient-to-r from-primary to-accent px-4 py-1 text-xs font-semibold text-white shadow-lg">
-                                        Featured
+                                    {/* Title */}
+                                    <Link href={`/projects/${project.id}`} target="_blank" className="mb-3 block">
+                                        <h3 className="text-2xl font-bold text-foreground transition-colors group-hover:text-primary">
+                                            {project.title}
+                                        </h3>
+                                    </Link>
+
+                                    {/* Description */}
+                                    <p className="mb-4 text-muted-foreground line-clamp-3 flex-1">
+                                        {project.description}
+                                    </p>
+
+                                    {/* Technologies */}
+                                    <div className="mb-6 flex flex-wrap gap-2">
+                                        {project.technologies.slice(0, 5).map((tech) => (
+                                            <span
+                                                key={tech}
+                                                className="rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground"
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))}
+                                        {project.technologies.length > 5 && (
+                                            <span className="rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
+                                                +{project.technologies.length - 5} more
+                                            </span>
+                                        )}
                                     </div>
-                                )}
-                            </div>
 
-                            {/* Project Content */}
-                            <div className="p-6">
-                                {/* Category & Status */}
-                                <div className="mb-3 flex items-center gap-2">
-                                    <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                                        {project.category}
-                                    </span>
-                                    <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
-                                        {project.status}
-                                    </span>
-                                </div>
-
-                                {/* Title */}
-                                <h3 className="mb-3 text-2xl font-bold text-foreground">
-                                    {project.title}
-                                </h3>
-
-                                {/* Description */}
-                                <p className="mb-4 text-muted-foreground line-clamp-3">
-                                    {project.description}
-                                </p>
-
-                                {/* Technologies */}
-                                <div className="mb-4 flex flex-wrap gap-2">
-                                    {project.technologies.slice(0, 5).map((tech) => (
-                                        <span
-                                            key={tech}
-                                            className="rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-                                    {project.technologies.length > 5 && (
-                                        <span className="rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
-                                            +{project.technologies.length - 5} more
-                                        </span>
-                                    )}
-                                </div>
-
-                                {/* Links */}
-                                <div className="flex gap-3">
-                                    {project.demoUrl && (
-                                        <a
-                                            href={project.demoUrl}
+                                    {/* Links */}
+                                    <div className="mt-auto flex gap-3">
+                                        <Link
+                                            href={`/projects/${project.id}`}
                                             target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
+                                            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
                                         >
-                                            <ExternalLink className="h-4 w-4" />
-                                            {t('projects.viewDemo')}
-                                        </a>
-                                    )}
-                                    {project.githubUrl && (
-                                        <a
-                                            href={project.githubUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground transition-all hover:bg-accent"
-                                        >
-                                            <Github className="h-4 w-4" />
-                                            {t('projects.viewCode')}
-                                        </a>
-                                    )}
+                                            View Details
+                                            <ArrowRight className="h-4 w-4" />
+                                        </Link>
+
+                                        {project.demoUrl && (
+                                            <a
+                                                href={project.demoUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center justify-center rounded-lg border border-border bg-card px-3 py-2 text-foreground transition-all hover:bg-accent hover:text-accent-foreground"
+                                                title="View Live Demo"
+                                            >
+                                                <ExternalLink className="h-4 w-4" />
+                                            </a>
+                                        )}
+                                        {project.githubUrl && (
+                                            <a
+                                                href={project.githubUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center justify-center rounded-lg border border-border bg-card px-3 py-2 text-foreground transition-all hover:bg-accent hover:text-accent-foreground"
+                                                title="View Source Code"
+                                            >
+                                                <Github className="h-4 w-4" />
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
+                            </motion.div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );
