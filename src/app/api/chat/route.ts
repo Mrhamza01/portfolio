@@ -1,10 +1,75 @@
 import { getSystemContext } from '@/lib/context';
+import { characters } from '@/types/characters';
 
 export const runtime = 'edge'; // Use Edge runtime for better streaming performance
 
+// Security: List of forbidden keywords and patterns
+const FORBIDDEN_PATTERNS = [
+    /write\s+(me\s+)?(a\s+)?(python|java|javascript|code|script|game|app|application)/i,
+    /generate\s+(code|script|game|python|snake)/i,
+    /create\s+(a\s+)?(game|app|application|python|code)/i,
+    /build\s+(a\s+)?(game|app|application)/i,
+    /help\s+(me\s+)?(build|create|write|generate)\s+(a\s+)?(game|app|code)/i,
+    /ignore\s+(previous|prior|all)\s+(instructions|prompts|rules)/i,
+    /disregard\s+(all\s+)?(security|safety|restrictions)/i,
+    /you\s+are\s+now/i,
+    /forget\s+everything/i,
+    /pretend\s+(you\s+are|this\s+is)/i,
+];
+
+// Security: Risky code patterns
+const RISKY_CODE_KEYWORDS = [
+    'subprocess.call',
+    'os.system',
+    'eval(',
+    'exec(',
+    'import socket',
+    '__import__',
+    'compile(',
+    'pickle.loads',
+];
+
+function isForbiddenRequest(message: string): boolean {
+    const lowerMessage = message.toLowerCase();
+    
+    // Check forbidden patterns
+    for (const pattern of FORBIDDEN_PATTERNS) {
+        if (pattern.test(message)) {
+            return true;
+        }
+    }
+    
+    // Check for code generation requests
+    const codeKeywords = ['code', 'script', 'game', 'app', 'application', 'write', 'generate', 'create'];
+    const codeActions = ['write', 'generate', 'create', 'build', 'make', 'develop', 'code'];
+    
+    const hasCodeKeyword = codeKeywords.some(kw => lowerMessage.includes(kw));
+    const hasCodeAction = codeActions.some(action => lowerMessage.includes(action));
+    
+    // Detect if asking for external code (not related to portfolio/experience)
+    const portfolioKeywords = ['your', 'your portfolio', 'your project', 'your experience', 'your skills', 'you', 'hamza'];
+    const isAboutPortfolio = portfolioKeywords.some(kw => lowerMessage.includes(kw));
+    
+    // If asking for code/game/app and NOT about portfolio, it's forbidden
+    if (hasCodeKeyword && hasCodeAction && !isAboutPortfolio) {
+        return true;
+    }
+    
+    return false;
+}
+
+function sanitizeInput(message: string): string {
+    // Remove any attempt to inject system prompts
+    return message
+        .replace(/system:/gi, '')
+        .replace(/prompt:/gi, '')
+        .replace(/instruction:/gi, '')
+        .trim();
+}
+
 export async function POST(req: Request) {
     try {
-        const { message } = await req.json();
+        const { message, tone = 'professional' } = await req.json();
 
         if (!message || typeof message !== 'string') {
             return new Response(JSON.stringify({ error: 'Valid message is required' }), {
@@ -21,6 +86,19 @@ export async function POST(req: Request) {
             });
         }
 
+        // SECURITY: Check for forbidden requests
+        if (isForbiddenRequest(message)) {
+            return new Response(JSON.stringify({ 
+                error: 'I appreciate the question, but I\'m specifically here to help you learn about my professional experience, expertise, and projects. For coding help with external projects, I\'d recommend platforms like Stack Overflow, GitHub Copilot, or dedicated coding tutors. However, I\'m happy to discuss any architecture patterns, best practices, or technologies I\'ve used in my work!'
+            }), {
+                status: 400,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+
+        // SECURITY: Sanitize input
+        const sanitizedMessage = sanitizeInput(message);
+
         // Check for API key
         const apiKey = process.env.GEMINI_API_KEY;
         if (!apiKey) {
@@ -33,13 +111,18 @@ export async function POST(req: Request) {
 
         // Get context
         const context = getSystemContext();
+        
+        // Get character prompt
+        const character = characters[tone as keyof typeof characters] || characters.professional;
 
-        // Prepare the full prompt
+        // Prepare the full prompt with clear structure
         const fullPrompt = `${context}
 
-User Question: ${message}
+---
 
-Please respond as Muhammad Hamza, answering the question professionally and concisely.`;
+${character.systemPrompt}
+
+User Question: ${sanitizedMessage}`;
 
         // Call Gemini API with streaming
         const response = await fetch(
