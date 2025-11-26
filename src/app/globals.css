@@ -20,6 +20,8 @@
   --radius-md: 0.625rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
+  
+  --breakpoint-xs: 475px;
 }
 
 @layer base {

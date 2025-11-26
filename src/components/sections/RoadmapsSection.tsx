@@ -17,20 +17,20 @@ export function RoadmapsSection() {
     const [expandedRoadmap, setExpandedRoadmap] = useState<string | null>(null);
 
     return (
-        <section id="roadmaps" className="py-20 bg-muted/30">
+        <section id="roadmaps" className="py-12 sm:py-16 md:py-20 bg-muted/30">
             <div className="container mx-auto px-4">
-                <div className="mb-16 text-center">
-                    <h2 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+                <div className="mb-12 sm:mb-16 text-center">
+                    <h2 className="mb-3 sm:mb-4 text-3xl font-bold tracking-tight xs:text-4xl sm:text-5xl md:text-6xl">
                         <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                             {t('roadmaps.title')}
                         </span>
                     </h2>
-                    <p className="text-lg text-muted-foreground md:text-xl">
+                    <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-4">
                         {t('roadmaps.subtitle')}
                     </p>
                 </div>
 
-                <div className="mx-auto max-w-5xl space-y-8">
+                <div className="mx-auto max-w-5xl space-y-6 sm:space-y-8">
                     {roadmaps.map((roadmap, index) => (
                         <motion.div
                             key={roadmap.id}

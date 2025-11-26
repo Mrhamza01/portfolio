@@ -155,7 +155,7 @@ export function HeroSection() {
     return (
         <section
             ref={heroRef}
-            className="relative min-h-screen flex items-center justify-center overflow-hidden"
+            className="relative min-h-screenw flex items-center justify-center overflow-hidden"
         >
             {/* Animated Canvas Background */}
             <canvas
@@ -170,7 +170,7 @@ export function HeroSection() {
 
             {/* Content */}
             <div className="container relative z-10 px-4 py-20">
-                <div className="mx-auto max-w-4xl text-center">
+                <div className="mx-auto  max-w-4xl text-center">
                     {/* Sparkle Icon */}
                     <div className="mb-6 flex justify-center">
                         <div className="relative">
@@ -187,7 +187,7 @@ export function HeroSection() {
                     {/* Name with 3D effect */}
                     <h1
                         ref={titleRef}
-                        className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+                        className="mb-4 sm:mb-6 text-3xl font-bold tracking-tight xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl px-2"
                         style={{
                             textShadow: '0 0 40px rgba(168, 85, 247, 0.5), 0 0 80px rgba(168, 85, 247, 0.3)',
                         }}
@@ -200,18 +200,18 @@ export function HeroSection() {
                     {/* Title */}
                     <p
                         ref={subtitleRef}
-                        className="mb-4 text-xl font-semibold text-white sm:text-2xl md:text-3xl"
+                        className="mb-3 sm:mb-4 text-base font-semibold text-white xs:text-lg sm:text-xl md:text-2xl lg:text-3xl px-2"
                     >
                         {personalInfo.title}
                     </p>
 
                     {/* Tagline */}
-                    <p className="mb-8 text-lg text-gray-300 md:text-xl max-w-2xl mx-auto">
+                    <p className="mb-6 sm:mb-8 text-sm xs:text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-4">
                         {personalInfo.tagline}
                     </p>
 
                     {/* Social Links with hover effects */}
-                    <div className="mb-12 flex items-center justify-center gap-4">
+                    <div className="mb-8 sm:mb-12 flex items-center justify-center gap-2 xs:gap-3 sm:gap-4 px-2">
                         {socialLinks.slice(0, 4).map((link, index) => {
                             const Icon = iconMap[link.icon] || Globe;
                             return (
@@ -220,14 +220,14 @@ export function HeroSection() {
                                     href={link.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary/30 bg-black/40 backdrop-blur-sm text-white transition-all duration-500 hover:scale-125 hover:border-primary hover:bg-primary hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]"
+                                    className="group relative flex h-10 w-10 xs:h-12 xs:w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border-2 border-primary/30 bg-black/40 backdrop-blur-sm text-white transition-all duration-500 hover:scale-110 sm:hover:scale-125 hover:border-primary hover:bg-primary hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]"
                                     style={{
                                         animation: `float 3s ease-in-out infinite`,
                                         animationDelay: `${index * 0.2}s`,
                                     }}
                                     aria-label={link.platform}
                                 >
-                                    <Icon className="h-6 w-6 transition-transform group-hover:scale-110" />
+                                    <Icon className="h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6 transition-transform group-hover:scale-110" />
                                     <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </a>
                             );
@@ -235,30 +235,30 @@ export function HeroSection() {
                     </div>
 
                     {/* CTA Buttons with 3D effects */}
-                    <div ref={ctaRef} className="flex flex-col items-center justify-center gap-4 sm:flex-row flex-wrap">
+                    <div ref={ctaRef} className="flex flex-col items-center justify-center gap-3 sm:gap-4 w-full px-4 sm:flex-row sm:flex-wrap">
                         <a
                             href="#projects"
-                            className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-accent to-secondary px-8 py-4 text-lg font-semibold text-white shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all duration-500 hover:scale-110 hover:shadow-[0_0_50px_rgba(168,85,247,0.8)] overflow-hidden"
+                            className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary via-accent to-secondary px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold text-white shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all duration-500 hover:scale-105 sm:hover:scale-110 hover:shadow-[0_0_50px_rgba(168,85,247,0.8)] overflow-hidden w-full sm:w-auto max-w-xs"
                         >
                             <span className="absolute inset-0 bg-gradient-to-r from-secondary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <span className="relative z-10">{t('hero.cta.viewWork')}</span>
-                            <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-2" />
+                            <ArrowRight className="relative z-10 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-2" />
                         </a>
 
                         <a
                             href={personalInfo.resumeUrl || '#'}
                             download
-                            className="group relative inline-flex items-center gap-2 rounded-full border-2 border-primary bg-black/40 backdrop-blur-sm px-8 py-4 text-lg font-semibold text-white transition-all duration-500 hover:scale-110 hover:bg-primary hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]"
+                            className="group relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary bg-black/40 backdrop-blur-sm px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold text-white transition-all duration-500 hover:scale-105 sm:hover:scale-110 hover:bg-primary hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] w-full sm:w-auto max-w-xs"
                         >
-                            <Download className="h-5 w-5 transition-transform group-hover:scale-110" />
+                            <Download className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:scale-110" />
                             <span>{t('hero.cta.downloadResume')}</span>
                         </a>
 
                         <Link
                             href="/ai-chat"
-                            className="group relative inline-flex items-center gap-2 rounded-full border-2 border-accent bg-black/40 backdrop-blur-sm px-8 py-4 text-lg font-semibold text-white transition-all duration-500 hover:scale-110 hover:bg-accent hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]"
+                            className="group relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-accent bg-black/40 backdrop-blur-sm px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold text-white transition-all duration-500 hover:scale-105 sm:hover:scale-110 hover:bg-accent hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] w-full sm:w-auto max-w-xs"
                         >
-                            <Bot className="h-5 w-5 transition-transform group-hover:scale-110" />
+                            <Bot className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:scale-110" />
                             <span>Chat with AI</span>
                         </Link>
                     </div>

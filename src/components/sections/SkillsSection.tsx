@@ -44,29 +44,29 @@ export function SkillsSection() {
     };
 
     return (
-        <section id="skills" className="py-20 bg-background">
+        <section id="skills" className="py-12 sm:py-16 md:py-20 bg-background">
             <div className="container mx-auto px-4">
                 {/* Section Header */}
-                <div className="mb-12 text-center">
-                    <h2 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+                <div className="mb-8 sm:mb-12 text-center">
+                    <h2 className="mb-3 sm:mb-4 text-3xl font-bold tracking-tight xs:text-4xl sm:text-5xl md:text-6xl">
                         <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                             {t('skills.title')}
                         </span>
                     </h2>
-                    <p className="text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
                         {t('skills.subtitle')}
                     </p>
                 </div>
 
                 {/* Filters */}
-                <div className="flex flex-wrap justify-center gap-2 mb-12">
+                <div className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-12 px-2">
                     {filters.map((filter) => (
                         <button
                             key={filter.id}
                             onClick={() => setActiveFilter(filter.id)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeFilter === filter.id
-                                    ? 'bg-primary text-primary-foreground shadow-lg scale-105'
-                                    : 'bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground'
+                            className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${activeFilter === filter.id
+                                ? 'bg-primary text-primary-foreground shadow-lg scale-105'
+                                : 'bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground'
                                 }`}
                         >
                             {filter.label}
@@ -77,7 +77,7 @@ export function SkillsSection() {
                 {/* Skills Grid */}
                 <motion.div
                     layout
-                    className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+                    className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
                 >
                     <AnimatePresence mode="popLayout">
                         {filteredCategories.map((category) => (
@@ -88,14 +88,14 @@ export function SkillsSection() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ duration: 0.3 }}
-                                className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20"
+                                className="group relative overflow-hidden rounded-lg sm:rounded-xl border border-border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20"
                             >
                                 {/* Header */}
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                                <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                                    <div className="p-1.5 sm:p-2 rounded-lg bg-primary/10 text-primary">
                                         {getCategoryIcon(category.id)}
                                     </div>
-                                    <h3 className="text-lg font-bold text-foreground">
+                                    <h3 className="text-base sm:text-lg font-bold text-foreground">
                                         {category.category}
                                     </h3>
                                 </div>
@@ -108,7 +108,7 @@ export function SkillsSection() {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: index * 0.05 }}
-                                            className="inline-flex items-center px-3 py-1 rounded-md bg-muted text-sm font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary cursor-default border border-transparent hover:border-primary/20"
+                                            className="inline-flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-md bg-muted text-xs sm:text-sm font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary cursor-default border border-transparent hover:border-primary/20"
                                         >
                                             {skill.name}
                                         </motion.span>
