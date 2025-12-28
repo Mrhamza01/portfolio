@@ -8,6 +8,8 @@ import TopBar from "~/components/menus/TopBar";
 import Spotlight from "~/components/Spotlight";
 import Launchpad from "~/components/Launchpad";
 import Dock from "~/components/dock/Dock";
+import QuickLook from "~/components/QuickLook";
+import NewsWidget from "~/components/NewsWidget";
 import { useStore } from "~/stores";
 
 export default function Desktop(props: MacActions) {
@@ -23,7 +25,8 @@ export default function Desktop(props: MacActions) {
     dark, brightness,
     setBearCategory,
     showApps, appsZ, maxApps, minApps,
-    openApp, closeApp, setAppMax, setAppMin, minimizeApp, initApps
+    openApp, closeApp, setAppMax, setAppMin, minimizeApp, initApps,
+    toggleQuickLook, lastSelectedIcon, setLastSelectedIcon
   } = useStore((state) => ({
     dark: state.dark,
     brightness: state.brightness,
@@ -37,22 +40,30 @@ export default function Desktop(props: MacActions) {
     setAppMax: state.setAppMax,
     setAppMin: state.setAppMin,
     minimizeApp: state.minimizeApp,
-    initApps: state.initApps
+    initApps: state.initApps,
+    toggleQuickLook: state.toggleQuickLook,
+    lastSelectedIcon: state.lastSelectedIcon,
+    setLastSelectedIcon: state.setLastSelectedIcon
   }));
 
   useEffect(() => {
     initApps(apps);
 
-    // Spotlight keyboard shortcut
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Spotlight keyboard shortcut (Cmd + Space)
       if ((e.metaKey || e.ctrlKey) && e.code === "Space") {
         e.preventDefault();
         toggleSpotlight();
       }
+      // Quick Look shortcut (Space)
+      else if (e.code === "Space" && lastSelectedIcon && !toggleLaunchpadState && !spotlightState) {
+        e.preventDefault();
+        toggleQuickLook(lastSelectedIcon);
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [lastSelectedIcon, toggleLaunchpadState, spotlightState]);
 
   const toggleLaunchpad = (target: boolean): void => {
     const r = document.querySelector(`#launchpad`) as HTMLElement;
@@ -135,6 +146,7 @@ export default function Desktop(props: MacActions) {
         backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`,
         filter: `brightness( ${(brightness as number) * 0.7 + 50}% )`
       }}
+      onClick={() => setLastSelectedIcon(null)}
     >
       <TopBar
         title={currentTitle}
@@ -147,11 +159,18 @@ export default function Desktop(props: MacActions) {
         setSpotlightBtnRef={setSpotlightBtnRef}
       />
 
-      <div className="absolute top-16 right-4 flex flex-col gap-2 items-center z-10 text-blue-500">
+      {/* News Widget - Left Side */}
+      <div className="absolute top-12 left-4 z-10 scale-90 sm:scale-100 origin-top-left">
+        <NewsWidget />
+      </div>
+
+      {/* Desktop Icons - Right Side */}
+      <div className="absolute top-12 right-4 flex flex-col gap-2 items-center z-10 text-blue-500">
+        <DesktopIcon id="chat" title="AI Chat" icon="i-fluent:bot-24-filled" openApp={() => openAppHandler("chat")} />
         <DesktopIcon id="profile" title="Resume" icon="i-fluent:folder-24-filled" openApp={() => openFolder("profile")} />
         <DesktopIcon id="project" title="Projects" icon="i-fluent:folder-24-filled" openApp={() => openFolder("project")} />
         <DesktopIcon id="education" title="Certificates" icon="i-fluent:folder-24-filled" openApp={() => openFolder("education")} />
-        <DesktopIcon id="profile" title="Experience" icon="i-fluent:folder-24-filled" openApp={() => openFolder("profile")} />
+        <DesktopIcon id="experience" title="Experience" icon="i-fluent:folder-24-filled" openApp={() => openFolder("profile")} />
       </div>
 
       <div className="window-bound z-10 absolute" style={{ top: minMarginY }}>
@@ -176,6 +195,8 @@ export default function Desktop(props: MacActions) {
         toggleLaunchpad={toggleLaunchpad}
         hide={hideDockAndTopbar}
       />
+
+      <QuickLook />
     </div>
   );
 }

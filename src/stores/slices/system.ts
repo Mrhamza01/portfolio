@@ -31,6 +31,11 @@ export interface SystemSlice {
   setAppMin: (id: string, target?: boolean) => void;
   minimizeApp: (id: string, setWindowPosition: (id: string) => void) => void;
   initApps: (apps: any[]) => void;
+  quickLookOpen: boolean;
+  quickLookTarget: string | null;
+  toggleQuickLook: (target?: string | null) => void;
+  lastSelectedIcon: string | null;
+  setLastSelectedIcon: (id: string | null) => void;
 }
 
 export const createSystemSlice: StateCreator<SystemSlice> = (set) => ({
@@ -111,5 +116,14 @@ export const createSystemSlice: StateCreator<SystemSlice> = (set) => ({
     set((state) => ({
       minApps: { ...state.minApps, [id]: true }
     }));
-  }
+  },
+  quickLookOpen: false,
+  quickLookTarget: null,
+  toggleQuickLook: (target) =>
+    set((state) => ({
+      quickLookOpen: target !== undefined ? !!target : !state.quickLookOpen,
+      quickLookTarget: target || null
+    })),
+  lastSelectedIcon: null,
+  setLastSelectedIcon: (id) => set(() => ({ lastSelectedIcon: id }))
 });

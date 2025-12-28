@@ -1,0 +1,42 @@
+
+.genie-minimize {
+  animation: genie-minimize 0.4s ease-in forwards;
+  transform-origin: center bottom;
+}
+
+.genie-restore {
+  animation: genie-restore 0.4s ease-out forwards;
+  transform-origin: center bottom;
+}
+
+@keyframes genie-minimize {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  30% {
+    transform: translate(0, 20px) scale(0.9, 1.1);
+  }
+  100% {
+    transform: translate(var(--window-transform-x), var(--window-transform-y)) scale(0.1, 0.05);
+    opacity: 0;
+    filter: blur(4px);
+  }
+}
+
+@keyframes genie-restore {
+  0% {
+    transform: translate(var(--window-transform-x), var(--window-transform-y)) scale(0.1, 0.05);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  70% {
+    transform: translate(0, 20px) scale(0.9, 1.1);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}

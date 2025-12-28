@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Rnd } from "react-rnd";
 import { minMarginX, minMarginY, appBarHeight } from "~/utils";
+import { useStore } from "~/stores";
 
 const FullIcon = ({ size }: { size: number }) => (
   <svg
@@ -104,7 +105,8 @@ const TrafficLights = ({ id, close, aspectRatio, max, setMax, setMin }: TrafficP
 
 const Window = (props: WindowProps) => {
   const dockSize = useStore((state) => state.dockSize);
-  const { winWidth, winHeight } = useWindowSize();
+  const winWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
+  const winHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
 
   const initWidth = Math.min(winWidth, props.width || 640);
   const initHeight = Math.min(winHeight, props.height || 400);
@@ -127,13 +129,24 @@ const Window = (props: WindowProps) => {
   }, [winWidth, winHeight]);
 
   const round = props.max ? "rounded-none" : "rounded-lg";
-  const minimized = props.min
-    ? "opacity-0 invisible transition-opacity duration-300"
-    : "";
   const border = props.max ? "" : "border border-gray-500/30";
   const width = props.max ? winWidth : state.width;
   const height = props.max ? winHeight : state.height;
   const disableMax = props.aspectRatio !== undefined;
+
+  // Genie Effect handling
+  const [genieClass, setGenieClass] = useState("");
+  useEffect(() => {
+    if (props.min) {
+      setGenieClass("genie-minimize");
+    } else {
+      if (genieClass === "genie-minimize") {
+        setGenieClass("genie-restore");
+        // After animation, remove class
+        setTimeout(() => setGenieClass(""), 400);
+      }
+    }
+  }, [props.min]);
 
   const children = React.cloneElement(props.children as React.ReactElement, {
     width: width
@@ -186,11 +199,11 @@ const Window = (props: WindowProps) => {
       lockAspectRatioExtraHeight={props.aspectRatio ? appBarHeight : undefined}
       style={{ zIndex: props.z }}
       onMouseDown={() => props.focus(props.id)}
-      className={`overflow-hidden pointer-events-auto ${round} ${border} shadow-lg shadow-black/30 ${minimized}`}
+      className={`overflow-hidden pointer-events-auto ${round} ${border} shadow-lg shadow-black/30 ${genieClass}`}
       id={`window-${props.id}`}
     >
       <div
-        className="window-bar relative h-6 text-center bg-c-200"
+        className="window-bar relative h-6 text-center bg-c-200 shadow-sm"
         onDoubleClick={() => !disableMax && props.setMax(props.id)}
       >
         <TrafficLights
@@ -201,7 +214,7 @@ const Window = (props: WindowProps) => {
           setMin={props.setMin}
           close={props.close}
         />
-        <span className="font-semibold text-c-700">{props.title}</span>
+        <span className="font-semibold text-c-700 text-[13px]">{props.title}</span>
       </div>
       <div className="innner-window w-full overflow-y-hidden">{children}</div>
     </Rnd>

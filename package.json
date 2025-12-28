@@ -10,6 +10,7 @@
     "serve": "vite preview --host"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@milkdown/core": "^7.3.6",
     "@milkdown/plugin-history": "^7.3.6",
     "@milkdown/plugin-listener": "^7.3.6",
@@ -17,6 +18,7 @@
     "@milkdown/preset-gfm": "^7.3.6",
     "@milkdown/react": "^7.3.6",
     "@rooks/use-raf": "^4.11.2",
+    "@supabase/supabase-js": "^2.89.0",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.1.7",
     "katex": "^0.16.10",

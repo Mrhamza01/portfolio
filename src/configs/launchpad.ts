@@ -37,6 +37,7 @@ const launchpadApps: LaunchpadData[] = [
     img: "companies/milestone_zero_logo.jpg",
     link: "https://milestonezero.net/"
   },
+
   {
     id: "spotify",
     title: "Spotify",

@@ -30,16 +30,6 @@ const apps: AppsData[] = [
     content: <Finder />,
   },
   {
-    id: "typora",
-    title: "Typora",
-    desktop: true,
-    width: 600,
-    height: 580,
-    y: -20,
-    img: "img/icons/typora.png",
-    content: <Typora />,
-  },
-  {
     id: "safari",
     title: "Safari",
     desktop: true,
@@ -88,6 +78,16 @@ const apps: AppsData[] = [
     y: -40,
     img: "img/icons/spotify.png",
     content: <Spotify />,
+  },
+  {
+    id: "chat",
+    title: "AI Chat",
+    desktop: true,
+    width: 400,
+    height: 550,
+    show: false,
+    img: "img/icons/chatbot.png", // Custom AI Chatbot icon
+    content: <Chat />,
   },
   {
     id: "siri",
