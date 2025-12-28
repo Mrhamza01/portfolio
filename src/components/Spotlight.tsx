@@ -99,12 +99,14 @@ export default function Spotlight({
   };
 
   const launchSelectedApp = () => {
-    if (curDetails.type === "app" && !curDetails.link) {
+    const isInternalApp = apps.some((a) => a.id === curDetails.id && !a.link);
+
+    if (isInternalApp) {
       const id = curDetails.id;
       if (id === "launchpad") toggleLaunchpad(true);
       else openApp(id);
       toggleSpotlight();
-    } else {
+    } else if (curDetails.link) {
       window.open(curDetails.link);
       toggleSpotlight();
     }
@@ -263,9 +265,8 @@ export default function Spotlight({
         </div>
         <input
           ref={inputRef}
-          className={`col-start-2 col-span-7 ${
-            curDetails ? "sm:col-span-9" : "sm:col-span-10"
-          } bg-transparent no-outline px-1`}
+          className={`col-start-2 col-span-7 ${curDetails ? "sm:col-span-9" : "sm:col-span-10"
+            } bg-transparent no-outline px-1`}
           text="c-black xl sm:2xl"
           placeholder="Spotlight Search"
           value={searchText}

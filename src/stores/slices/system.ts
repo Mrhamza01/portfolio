@@ -16,6 +16,21 @@ export interface SystemSlice {
   toggleFullScreen: (v: boolean) => void;
   setVolume: (v: number) => void;
   setBrightness: (v: number) => void;
+  bearCategory: string;
+  setBearCategory: (v: string) => void;
+  bearContentID: string;
+  setBearContentID: (v: string) => void;
+  showApps: { [key: string]: boolean };
+  appsZ: { [key: string]: number };
+  maxApps: { [key: string]: boolean };
+  minApps: { [key: string]: boolean };
+  maxZ: number;
+  openApp: (id: string) => void;
+  closeApp: (id: string) => void;
+  setAppMax: (id: string, target?: boolean) => void;
+  setAppMin: (id: string, target?: boolean) => void;
+  minimizeApp: (id: string, setWindowPosition: (id: string) => void) => void;
+  initApps: (apps: any[]) => void;
 }
 
 export const createSystemSlice: StateCreator<SystemSlice> = (set) => ({
@@ -41,5 +56,60 @@ export const createSystemSlice: StateCreator<SystemSlice> = (set) => ({
       return { fullscreen: v };
     }),
   setVolume: (v) => set(() => ({ volume: v })),
-  setBrightness: (v) => set(() => ({ brightness: v }))
+  setBrightness: (v) => set(() => ({ brightness: v })),
+  bearCategory: "profile",
+  setBearCategory: (v) => set(() => ({ bearCategory: v })),
+  bearContentID: "resume",
+  setBearContentID: (v) => set(() => ({ bearContentID: v })),
+  showApps: {},
+  appsZ: {},
+  maxApps: {},
+  minApps: {},
+  maxZ: 2,
+  initApps: (apps) =>
+    set(() => {
+      let showApps: { [key: string]: boolean } = {},
+        appsZ: { [key: string]: number } = {},
+        maxApps: { [key: string]: boolean } = {},
+        minApps: { [key: string]: boolean } = {};
+      apps.forEach((app) => {
+        showApps[app.id] = !!app.show;
+        appsZ[app.id] = 2;
+        maxApps[app.id] = false;
+        minApps[app.id] = false;
+      });
+      return { showApps, appsZ, maxApps, minApps };
+    }),
+  openApp: (id) =>
+    set((state) => {
+      const showApps = { ...state.showApps, [id]: true };
+      const appsZ = { ...state.appsZ, [id]: state.maxZ + 1 };
+      const minApps = { ...state.minApps, [id]: false };
+      return { showApps, appsZ, maxZ: state.maxZ + 1, minApps };
+    }),
+  closeApp: (id) =>
+    set((state) => ({
+      showApps: { ...state.showApps, [id]: false },
+      maxApps: { ...state.maxApps, [id]: false }
+    })),
+  setAppMax: (id, target) =>
+    set((state) => {
+      const maxApps = { ...state.maxApps };
+      if (target === undefined) target = !maxApps[id];
+      maxApps[id] = target;
+      return { maxApps };
+    }),
+  setAppMin: (id, target) =>
+    set((state) => {
+      const minApps = { ...state.minApps };
+      if (target === undefined) target = !minApps[id];
+      minApps[id] = target;
+      return { minApps };
+    }),
+  minimizeApp: (id, setWindowPosition) => {
+    setWindowPosition(id);
+    set((state) => ({
+      minApps: { ...state.minApps, [id]: true }
+    }));
+  }
 });

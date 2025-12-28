@@ -1,4 +1,5 @@
-import { wallpapers, launchpadApps } from "~/configs";
+import { wallpapers, launchpadApps, apps } from "~/configs";
+import { useStore } from "~/stores";
 
 interface LaunchpadProps {
   show: boolean;
@@ -44,9 +45,8 @@ export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
           onBlur={() => setFocus(false)}
         >
           <div
-            className={`${
-              focus ? "w-6 duration-200" : "w-26 delay-250"
-            } hstack justify-end`}
+            className={`${focus ? "w-6 duration-200" : "w-26 delay-250"
+              } hstack justify-end`}
           >
             <span className="i-bx:search ml-1 text-white" />
           </div>
@@ -62,22 +62,50 @@ export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
           className="max-w-[1100px] mx-auto mt-8 w-full px-4 sm:px-10"
           grid="~ flow-row cols-4 sm:cols-7"
         >
-          {search().map((app) => (
-            <div key={`launchpad-${app.id}`} h="32 sm:36" flex="~ col">
-              <a
-                className="w-14 sm:w-20 mx-auto"
-                href={app.link}
-                target="_blank"
-                rel="noreferrer"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <img src={app.img} alt={app.title} title={app.title} />
-              </a>
-              <span m="t-2 x-auto" text="white xs sm:sm">
-                {app.title}
-              </span>
-            </div>
-          ))}
+          {search().map((app) => {
+            const isInternalApp = apps.some((a) => a.id === app.id && !a.link);
+            const openInternalApp = (e: React.MouseEvent) => {
+              e.stopPropagation();
+              toggleLaunchpad(false);
+              useStore.getState().openApp(app.id);
+            };
+
+            return (
+              <div key={`launchpad-${app.id}`} h="32 sm:36" flex="~ col">
+                {isInternalApp ? (
+                  <div
+                    className="w-14 sm:w-20 aspect-square mx-auto cursor-default flex items-center justify-center"
+                    onClick={openInternalApp}
+                  >
+                    <img
+                      className={`max-w-full max-h-full object-contain ${app.id === 'axon-erp' ? 'scale-140' : ''}`}
+                      src={app.img}
+                      alt={app.title}
+                      title={app.title}
+                    />
+                  </div>
+                ) : (
+                  <a
+                    className="w-14 sm:w-20 aspect-square mx-auto flex items-center justify-center"
+                    href={app.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <img
+                      className={`max-w-full max-h-full object-contain ${app.id === 'axon-erp' ? 'scale-140' : ''}`}
+                      src={app.img}
+                      alt={app.title}
+                      title={app.title}
+                    />
+                  </a>
+                )}
+                <span m="t-2 x-auto" text="white xs sm:sm">
+                  {app.title}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

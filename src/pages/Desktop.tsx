@@ -1,79 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { apps, wallpapers } from "~/configs";
 import { minMarginY } from "~/utils";
 import type { MacActions } from "~/types";
-
-interface DesktopState {
-  showApps: {
-    [key: string]: boolean;
-  };
-  appsZ: {
-    [key: string]: number;
-  };
-  maxApps: {
-    [key: string]: boolean;
-  };
-  minApps: {
-    [key: string]: boolean;
-  };
-  maxZ: number;
-  showLaunchpad: boolean;
-  currentTitle: string;
-  hideDockAndTopbar: boolean;
-  spotlight: boolean;
-}
+import DesktopIcon from "~/components/DesktopIcon";
+import AppWindow from "~/components/AppWindow";
+import TopBar from "~/components/menus/TopBar";
+import Spotlight from "~/components/Spotlight";
+import Launchpad from "~/components/Launchpad";
+import Dock from "~/components/dock/Dock";
+import { useStore } from "~/stores";
 
 export default function Desktop(props: MacActions) {
-  const [state, setState] = useState({
-    showApps: {},
-    appsZ: {},
-    maxApps: {},
-    minApps: {},
-    maxZ: 2,
-    showLaunchpad: false,
-    currentTitle: "Finder",
-    hideDockAndTopbar: false,
-    spotlight: false
-  } as DesktopState);
+  const [toggleLaunchpadState, setToggleLaunchpadState] = useState(false);
+  const [spotlightState, setSpotlightState] = useState(false);
+  const [currentTitle, setCurrentTitle] = useState("Finder");
+  const [hideDockAndTopbar, setHideDockAndTopbar] = useState(false);
 
   const [spotlightBtnRef, setSpotlightBtnRef] =
     useState<React.RefObject<HTMLDivElement> | null>(null);
 
-  const { dark, brightness } = useStore((state) => ({
+  const {
+    dark, brightness,
+    setBearCategory,
+    showApps, appsZ, maxApps, minApps,
+    openApp, closeApp, setAppMax, setAppMin, minimizeApp, initApps
+  } = useStore((state) => ({
     dark: state.dark,
-    brightness: state.brightness
+    brightness: state.brightness,
+    setBearCategory: state.setBearCategory,
+    showApps: state.showApps,
+    appsZ: state.appsZ,
+    maxApps: state.maxApps,
+    minApps: state.minApps,
+    openApp: state.openApp,
+    closeApp: state.closeApp,
+    setAppMax: state.setAppMax,
+    setAppMin: state.setAppMin,
+    minimizeApp: state.minimizeApp,
+    initApps: state.initApps
   }));
 
-  const getAppsData = (): void => {
-    let showApps = {},
-      appsZ = {},
-      maxApps = {},
-      minApps = {};
-
-    apps.forEach((app) => {
-      showApps = {
-        ...showApps,
-        [app.id]: !!app.show
-      };
-      appsZ = {
-        ...appsZ,
-        [app.id]: 2
-      };
-      maxApps = {
-        ...maxApps,
-        [app.id]: false
-      };
-      minApps = {
-        ...minApps,
-        [app.id]: false
-      };
-    });
-
-    setState({ ...state, showApps, appsZ, maxApps, minApps });
-  };
-
   useEffect(() => {
-    getAppsData();
+    initApps(apps);
+
+    // Spotlight keyboard shortcut
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.code === "Space") {
+        e.preventDefault();
+        toggleSpotlight();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const toggleLaunchpad = (target: boolean): void => {
@@ -85,127 +63,42 @@ export default function Desktop(props: MacActions) {
       r.style.transform = "scale(1.1)";
       r.style.transition = "ease-out 0.2s";
     }
-
-    setState({ ...state, showLaunchpad: target });
+    setToggleLaunchpadState(target);
   };
 
   const toggleSpotlight = (): void => {
-    setState({ ...state, spotlight: !state.spotlight });
+    setSpotlightState(!spotlightState);
   };
 
   const setWindowPosition = (id: string): void => {
     const r = document.querySelector(`#window-${id}`) as HTMLElement;
+    if (!r) return;
     const rect = r.getBoundingClientRect();
     r.style.setProperty(
       "--window-transform-x",
-      // "+ window.innerWidth" because of the boundary for windows
       (window.innerWidth + rect.x).toFixed(1).toString() + "px"
     );
     r.style.setProperty(
       "--window-transform-y",
-      // "- minMarginY" because of the boundary for windows
       (rect.y - minMarginY).toFixed(1).toString() + "px"
     );
   };
 
-  const setAppMax = (id: string, target?: boolean): void => {
-    const maxApps = state.maxApps;
-    if (target === undefined) target = !maxApps[id];
-    maxApps[id] = target;
-    setState({
-      ...state,
-      maxApps: maxApps,
-      hideDockAndTopbar: target
-    });
+  const openAppHandler = (id: string): void => {
+    openApp(id);
+    const app = apps.find(a => a.id === id);
+    if (app) setCurrentTitle(app.title);
   };
 
-  const setAppMin = (id: string, target?: boolean): void => {
-    const minApps = state.minApps;
-    if (target === undefined) target = !minApps[id];
-    minApps[id] = target;
-    setState({
-      ...state,
-      minApps: minApps
-    });
-  };
-
-  const minimizeApp = (id: string): void => {
-    setWindowPosition(id);
-
-    // get the corrosponding dock icon's position
-    let r = document.querySelector(`#dock-${id}`) as HTMLElement;
-    const dockAppRect = r.getBoundingClientRect();
-
-    r = document.querySelector(`#window-${id}`) as HTMLElement;
-    // const appRect = r.getBoundingClientRect();
-    const posY = window.innerHeight - r.offsetHeight / 2 - minMarginY;
-    // "+ window.innerWidth" because of the boundary for windows
-    const posX = window.innerWidth + dockAppRect.x - r.offsetWidth / 2 + 25;
-
-    // translate the window to that position
-    r.style.transform = `translate(${posX}px, ${posY}px) scale(0.2)`;
-    r.style.transition = "ease-out 0.3s";
-
-    // add it to the minimized app list
-    setAppMin(id, true);
-  };
-
-  const closeApp = (id: string): void => {
-    setAppMax(id, false);
-    const showApps = state.showApps;
-    showApps[id] = false;
-    setState({
-      ...state,
-      showApps: showApps,
-      hideDockAndTopbar: false
-    });
-  };
-
-  const openApp = (id: string): void => {
-    // add it to the shown app list
-    const showApps = state.showApps;
-    showApps[id] = true;
-
-    // move to the top (use a maximum z-index)
-    const appsZ = state.appsZ;
-    const maxZ = state.maxZ + 1;
-    appsZ[id] = maxZ;
-
-    // get the title of the currently opened app
-    const currentApp = apps.find((app) => {
-      return app.id === id;
-    });
-    if (currentApp === undefined) {
-      throw new TypeError(`App ${id} is undefined.`);
-    }
-
-    setState({
-      ...state,
-      showApps: showApps,
-      appsZ: appsZ,
-      maxZ: maxZ,
-      currentTitle: currentApp.title
-    });
-
-    const minApps = state.minApps;
-    // if the app has already been shown but minimized
-    if (minApps[id]) {
-      // move to window's last position
-      const r = document.querySelector(`#window-${id}`) as HTMLElement;
-      r.style.transform = `translate(${r.style.getPropertyValue(
-        "--window-transform-x"
-      )}, ${r.style.getPropertyValue("--window-transform-y")}) scale(1)`;
-      r.style.transition = "ease-in 0.3s";
-      // remove it from the minimized app list
-      minApps[id] = false;
-      setState({ ...state, minApps });
-    }
+  const openFolder = (id: string): void => {
+    setBearCategory(id);
+    openAppHandler("finder");
   };
 
   const renderAppWindows = () => {
     return apps.map((app) => {
-      if (app.desktop && state.showApps[app.id]) {
-        const props = {
+      if (app.desktop && showApps[app.id]) {
+        const propsArr = {
           id: app.id,
           title: app.title,
           width: app.width,
@@ -215,17 +108,17 @@ export default function Desktop(props: MacActions) {
           aspectRatio: app.aspectRatio,
           x: app.x,
           y: app.y,
-          z: state.appsZ[app.id],
-          max: state.maxApps[app.id],
-          min: state.minApps[app.id],
+          z: appsZ[app.id],
+          max: maxApps[app.id],
+          min: minApps[app.id],
           close: closeApp,
           setMax: setAppMax,
-          setMin: minimizeApp,
-          focus: openApp
+          setMin: (id: string) => minimizeApp(id, setWindowPosition),
+          focus: openAppHandler
         };
 
         return (
-          <AppWindow key={`desktop-app-${app.id}`} {...props}>
+          <AppWindow key={`desktop-app-${app.id}`} {...propsArr}>
             {app.content}
           </AppWindow>
         );
@@ -243,43 +136,45 @@ export default function Desktop(props: MacActions) {
         filter: `brightness( ${(brightness as number) * 0.7 + 50}% )`
       }}
     >
-      {/* Top Menu Bar */}
       <TopBar
-        title={state.currentTitle}
+        title={currentTitle}
         setLogin={props.setLogin}
         shutMac={props.shutMac}
         sleepMac={props.sleepMac}
         restartMac={props.restartMac}
         toggleSpotlight={toggleSpotlight}
-        hide={state.hideDockAndTopbar}
+        hide={hideDockAndTopbar}
         setSpotlightBtnRef={setSpotlightBtnRef}
       />
 
-      {/* Desktop Apps */}
+      <div className="absolute top-16 right-4 flex flex-col gap-2 items-center z-10 text-blue-500">
+        <DesktopIcon id="profile" title="Resume" icon="i-fluent:folder-24-filled" openApp={() => openFolder("profile")} />
+        <DesktopIcon id="project" title="Projects" icon="i-fluent:folder-24-filled" openApp={() => openFolder("project")} />
+        <DesktopIcon id="education" title="Certificates" icon="i-fluent:folder-24-filled" openApp={() => openFolder("education")} />
+        <DesktopIcon id="profile" title="Experience" icon="i-fluent:folder-24-filled" openApp={() => openFolder("profile")} />
+      </div>
+
       <div className="window-bound z-10 absolute" style={{ top: minMarginY }}>
         {renderAppWindows()}
       </div>
 
-      {/* Spotlight */}
-      {state.spotlight && (
+      {spotlightState && (
         <Spotlight
-          openApp={openApp}
+          openApp={openAppHandler}
           toggleLaunchpad={toggleLaunchpad}
           toggleSpotlight={toggleSpotlight}
           btnRef={spotlightBtnRef as React.RefObject<HTMLDivElement>}
         />
       )}
 
-      {/* Launchpad */}
-      <Launchpad show={state.showLaunchpad} toggleLaunchpad={toggleLaunchpad} />
+      <Launchpad show={toggleLaunchpadState} toggleLaunchpad={toggleLaunchpad} />
 
-      {/* Dock */}
       <Dock
-        open={openApp}
-        showApps={state.showApps}
-        showLaunchpad={state.showLaunchpad}
+        open={openAppHandler}
+        showApps={showApps}
+        showLaunchpad={toggleLaunchpadState}
         toggleLaunchpad={toggleLaunchpad}
-        hide={state.hideDockAndTopbar}
+        hide={hideDockAndTopbar}
       />
     </div>
   );

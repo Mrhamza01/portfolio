@@ -13,12 +13,12 @@ import { AudioProvider } from "./context/AudioContext";
 
 
 export default function App() {
-  const [login, setLogin] = useState<boolean>(false);
+  const [login, setLogin] = useState<boolean>(true);
   const [booting, setBooting] = useState<boolean>(false);
   const [restart, setRestart] = useState<boolean>(false);
   const [sleep, setSleep] = useState<boolean>(false);
 
- 
+
   const shutMac = (e: React.MouseEvent): void => {
     e.stopPropagation();
     setRestart(false);

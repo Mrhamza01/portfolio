@@ -20,6 +20,16 @@ const apps: AppsData[] = [
     content: <Bear />,
   },
   {
+    id: "finder",
+    title: "Profile",
+    desktop: true,
+    width: 600,
+    height: 400,
+    show: false,
+    img: "img/ui/avatar.jpg", // Personalized icon for the Profile app
+    content: <Finder />,
+  },
+  {
     id: "typora",
     title: "Typora",
     desktop: true,
@@ -39,17 +49,6 @@ const apps: AppsData[] = [
     x: -20,
     img: "img/icons/safari.png",
     content: <Safari />,
-  },
-  {
-    id: "vscode",
-    title: "VSCode",
-    desktop: true,
-    width: 900,
-    height: 600,
-    x: 80,
-    y: -30,
-    img: "img/icons/vscode.png",
-    content: <VSCode />,
   },
   {
     id: "facetime",
@@ -77,7 +76,7 @@ const apps: AppsData[] = [
     title: "Github",
     desktop: false,
     img: "img/icons/github.png",
-    link: "https://github.com/aakashsharma003/macOS-Portfolio",
+    link: "https://github.com/Mrhamza01",
   },
   {
     id: "spotify",

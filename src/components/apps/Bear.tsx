@@ -68,9 +68,8 @@ const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
         {bear.map((item, index) => (
           <li
             key={`bear-sidebar-${item.id}`}
-            className={`pl-6 h-8 hstack cursor-default ${
-              cur === index ? "bg-red-500" : "bg-transparent"
-            } ${cur === index ? "" : "hover:bg-gray-600"}`}
+            className={`pl-6 h-8 hstack cursor-default ${cur === index ? "bg-red-500" : "bg-transparent"
+              } ${cur === index ? "" : "hover:bg-gray-600"}`}
             onClick={() => setMidBar(item.md, index)}
           >
             <span className={item.icon} />
@@ -88,11 +87,10 @@ const Middlebar = ({ items, cur, setContent }: MiddlebarProps) => {
       {items.map((item: BearMdData, index: number) => (
         <li
           key={`bear-midbar-${item.id}`}
-          className={`h-24 flex flex-col cursor-default border-l-2 ${
-            cur === index
-              ? "border-red-500 bg-white dark:bg-gray-900"
-              : "border-transparent bg-transparent"
-          } hover:(bg-white dark:bg-gray-900)`}
+          className={`h-24 flex flex-col cursor-default border-l-2 ${cur === index
+            ? "border-red-500 bg-white dark:bg-gray-900"
+            : "border-transparent bg-transparent"
+            } hover:(bg-white dark:bg-gray-900)`}
           onClick={() => setContent(item.id, item.file, index)}
         >
           <div className="h-8 mt-3 hstack">
@@ -188,15 +186,24 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
 };
 
 const Bear = () => {
+  const { bearCategory, setBearCategory, bearContentID } = useStore((state) => ({
+    bearCategory: state.bearCategory,
+    setBearCategory: state.setBearCategory,
+    bearContentID: state.bearContentID
+  }));
+
+  const initialIndex = bear.findIndex((item) => item.id === bearCategory);
+  const safeIndex = initialIndex === -1 ? 0 : initialIndex;
+
   const [state, setState] = useState<BearState>({
-    curSidebar: 0,
+    curSidebar: safeIndex,
     curMidbar: 0,
-    midbarList: bear[0].md,
-    contentID: bear[0].md[0].id,
-    contentURL: bear[0].md[0].file
+    midbarList: bear[safeIndex].md,
+    contentID: bear[safeIndex].md[0].id,
+    contentURL: bear[safeIndex].md[0].file
   });
 
-  const setMidBar = (items: BearMdData[], index: number) => {
+  const setMidBar = useCallback((items: BearMdData[], index: number) => {
     setState({
       curSidebar: index,
       curMidbar: 0,
@@ -204,16 +211,47 @@ const Bear = () => {
       contentID: items[0].id,
       contentURL: items[0].file
     });
-  };
+    setBearCategory(bear[index].id);
+  }, [setBearCategory]);
 
-  const setContent = (id: string, url: string, index: number) => {
-    setState({
-      ...state,
+  const setContent = useCallback((id: string, url: string, index: number) => {
+    setState((prev) => ({
+      ...prev,
       curMidbar: index,
       contentID: id,
       contentURL: url
-    });
-  };
+    }));
+  }, []);
+
+  useEffect(() => {
+    const index = bear.findIndex((item) => item.id === bearCategory);
+    if (index !== -1 && index !== state.curSidebar) {
+      setMidBar(bear[index].md, index);
+    }
+  }, [bearCategory, state.curSidebar, setMidBar]);
+
+  useEffect(() => {
+    // Search in all categories for the content ID
+    for (let i = 0; i < bear.length; i++) {
+      const midIndex = bear[i].md.findIndex((m) => m.id === bearContentID);
+      if (midIndex !== -1) {
+        // Found it. Update midbar if it's the right sidebar
+        if (state.curSidebar === i) {
+          if (state.curMidbar !== midIndex) {
+            setContent(bear[i].md[midIndex].id, bear[i].md[midIndex].file, midIndex);
+          }
+        } else {
+          // Switch sidebar first
+          setMidBar(bear[i].md, i);
+          // Midbar will be set to 0 by setMidBar, so if midIndex is not 0, we need another update
+          if (midIndex !== 0) {
+            setContent(bear[i].md[midIndex].id, bear[i].md[midIndex].file, midIndex);
+          }
+        }
+        break;
+      }
+    }
+  }, [bearContentID]);
 
   return (
     <div className="bear font-avenir flex h-full">

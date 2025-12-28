@@ -30,6 +30,7 @@
   width: 300%;
   height: 200%;
   left: -100%;
+  pointer-events: none;
 }
 
 .innner-window {
