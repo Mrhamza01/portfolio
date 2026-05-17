@@ -3,11 +3,9 @@ import { useStore } from "~/stores";
 import bear from "~/configs/bear";
 
 export default function QuickLook() {
-    const { quickLookOpen, quickLookTarget, toggleQuickLook } = useStore((state) => ({
-        quickLookOpen: state.quickLookOpen,
-        quickLookTarget: state.quickLookTarget,
-        toggleQuickLook: state.toggleQuickLook
-    }));
+    const quickLookOpen = useStore((state) => state.quickLookOpen);
+    const quickLookTarget = useStore((state) => state.quickLookTarget);
+    const toggleQuickLook = useStore((state) => state.toggleQuickLook);
 
     if (!quickLookOpen || !quickLookTarget) return null;
 

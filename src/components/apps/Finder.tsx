@@ -3,11 +3,9 @@ import bear from "~/configs/bear";
 import { useStore } from "~/stores";
 
 export default function Finder() {
-    const { bearCategory, setBearContentID, openApp } = useStore((state) => ({
-        bearCategory: state.bearCategory,
-        setBearContentID: state.setBearContentID,
-        openApp: state.openApp
-    }));
+    const bearCategory = useStore((state) => state.bearCategory);
+    const setBearContentID = useStore((state) => state.setBearContentID);
+    const openApp = useStore((state) => state.openApp);
 
     const categoryData = bear.find((item) => item.id === bearCategory) || bear[0];
 

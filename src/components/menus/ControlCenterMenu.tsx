@@ -1,6 +1,4 @@
 import React from "react";
-import Slider from "react-rangeslider";
-import "react-rangeslider/lib/index.css";
 import { music } from "~/configs";
 
 interface SliderProps {
@@ -10,17 +8,17 @@ interface SliderProps {
 }
 
 const SliderComponent = ({ icon, value, setValue }: SliderProps) => (
-  <div className="slider flex">
-    <div className="size-7 flex-center bg-c-100" border="t l b c-300 rounded-l-full">
-      <span className={icon} text="xs c-500" />
+  <div className="slider flex items-stretch">
+    <div className="size-7 shrink-0 flex-center bg-c-100 border border-c-300 rounded-l-full">
+      <span className={`${icon} text-xs text-c-500`} />
     </div>
-    <Slider
+    <input
+      type="range"
+      className="cc-range flex-1 min-w-0"
       min={1}
       max={100}
       value={value}
-      tooltip={false}
-      orientation="horizontal"
-      onChange={(v: number) => setValue(v)}
+      onChange={(e) => setValue(Number(e.target.value))}
     />
   </div>
 );
@@ -43,26 +41,18 @@ export default function ControlCenterMenu({
   btnRef
 }: CCMProps) {
   const controlCenterRef = useRef<HTMLDivElement>(null);
-  const { dark, wifi, brightness, bluetooth, airdrop, fullscreen, volume } = useStore(
-    (state) => ({
-      dark: state.dark,
-      wifi: state.wifi,
-      brightness: state.brightness,
-      bluetooth: state.bluetooth,
-      airdrop: state.airdrop,
-      fullscreen: state.fullscreen,
-      volume: state.volume
-    })
-  );
-  
-  const { toggleWIFI, toggleBluetooth, toggleAirdrop, toggleDark, toggleFullScreen } =
-    useStore((state) => ({
-      toggleWIFI: state.toggleWIFI,
-      toggleBluetooth: state.toggleBluetooth,
-      toggleAirdrop: state.toggleAirdrop,
-      toggleDark: state.toggleDark,
-      toggleFullScreen: state.toggleFullScreen
-    }));
+  const dark = useStore((state) => state.dark);
+  const wifi = useStore((state) => state.wifi);
+  const brightness = useStore((state) => state.brightness);
+  const bluetooth = useStore((state) => state.bluetooth);
+  const airdrop = useStore((state) => state.airdrop);
+  const fullscreen = useStore((state) => state.fullscreen);
+  const volume = useStore((state) => state.volume);
+  const toggleWIFI = useStore((state) => state.toggleWIFI);
+  const toggleBluetooth = useStore((state) => state.toggleBluetooth);
+  const toggleAirdrop = useStore((state) => state.toggleAirdrop);
+  const toggleDark = useStore((state) => state.toggleDark);
+  const toggleFullScreen = useStore((state) => state.toggleFullScreen);
 
   useClickOutside(controlCenterRef, toggleControlCenter, [btnRef]);
 

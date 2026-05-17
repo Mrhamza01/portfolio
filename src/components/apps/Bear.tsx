@@ -186,11 +186,9 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
 };
 
 const Bear = () => {
-  const { bearCategory, setBearCategory, bearContentID } = useStore((state) => ({
-    bearCategory: state.bearCategory,
-    setBearCategory: state.setBearCategory,
-    bearContentID: state.bearContentID
-  }));
+  const bearCategory = useStore((state) => state.bearCategory);
+  const setBearCategory = useStore((state) => state.setBearCategory);
+  const bearContentID = useStore((state) => state.bearContentID);
 
   const initialIndex = bear.findIndex((item) => item.id === bearCategory);
   const safeIndex = initialIndex === -1 ? 0 : initialIndex;

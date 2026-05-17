@@ -56,7 +56,8 @@ export const createSystemSlice: StateCreator<SystemSlice> = (set) => ({
   toggleBluetooth: () => set((state) => ({ bluetooth: !state.bluetooth })),
   toggleAirdrop: () => set((state) => ({ airdrop: !state.airdrop })),
   toggleFullScreen: (v) =>
-    set(() => {
+    set((state) => {
+      if (state.fullscreen === v) return state;
       v ? enterFullScreen() : exitFullScreen();
       return { fullscreen: v };
     }),

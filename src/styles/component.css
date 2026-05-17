@@ -65,23 +65,21 @@
   box-shadow: hsla(0deg, 0%, 0%, 20%) 0px 1px 5px 2px, 0 0 0 0 white;
 }
 
-/* --------- slider --------- */
+/* --------- control center range slider --------- */
 
-.slider .rangeslider {
-  @apply bg-c-300 w-full h-7 shadow-none m-0 rounded-r-full border-t border-r border-b border-transparent;
+.slider .cc-range {
+  @apply h-7 w-full appearance-none bg-c-300 rounded-r-full border border-transparent cursor-pointer;
+  accent-color: #e8e8ed;
 }
 
-.slider .rangeslider .rangeslider__fill {
-  @apply bg-c-100 shadow-none rounded-none;
-}
-
-.slider .rangeslider .rangeslider__handle {
-  @apply border border-c-300 outline-none size-7 text-white bg-white;
+.slider .cc-range::-webkit-slider-thumb {
+  @apply appearance-none size-7 rounded-full bg-white border border-c-300 cursor-pointer;
   box-shadow: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
 }
 
-.slider .rangeslider .rangeslider__handle::after {
-  @apply hidden;
+.slider .cc-range::-moz-range-thumb {
+  @apply size-7 rounded-full bg-white border border-c-300 cursor-pointer;
+  box-shadow: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
 }
 
 

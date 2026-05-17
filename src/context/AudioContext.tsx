@@ -22,11 +22,12 @@ export const AudioProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     autoReplay: true
   });
 
-  return (
-    <AudioContext.Provider value={{ audio, audioState, controls, audioRef }}>
-      {children}
-    </AudioContext.Provider>
+  const value = useMemo(
+    () => ({ audio, audioState, controls, audioRef }),
+    [audio, audioState, controls, audioRef]
   );
+
+  return <AudioContext.Provider value={value}>{children}</AudioContext.Provider>;
 };
 
 // Custom hook to use the audio context

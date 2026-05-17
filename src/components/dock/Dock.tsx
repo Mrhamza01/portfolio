@@ -18,10 +18,8 @@ export default function Dock({
   toggleLaunchpad,
   hide
 }: DockProps) {
-  const { dockSize, dockMag } = useStore((state) => ({
-    dockSize: state.dockSize,
-    dockMag: state.dockMag
-  }));
+  const dockSize = useStore((state) => state.dockSize);
+  const dockMag = useStore((state) => state.dockMag);
 
   const openApp = (id: string) => {
     if (id === "launchpad") toggleLaunchpad(!showLaunchpad);
@@ -38,6 +36,7 @@ export default function Dock({
       className={`dock fixed bottom-1 inset-x-0 w-full flex justify-center ${hide ? "z-0" : "z-50"}`}
     >
       <ul
+        data-tour-id="dock"
         className="flex space-x-2 px-2 backdrop-blur-2xl bg-c-white/20"
         border="~ c-400/40 rounded-none sm:rounded-xl"
         onMouseMove={(e) => mouseX.set(e.nativeEvent.x)}

@@ -121,11 +121,11 @@ const Window = (props: WindowProps) => {
   });
 
   useEffect(() => {
-    setState({
-      ...state,
-      width: Math.min(winWidth, state.width),
-      height: Math.min(winHeight, state.height)
-    });
+    setState((prev) => ({
+      ...prev,
+      width: Math.min(winWidth, prev.width),
+      height: Math.min(winHeight, prev.height)
+    }));
   }, [winWidth, winHeight]);
 
   const round = props.max ? "rounded-none" : "rounded-lg";

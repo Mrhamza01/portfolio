@@ -1,5 +1,7 @@
 # About This Site
 
-This site is inspired by macOS [Big Sur](https://www.apple.com/in/macos/big-sur/) and [Catalina](https://www.apple.com/bw/macos/catalina/), developed using [React](https://reactjs.org/), [Zustand](https://zustand-demo.pmnd.rs/) and [UnoCSS](https://uno.antfu.me/), and hosted on [Github Pages](https://pages.github.com/). Some of the icons are generated using [sindresorhus/file-icon-cli](https://github.com/sindresorhus/file-icon-cli).
+This portfolio is a macOS-inspired desktop experience built with **React**, **Vite**, **Zustand**, and **UnoCSS**, deployed on **Vercel**.
 
-The source code is hosted [here](https://github.com/aakashsharma003/macOS-Portfolio).
+It showcases **Muhammad Hamza (Hamza Ghafoor)** — Senior Full-Stack Software Engineer & DevOps practitioner.
+
+Features include live widgets (weather, news, exchange rates), AI chat, Siri-style voice assistant, and interactive “About This Mac” / App Store views of skills and experience.

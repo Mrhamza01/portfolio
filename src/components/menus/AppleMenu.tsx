@@ -7,6 +7,10 @@ interface AppleMenuProps {
   sleep: (e: React.MouseEvent<HTMLLIElement>) => void;
   toggleAppleMenu: () => void;
   btnRef: React.RefObject<HTMLDivElement>;
+  onAboutMac: () => void;
+  onSystemPreferences: () => void;
+  onAppStore: () => void;
+  onTakeTour: () => void;
 }
 
 export default function AppleMenu({
@@ -15,26 +19,38 @@ export default function AppleMenu({
   restart,
   sleep,
   toggleAppleMenu,
-  btnRef
+  btnRef,
+  onAboutMac,
+  onSystemPreferences,
+  onAppStore,
+  onTakeTour,
 }: AppleMenuProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useClickOutside(ref, toggleAppleMenu, [btnRef]);
 
+  const open = (fn: () => void) => () => {
+    toggleAppleMenu();
+    fn();
+  };
+
   return (
     <div className="menu-box left-2 w-56" ref={ref}>
       <MenuItemGroup>
-        <MenuItem>About This Mac</MenuItem>
+        <MenuItem onClick={open(onAboutMac)}>About This Mac</MenuItem>
+        <MenuItem onClick={open(onTakeTour)}>Take Tour</MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
-        <MenuItem>System Preferences...</MenuItem>
-        <MenuItem>App Store...</MenuItem>
+        <MenuItem onClick={open(onSystemPreferences)}>System Preferences...</MenuItem>
+        <MenuItem onClick={open(onAppStore)}>App Store...</MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
-        <MenuItem>Recent Items</MenuItem>
+        <MenuItem onClick={open(() => window.open("/resume.pdf", "_blank"))}>
+          Recent Items
+        </MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
-        <MenuItem>Force Quit...</MenuItem>
+        <MenuItem onClick={toggleAppleMenu}>Force Quit...</MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
         <MenuItem onClick={sleep}>Sleep</MenuItem>

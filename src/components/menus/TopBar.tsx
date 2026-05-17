@@ -1,9 +1,12 @@
 import React from "react";
 import { format } from "date-fns";
 import { isFullScreen } from "~/utils";
-import { music } from "~/configs";
+import { fetchWeather, type WeatherData } from "~/utils/publicApis";
 import type { MacActions } from "~/types";
 import { useAudioContext } from "~/context/AudioContext";
+import AboutMacModal from "./AboutMacModal";
+import SystemPreferencesModal from "./SystemPreferencesModal";
+import AppStoreModal from "./AppStoreModal";
 
 interface TopBarItemProps {
   hideOnMobile?: boolean;
@@ -12,6 +15,7 @@ interface TopBarItemProps {
   className?: string;
   onClick?: () => void;
   onMouseEnter?: () => void;
+  "data-tour-id"?: string;
 }
 
 const TopBarItem = forwardRef(
@@ -24,6 +28,7 @@ const TopBarItem = forwardRef(
     return (
       <div
         ref={ref}
+        data-tour-id={props["data-tour-id"]}
         className={`hstack space-x-1 h-6 px-1 cursor-default rounded ${hide} ${bg} ${
           props.className || ""
         }`}
@@ -55,6 +60,7 @@ interface TopBarProps extends MacActions {
   setSpotlightBtnRef: (value: React.RefObject<HTMLDivElement>) => void;
   hide: boolean;
   toggleSpotlight: () => void;
+  onTakeTour: () => void;
 }
 
 interface TopBarState {
@@ -62,6 +68,9 @@ interface TopBarState {
   showControlCenter: boolean;
   showWifiMenu: boolean;
   showAppleMenu: boolean;
+  showAboutMac: boolean;
+  showSystemPreferences: boolean;
+  showAppStore: boolean;
 }
 
 const TopBar = (props: TopBarProps) => {
@@ -74,8 +83,19 @@ const TopBar = (props: TopBarProps) => {
     date: new Date(),
     showControlCenter: false,
     showWifiMenu: false,
-    showAppleMenu: false
+    showAppleMenu: false,
+    showAboutMac: false,
+    showSystemPreferences: false,
+    showAppStore: false,
   });
+
+  const [menuBarWeather, setMenuBarWeather] = useState<WeatherData | null>(null);
+
+  useEffect(() => {
+    fetchWeather()
+      .then(setMenuBarWeather)
+      .catch(() => {});
+  }, []);
 
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   // const [audio, audioState, controls, audioRef] = useAudio({
@@ -85,21 +105,18 @@ const TopBar = (props: TopBarProps) => {
   const {audio, audioState, controls, audioRef} = useAudioContext();
   const { winWidth, winHeight } = useWindowSize();
 
-  const { volume, wifi } = useStore((state) => ({
-    volume: state.volume,
-    wifi: state.wifi
-  }));
-  const { toggleFullScreen, setVolume, setBrightness } = useStore((state) => ({
-    toggleFullScreen: state.toggleFullScreen,
-    setVolume: state.setVolume,
-    setBrightness: state.setBrightness
-  }));
+  const volume = useStore((state) => state.volume);
+  const wifi = useStore((state) => state.wifi);
+  const fullscreen = useStore((state) => state.fullscreen);
+  const toggleFullScreen = useStore((state) => state.toggleFullScreen);
+  const setVolume = useStore((state) => state.setVolume);
+  const setBrightness = useStore((state) => state.setBrightness);
 
   useInterval(() => {
-    setState({
-      ...state,
-      date: new Date()
-    });
+    setState((prev) => ({
+      ...prev,
+      date: new Date(),
+    }));
   }, 60 * 1000);
 
   useEffect(() => {
@@ -109,7 +126,10 @@ const TopBar = (props: TopBarProps) => {
 
   useEffect(() => {
     const isFull = isFullScreen();
-    toggleFullScreen(isFull);
+    if (isFull !== fullscreen) {
+      toggleFullScreen(isFull);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- sync fullscreen on resize only
   }, [winWidth, winHeight]);
 
   const setAudioVolume = (value: number): void => {
@@ -122,24 +142,24 @@ const TopBar = (props: TopBarProps) => {
   };
 
   const toggleControlCenter = (): void => {
-    setState({
-      ...state,
-      showControlCenter: !state.showControlCenter
-    });
+    setState((prev) => ({
+      ...prev,
+      showControlCenter: !prev.showControlCenter,
+    }));
   };
 
   const toggleAppleMenu = (): void => {
-    setState({
-      ...state,
-      showAppleMenu: !state.showAppleMenu
-    });
+    setState((prev) => ({
+      ...prev,
+      showAppleMenu: !prev.showAppleMenu,
+    }));
   };
 
   const toggleWifiMenu = (): void => {
-    setState({
-      ...state,
-      showWifiMenu: !state.showWifiMenu
-    });
+    setState((prev) => ({
+      ...prev,
+      showWifiMenu: !prev.showWifiMenu,
+    }));
   };
 
   const logout = (): void => {
@@ -174,6 +194,7 @@ const TopBar = (props: TopBarProps) => {
           forceHover={state.showAppleMenu}
           onClick={toggleAppleMenu}
           ref={appleBtnRef}
+          data-tour-id="apple-menu"
         >
           <span className="i-ri:apple-fill text-base" />
         </TopBarItem>
@@ -196,10 +217,34 @@ const TopBar = (props: TopBarProps) => {
           sleep={sleep}
           toggleAppleMenu={toggleAppleMenu}
           btnRef={appleBtnRef}
+          onAboutMac={() => setState((s) => ({ ...s, showAboutMac: true }))}
+          onSystemPreferences={() =>
+            setState((s) => ({ ...s, showSystemPreferences: true }))
+          }
+          onAppStore={() => setState((s) => ({ ...s, showAppStore: true }))}
+          onTakeTour={props.onTakeTour}
         />
       )}
 
+      {state.showAboutMac && (
+        <AboutMacModal onClose={() => setState((s) => ({ ...s, showAboutMac: false }))} />
+      )}
+      {state.showSystemPreferences && (
+        <SystemPreferencesModal
+          onClose={() => setState((s) => ({ ...s, showSystemPreferences: false }))}
+        />
+      )}
+      {state.showAppStore && (
+        <AppStoreModal onClose={() => setState((s) => ({ ...s, showAppStore: false }))} />
+      )}
+
       <div className="hstack flex-row justify-end space-x-2">
+        {menuBarWeather && (
+          <TopBarItem hideOnMobile className="text-xs gap-1">
+            <span className="i-heroicons-outline:cloud" />
+            <span>{menuBarWeather.temperature}°C</span>
+          </TopBarItem>
+        )}
         <TopBarItem hideOnMobile={true}>
           <Battery />
         </TopBarItem>

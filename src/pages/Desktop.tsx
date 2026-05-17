@@ -10,60 +10,65 @@ import Launchpad from "~/components/Launchpad";
 import Dock from "~/components/dock/Dock";
 import QuickLook from "~/components/QuickLook";
 import NewsWidget from "~/components/NewsWidget";
+import WeatherWidget from "~/components/widgets/WeatherWidget";
+import ClockCalendarWidget from "~/components/widgets/ClockCalendarWidget";
+import StocksWidget from "~/components/widgets/StocksWidget";
+import GuidedTour from "~/components/GuidedTour";
+import InstallPrompt from "~/components/InstallPrompt";
 import { useStore } from "~/stores";
+import { getTourState } from "~/utils/tourStorage";
 
 export default function Desktop(props: MacActions) {
   const [toggleLaunchpadState, setToggleLaunchpadState] = useState(false);
   const [spotlightState, setSpotlightState] = useState(false);
   const [currentTitle, setCurrentTitle] = useState("Finder");
   const [hideDockAndTopbar, setHideDockAndTopbar] = useState(false);
+  const [tourOpen, setTourOpen] = useState(false);
 
   const [spotlightBtnRef, setSpotlightBtnRef] =
     useState<React.RefObject<HTMLDivElement> | null>(null);
 
-  const {
-    dark, brightness,
-    setBearCategory,
-    showApps, appsZ, maxApps, minApps,
-    openApp, closeApp, setAppMax, setAppMin, minimizeApp, initApps,
-    toggleQuickLook, lastSelectedIcon, setLastSelectedIcon
-  } = useStore((state) => ({
-    dark: state.dark,
-    brightness: state.brightness,
-    setBearCategory: state.setBearCategory,
-    showApps: state.showApps,
-    appsZ: state.appsZ,
-    maxApps: state.maxApps,
-    minApps: state.minApps,
-    openApp: state.openApp,
-    closeApp: state.closeApp,
-    setAppMax: state.setAppMax,
-    setAppMin: state.setAppMin,
-    minimizeApp: state.minimizeApp,
-    initApps: state.initApps,
-    toggleQuickLook: state.toggleQuickLook,
-    lastSelectedIcon: state.lastSelectedIcon,
-    setLastSelectedIcon: state.setLastSelectedIcon
-  }));
+  const dark = useStore((s) => s.dark);
+  const brightness = useStore((s) => s.brightness);
+  const setBearCategory = useStore((s) => s.setBearCategory);
+  const showApps = useStore((s) => s.showApps);
+  const appsZ = useStore((s) => s.appsZ);
+  const maxApps = useStore((s) => s.maxApps);
+  const minApps = useStore((s) => s.minApps);
+  const openApp = useStore((s) => s.openApp);
+  const closeApp = useStore((s) => s.closeApp);
+  const setAppMax = useStore((s) => s.setAppMax);
+  const setAppMin = useStore((s) => s.setAppMin);
+  const minimizeApp = useStore((s) => s.minimizeApp);
+  const initApps = useStore((s) => s.initApps);
+  const toggleQuickLook = useStore((s) => s.toggleQuickLook);
+  const lastSelectedIcon = useStore((s) => s.lastSelectedIcon);
+  const setLastSelectedIcon = useStore((s) => s.setLastSelectedIcon);
 
   useEffect(() => {
     initApps(apps);
+  }, [initApps]);
 
+  useEffect(() => {
+    if (!getTourState()) {
+      const t = window.setTimeout(() => setTourOpen(true), 800);
+      return () => window.clearTimeout(t);
+    }
+  }, []);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Spotlight keyboard shortcut (Cmd + Space)
       if ((e.metaKey || e.ctrlKey) && e.code === "Space") {
         e.preventDefault();
         toggleSpotlight();
-      }
-      // Quick Look shortcut (Space)
-      else if (e.code === "Space" && lastSelectedIcon && !toggleLaunchpadState && !spotlightState) {
+      } else if (e.code === "Space" && lastSelectedIcon && !toggleLaunchpadState && !spotlightState) {
         e.preventDefault();
         toggleQuickLook(lastSelectedIcon);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lastSelectedIcon, toggleLaunchpadState, spotlightState]);
+  }, [lastSelectedIcon, toggleLaunchpadState, spotlightState, toggleQuickLook]);
 
   const toggleLaunchpad = (target: boolean): void => {
     const r = document.querySelector(`#launchpad`) as HTMLElement;
@@ -144,7 +149,7 @@ export default function Desktop(props: MacActions) {
       className="size-full overflow-hidden bg-center bg-cover"
       style={{
         backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`,
-        filter: `brightness( ${(brightness as number) * 0.7 + 50}% )`
+        filter: `brightness(${(brightness ?? 80) * 0.7 + 50}%)`
       }}
       onClick={() => setLastSelectedIcon(null)}
     >
@@ -157,11 +162,18 @@ export default function Desktop(props: MacActions) {
         toggleSpotlight={toggleSpotlight}
         hide={hideDockAndTopbar}
         setSpotlightBtnRef={setSpotlightBtnRef}
+        onTakeTour={() => setTourOpen(true)}
       />
 
-      {/* News Widget - Left Side */}
-      <div className="absolute top-12 left-4 z-10 scale-90 sm:scale-100 origin-top-left">
+      {/* Desktop widgets - Left Side */}
+      <div
+        data-tour-id="widgets"
+        className="absolute top-12 left-4 z-10 scale-90 sm:scale-100 origin-top-left flex flex-col gap-3 max-h-[calc(100vh-5rem)] overflow-y-auto scrollbar-hide"
+      >
         <NewsWidget />
+        <WeatherWidget onOpenApp={() => openAppHandler("weather")} />
+        <ClockCalendarWidget />
+        <StocksWidget />
       </div>
 
       {/* Desktop Icons - Right Side */}
@@ -169,7 +181,7 @@ export default function Desktop(props: MacActions) {
         <DesktopIcon id="chat" title="AI Chat" icon="i-fluent:bot-24-filled" openApp={() => openAppHandler("chat")} />
         <DesktopIcon id="profile" title="Resume" icon="i-fluent:folder-24-filled" openApp={() => openFolder("profile")} />
         <DesktopIcon id="project" title="Projects" icon="i-fluent:folder-24-filled" openApp={() => openFolder("project")} />
-        <DesktopIcon id="education" title="Certificates" icon="i-fluent:folder-24-filled" openApp={() => openFolder("education")} />
+        <DesktopIcon id="education" title="Certificates" icon="i-fluent:folder-24-filled" openApp={() => openAppHandler("certificates")} />
         <DesktopIcon id="experience" title="Experience" icon="i-fluent:folder-24-filled" openApp={() => openFolder("profile")} />
       </div>
 
@@ -197,6 +209,9 @@ export default function Desktop(props: MacActions) {
       />
 
       <QuickLook />
+
+      <GuidedTour open={tourOpen} onClose={() => setTourOpen(false)} />
+      <InstallPrompt hidden={tourOpen} />
     </div>
   );
 }

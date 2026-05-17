@@ -9,63 +9,73 @@ export interface HTMLAudioProps {
 }
 
 export function useAudio(props: HTMLAudioProps) {
-  const element = new Audio(props.src);
-  const ref = useRef<HTMLAudioElement>(element);
+  const ref = useRef<HTMLAudioElement | null>(null);
+  if (!ref.current) {
+    ref.current = new Audio(props.src);
+  }
 
   const [state, setState] = useState<HTMLAudioState>({
     volume: 1,
     playing: false
   });
 
-  const controls = {
-    play: (): Promise<void> | void => {
-      const el = ref.current;
-      if (el) {
-        setState({ ...state, playing: true });
-        return el.play();
-      }
-    },
+  const controls = useMemo(
+    () => ({
+      play: (): Promise<void> | void => {
+        const el = ref.current;
+        if (el) {
+          setState((prev) => ({ ...prev, playing: true }));
+          return el.play();
+        }
+      },
 
-    pause: (): Promise<void> | void => {
-      const el = ref.current;
-      if (el) {
-        setState({ ...state, playing: false });
-        return el.pause();
-      }
-    },
+      pause: (): Promise<void> | void => {
+        const el = ref.current;
+        if (el) {
+          setState((prev) => ({ ...prev, playing: false }));
+          return el.pause();
+        }
+      },
 
-    toggle: (): Promise<void> | void => {
-      const el = ref.current;
-      if (el) {
-        const promise = state.playing ? el.pause() : el.play();
-        setState({ ...state, playing: !state.playing });
-        return promise;
-      }
-    },
+      toggle: (): Promise<void> | void => {
+        const el = ref.current;
+        if (!el) return;
+        setState((prev) => {
+          if (prev.playing) {
+            el.pause();
+            return { ...prev, playing: false };
+          }
+          void el.play();
+          return { ...prev, playing: true };
+        });
+      },
 
-    volume: (value: number): void => {
-      const el = ref.current;
-      if (el) {
-        value = Math.min(1, Math.max(0, value));
-        el.volume = value;
-        setState({ ...state, volume: value });
+      volume: (value: number): void => {
+        const el = ref.current;
+        if (el) {
+          value = Math.min(1, Math.max(0, value));
+          el.volume = value;
+          setState((prev) => ({ ...prev, volume: value }));
+        }
       }
-    }
-  };
+    }),
+    []
+  );
+
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
     const handler = () => {
-      if (props.autoReplay) controls.play();
+      if (props.autoReplay) void controls.play();
     };
 
-    element.addEventListener("ended", handler);
-    return () => {
-      element.removeEventListener("ended", handler);
-    };
-  }, [props.autoReplay]);
+    el.addEventListener("ended", handler);
+    return () => el.removeEventListener("ended", handler);
+  }, [props.autoReplay, controls]);
 
   useEffect(() => {
-    const el = ref.current!;
-
+    const el = ref.current;
     if (!el) return;
 
     setState({
@@ -74,5 +84,5 @@ export function useAudio(props: HTMLAudioProps) {
     });
   }, [props.src]);
 
-  return [element, state, controls, ref] as const;
+  return [ref.current, state, controls, ref] as const;
 }

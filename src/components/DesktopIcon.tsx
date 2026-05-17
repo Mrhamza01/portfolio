@@ -9,10 +9,8 @@ interface DesktopIconProps {
 }
 
 export default function DesktopIcon({ id, title, icon, openApp }: DesktopIconProps) {
-    const { lastSelectedIcon, setLastSelectedIcon } = useStore((state) => ({
-        lastSelectedIcon: state.lastSelectedIcon,
-        setLastSelectedIcon: state.setLastSelectedIcon
-    }));
+    const lastSelectedIcon = useStore((state) => state.lastSelectedIcon);
+    const setLastSelectedIcon = useStore((state) => state.setLastSelectedIcon);
 
     const isSelected = lastSelectedIcon === id;
 

@@ -1,5 +1,4 @@
 import React from "react";
-import "react-rangeslider/lib/index.css";
 
 interface WifiMenuProps {
   toggleWifiMenu: () => void;
@@ -8,10 +7,8 @@ interface WifiMenuProps {
 
 export default function WifiMenu({ toggleWifiMenu, btnRef }: WifiMenuProps) {
   const wifiRef = useRef<HTMLDivElement>(null);
-  const { wifi, toggleWIFI } = useStore((state) => ({
-    wifi: state.wifi,
-    toggleWIFI: state.toggleWIFI
-  }));
+  const wifi = useStore((state) => state.wifi);
+  const toggleWIFI = useStore((state) => state.toggleWIFI);
 
   useClickOutside(wifiRef, toggleWifiMenu, [btnRef]);
 

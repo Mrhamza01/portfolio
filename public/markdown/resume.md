@@ -1,36 +1,33 @@
-# Muhammad Hamza
-Senior Software Engineer & Full Stack Developer
-Faisalabad, Pakistan
-B.S. Computer Science — Virtual University of Pakistan (2020–2024)
+# Muhammad Hamza (Hamza Ghafoor)
 
-## 🌐 What I Do
-I specialize in architecting scalable SaaS & ERP platforms, leveraging:
-- Cloud-native technologies
-- Kubernetes
-- Modern DevOps practices
-- Full-stack engineering
-- Infrastructure automation
+**Senior Full-Stack Software Engineer | DevOps Engineer**  
+Faisalabad, Pakistan · Open to remote senior IC roles
 
-I bridge the gap between hands-on development and strategic software architecture.
+## Professional Summary
 
-## 🛠 Tech Stack & Expertise
-### Frontend
-React • Next.js • TypeScript • ShadCN • TailwindCSS • HTML/CSS
+Senior Full-Stack Software Engineer and DevOps practitioner with **4+ years** delivering cloud-native and on-prem production systems—from multi-tenant ERP platforms serving **200+ clients** to mission-critical public-sector products. Owns system design, implementation, CI/CD, Kubernetes operations, and reliability (backup/DR, monitoring, zero-downtime releases).
 
-### Backend
-Node.js • Express • Laravel • REST APIs • GraphQL
+## Contact
 
-### Databases / ORMs
-PostgreSQL • MySQL • MongoDB • Prisma • Drizzle • Kysely
+- **Phone:** +92 309 7906831
+- **Email:** hamza.kamboh035@email.com
+- **LinkedIn:** [linkedin.com/in/hamza-ghafoor](https://linkedin.com/in/hamza-ghafoor)
+- **GitHub:** [github.com/Mrhamza01](https://github.com/Mrhamza01)
+- **Portfolio:** [hamzaghafoor.vercel.app](https://hamzaghafoor.vercel.app/)
 
-### DevOps & Containers
-Docker • Podman • Kubernetes • Jenkins Pipelines
+## Technical Skills
 
-### Cloud Platforms
-AWS • Vercel • Netlify • Heroku
+**Languages:** TypeScript, JavaScript, Go, SQL  
+**Frontend:** React, Next.js, Tailwind CSS, ShadCN, i18n / localization  
+**Backend:** Node.js, Express, Laravel, REST APIs, GraphQL  
+**Data:** PostgreSQL, MySQL, MongoDB; Prisma, Drizzle, Kysely  
+**DevOps / Platform:** Docker, Kubernetes, Helm, GitHub Actions, Jenkins, NGINX Ingress, cert-manager, Longhorn  
+**Observability & Ops:** Prometheus, Grafana, backup/DR, NFS  
+**Architecture:** System design, microservices, multi-tenant SaaS, high-availability deployments  
+**Cloud & Tools:** AWS, Vercel, Netlify, Heroku; Git, n8n, Firebase, Appwrite, Supabase  
+**AI & Integrations:** LLM-powered summarization, Chrome extensions, WhatsApp Web
 
-### BaaS
-Firebase • Appwrite • Supabase
+## Certifications
 
-### Version Control
-Git
+- **Back End Development and APIs** — freeCodeCamp
+- **IBM Full Stack Software Developer Specialization** — Coursera

@@ -20,9 +20,7 @@ interface FaceTimeState {
 
 const SidebarItem = ({ date, active }: SidebarItemProps) => {
   const [hover, setHover] = useState(false);
-  const { deleteImage } = useStore((state) => ({
-    deleteImage: state.delFaceTimeImage
-  }));
+  const deleteImage = useStore((state) => state.delFaceTimeImage);
 
   return (
     <div
@@ -57,9 +55,7 @@ const SidebarItem = ({ date, active }: SidebarItemProps) => {
 };
 
 const Sidebar = ({ state, onTake, onSave, onSelect }: SidebarProps) => {
-  const { images } = useStore((state) => ({
-    images: state.faceTimeImages
-  }));
+  const images = useStore((state) => state.faceTimeImages);
 
   return (
     <div className="absolute w-74 h-full z-1 left-0 top-0 flex flex-col bg-zinc-900/85 backdrop-blur-xl">
@@ -107,9 +103,7 @@ const Sidebar = ({ state, onTake, onSave, onSelect }: SidebarProps) => {
 
 const FaceTime = () => {
   const webcamRef = useRef<Webcam>(null);
-  const { addImage } = useStore((state) => ({
-    addImage: state.addFaceTimeImage
-  }));
+  const addImage = useStore((state) => state.addFaceTimeImage);
   const [state, setState] = useState<FaceTimeState>({
     canSave: false,
     curImage: null

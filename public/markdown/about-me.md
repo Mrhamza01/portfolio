@@ -2,33 +2,29 @@
 
 ## Introduction
 
-Hey there! 👋
+I'm **Muhammad Hamza (Hamza Ghafoor)**, a **Senior Full-Stack Software Engineer** and **DevOps** practitioner based in Faisalabad, Pakistan.
 
-I'm a B.Tech student at the [Computer Science and Engineering](https://www.mbm.ac.in/deptt-of-computer-science-engineering) department of [MBM University](https://www.mbm.ac.in/).
+I specialize in architecting scalable SaaS and ERP platforms—bridging hands-on development with production operations: Kubernetes, CI/CD, multi-tenant systems, and reliable deployments.
 
-🚀 Passionate about Open Source, I've contributed to various organizations, helping build and improve projects that benefit the community. Coding for Open Source is not just a hobby for me — *it's a way of life!*
+**B.S. Computer Science** — Virtual University of Pakistan (2020–2024)
 
-💻 With 6 months of experience as a full stack developer, I'm constantly evolving and embracing new technologies.
+Open to **remote senior IC roles**.
 
-🌱 Currently diving deep into Next.js, TypeScript, and WebSockets, while also working on building my own library.
+## Why work with me
 
-🤝 Always excited to collaborate on impactful Open Source projects.
-
-Let's build something amazing together! 🌟
-
+- 4+ years delivering production systems end-to-end
+- 200+ client ERP fleet experience with on-prem Kubernetes
+- Monolith-to-microservices migrations and public-sector delivery
+- Full ownership: design → build → deploy → monitor → recover
 
 ## Contact
 
-Contact me by:
-
-- Email: [aakash@gmail.com](mailto:aakash6263264@gmail.com)
-- Github: [@aakashsharma003](https://github.com/macOS-Portfolio)
-- GSSOC: [GSSOC Contributer](https://gssoc.girlscript.tech/)
-- Linkedin: [aakashsharma003](https://www.linkedin.com/in/aakashsharma003)
-- Personal Website: [dev.me](https://aakash-sharma.vercel.app)
-
+- **Phone:** [+92 309 7906831](tel:+923097906831)
+- **Email:** [hamza.kamboh035@email.com](mailto:hamza.kamboh035@email.com)
+- **LinkedIn:** [hamza-ghafoor](https://linkedin.com/in/hamza-ghafoor)
+- **GitHub:** [Mrhamza01](https://github.com/Mrhamza01)
+- **Portfolio:** [hamzaghafoor.vercel.app](https://hamzaghafoor.vercel.app/)
 
 ## Resume
 
-- download: [English](https://drive.google.com/file/d/1EDQQZQvAWodAMgEdycBP7E_6UmmVlz-x/view?usp=sharing)
-
+- [Download PDF](/resume.pdf)

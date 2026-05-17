@@ -6,10 +6,8 @@ import { history } from "@milkdown/plugin-history";
 import { listener, listenerCtx } from "@milkdown/plugin-listener";
 
 const MilkdownEditor = () => {
-  const { typoraMd, setTyporaMd } = useStore((state) => ({
-    typoraMd: state.typoraMd,
-    setTyporaMd: state.setTyporaMd
-  }));
+  const typoraMd = useStore((state) => state.typoraMd);
+  const setTyporaMd = useStore((state) => state.setTyporaMd);
 
   useEditor((root) =>
     Editor.make()

@@ -10,6 +10,7 @@ import "uno.css";
 import "katex/dist/katex.min.css";
 import "~/styles/index.css";
 import { AudioProvider } from "./context/AudioContext";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 
 export default function App() {
@@ -71,8 +72,10 @@ const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <AudioProvider>
-      <App />
-    </AudioProvider>
+    <ErrorBoundary>
+      <AudioProvider>
+        <App />
+      </AudioProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
