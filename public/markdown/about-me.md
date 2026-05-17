@@ -21,7 +21,7 @@ I specialize in architecting scalable SaaS and ERP platforms—bridging hands-on
 ## Contact
 
 - **Phone:** [+92 309 7906831](tel:+923097906831)
-- **Email:** [hamza.kamboh035@email.com](mailto:hamza.kamboh035@email.com)
+- **Email:** [hamza.kamboh035@gmail.com](mailto:hamza.kamboh035@gmail.com)
 - **LinkedIn:** [hamza-ghafoor](https://linkedin.com/in/hamza-ghafoor)
 - **GitHub:** [Mrhamza01](https://github.com/Mrhamza01)
 - **Portfolio:** [hamzaghafoor.vercel.app](https://hamzaghafoor.vercel.app/)

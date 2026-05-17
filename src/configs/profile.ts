@@ -48,7 +48,7 @@ export const profile = {
   productName: "Hamza Ghafoor — Senior Engineer Edition",
 
   contact: {
-    email: "hamza.kamboh035@email.com",
+    email: "hamza.kamboh035@gmail.com",
     phone: "+92 309 7906831",
     phoneTel: "+923097906831",
     linkedin: "https://linkedin.com/in/hamza-ghafoor",

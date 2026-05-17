@@ -14,7 +14,7 @@ Seeking **senior Software Engineer** and **Full-Stack Developer** opportunities 
 ## Contact
 
 - **Phone:** +92 309 7906831
-- **Email:** hamza.kamboh035@email.com
+- **Email:** hamza.kamboh035@gmail.com
 - **LinkedIn:** [linkedin.com/in/hamza-ghafoor](https://linkedin.com/in/hamza-ghafoor)
 - **GitHub:** [github.com/Mrhamza01](https://github.com/Mrhamza01)
 - **Portfolio:** [hamzaghafoor.vercel.app](https://hamzaghafoor.vercel.app/)
