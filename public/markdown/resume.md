@@ -1,11 +1,15 @@
 # Muhammad Hamza (Hamza Ghafoor)
 
 **Senior Full-Stack Software Engineer | DevOps Engineer**  
-Faisalabad, Pakistan · Open to remote senior IC roles
+Faisalabad, Pakistan
+
+**Open to work** — senior Software Engineer · Senior Full-Stack Developer · senior IC roles · remote-friendly
 
 ## Professional Summary
 
 Senior Full-Stack Software Engineer and DevOps practitioner with **4+ years** delivering cloud-native and on-prem production systems—from multi-tenant ERP platforms serving **200+ clients** to mission-critical public-sector products. Owns system design, implementation, CI/CD, Kubernetes operations, and reliability (backup/DR, monitoring, zero-downtime releases).
+
+Seeking **senior Software Engineer** and **Full-Stack Developer** opportunities as an individual contributor.
 
 ## Contact
 

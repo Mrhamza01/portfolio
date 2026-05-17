@@ -239,6 +239,10 @@ const TopBar = (props: TopBarProps) => {
       )}
 
       <div className="hstack flex-row justify-end space-x-2">
+        <TopBarItem hideOnMobile className="text-xs gap-1.5 text-green-700 dark:text-green-400">
+          <span className="size-2 rounded-full bg-green-500 shrink-0" />
+          <span className="hidden md:inline">Open to work</span>
+        </TopBarItem>
         {menuBarWeather && (
           <TopBarItem hideOnMobile className="text-xs gap-1">
             <span className="i-heroicons-outline:cloud" />

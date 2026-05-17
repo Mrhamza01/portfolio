@@ -41,6 +41,8 @@ export const profile = {
   name: "Muhammad Hamza",
   displayName: "Hamza Ghafoor",
   title: "Senior Full-Stack Software Engineer | DevOps Engineer",
+  openToWork:
+    "Open to work — seeking senior Software Engineer, Senior Full-Stack Developer, and senior individual contributor (IC) roles. Remote-friendly.",
   location: "Faisalabad, Pakistan",
   version: "Portfolio OS 1.0",
   productName: "Hamza Ghafoor — Senior Engineer Edition",
@@ -61,16 +63,16 @@ export const profile = {
     "Senior Full-Stack Software Engineer and DevOps practitioner with 4+ years delivering cloud-native and on-prem production systems—from multi-tenant ERP platforms serving 200+ clients to mission-critical public-sector products.",
 
   whyHireMe: [
+    "Open to work: senior Software Engineer / Full-Stack Developer (IC) roles.",
     "Owns system design, implementation, CI/CD, Kubernetes operations, and reliability end-to-end.",
     "Proven at scale: 200+ tenant ERP fleet, multi-tenant databases, zero-downtime deployments.",
     "Led monolith-to-microservices migrations for high load and large data volumes.",
-    "Open to remote senior IC roles with distributed-team experience.",
   ],
 
   specs: {
     chip: "Full-Stack + DevOps",
     memory: "4+ years production experience",
-    os: "Remote-ready · System design · K8s",
+    os: "Open to work · Remote-friendly · K8s",
   },
 
   experience: [
@@ -158,7 +160,8 @@ export const profile = {
       title: "Why hire Hamza?",
       bullets: [
         "4+ years shipping production systems from architecture through deployment.",
-        "Strong full-stack + DevOps blend—rare combination for senior remote teams.",
+        "Open to senior Software Engineer and Full-Stack Developer opportunities (IC, remote-friendly).",
+        "Strong full-stack + DevOps blend—rare combination for senior engineering teams.",
         "Track record with ERP scale (200+ clients) and mission-critical public-sector delivery.",
         "Takes ownership: design, build, automate, monitor, and recover.",
       ],
@@ -231,6 +234,7 @@ export function getBioContext(): string {
       name: profile.name,
       title: profile.title,
       summary: profile.summary,
+      openToWork: profile.openToWork,
       whyHireMe: profile.whyHireMe,
       experience: profile.experience,
       projects: profile.projects,

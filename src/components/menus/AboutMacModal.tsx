@@ -14,6 +14,11 @@ export default function AboutMacModal({ onClose }: AboutMacModalProps) {
           <span className="i-ri:apple-fill text-5xl mb-4 inline-block" />
           <h2 className="text-lg font-semibold">{profile.productName}</h2>
           <p className="text-sm opacity-60 mt-1">{profile.version}</p>
+          <p className="inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full bg-green-500/15 text-green-700 dark:text-green-400 text-xs font-medium">
+            <span className="size-2 rounded-full bg-green-500 animate-pulse" />
+            Open to work
+          </p>
+          <p className="text-xs opacity-70 mt-2 px-2 leading-relaxed">{profile.openToWork}</p>
 
           <div className="mt-6 space-y-2 text-sm text-left bg-white/50 dark:bg-black/20 rounded-xl p-4">
             <div className="flex justify-between">

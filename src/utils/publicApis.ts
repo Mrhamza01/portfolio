@@ -1,3 +1,5 @@
+import { profile } from "~/configs/profile";
+
 const CACHE_TTL_MS = 5 * 60 * 1000;
 
 function cacheGet<T>(key: string): T | null {
@@ -221,6 +223,14 @@ export async function handleOfflineIntent(
   if (lower.includes("time")) {
     const t = await fetchKarachiTime();
     return `Current time in Karachi: ${t}.`;
+  }
+  if (
+    lower.includes("open to work") ||
+    lower.includes("hiring") ||
+    lower.includes("available") ||
+    lower.includes("job")
+  ) {
+    return profile.openToWork;
   }
   if (lower.includes("architecture") || lower.includes("cicd") || lower.includes("ci/cd")) {
     return "Open the Architecture app from the dock to see ERP platform and CI/CD pipeline case studies with visual diagrams.";
