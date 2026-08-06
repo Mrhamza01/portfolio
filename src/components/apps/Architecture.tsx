@@ -87,11 +87,14 @@ export default function Architecture() {
   const study = caseStudies.find((s) => s.id === activeId) ?? caseStudies[0];
 
   return (
-    <div className="size-full flex flex-col bg-[#f5f5f7] dark:bg-[#1e1e1e] font-avenir">
-      <div className="px-4 pt-4 pb-2 border-b border-gray-200/80 dark:border-gray-700/80 shrink-0">
-        <h1 className="text-lg font-semibold text-gray-900 dark:text-white">{study.title}</h1>
+    <div className="size-full flex flex-col bg-[color:var(--color-background)] dark:bg-[#0c0c0e] font-avenir">
+      <div className="px-4 pt-4 pb-2 border-b border-[color:var(--color-border)] shrink-0">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)] mb-1">
+          Architecture
+        </p>
+        <h1 className="text-lg font-semibold tracking-tight text-[color:var(--color-foreground)]">{study.title}</h1>
         <p className="text-xs opacity-60 dark:text-gray-300 mt-0.5">{study.subtitle}</p>
-        <div className="flex gap-1 mt-3 p-0.5 bg-gray-200/60 dark:bg-gray-800 rounded-lg w-fit">
+        <div className="flex gap-1 mt-3 p-0.5 bg-[color:var(--color-muted)] dark:bg-gray-800 rounded-lg w-fit">
           {caseStudies.map((s) => (
             <button
               key={s.id}

@@ -7,6 +7,9 @@ import { useAudioContext } from "~/context/AudioContext";
 import AboutMacModal from "./AboutMacModal";
 import SystemPreferencesModal from "./SystemPreferencesModal";
 import AppStoreModal from "./AppStoreModal";
+import { AiMenuIcon, WeatherMenuIcon } from "~/components/icons/MenuBarIcons";
+import { useStore } from "~/stores";
+import { profile } from "~/configs/profile";
 
 interface TopBarItemProps {
   hideOnMobile?: boolean;
@@ -16,6 +19,8 @@ interface TopBarItemProps {
   onClick?: () => void;
   onMouseEnter?: () => void;
   "data-tour-id"?: string;
+  "aria-label"?: string;
+  title?: string;
 }
 
 const TopBarItem = forwardRef(
@@ -28,12 +33,22 @@ const TopBarItem = forwardRef(
     return (
       <div
         ref={ref}
+        role={props.onClick ? "button" : undefined}
+        tabIndex={props.onClick ? 0 : undefined}
+        aria-label={props["aria-label"]}
+        title={props.title || props["aria-label"]}
         data-tour-id={props["data-tour-id"]}
         className={`hstack space-x-1 h-6 px-1 cursor-default rounded ${hide} ${bg} ${
           props.className || ""
-        }`}
+        } ${props.onClick ? "cursor-pointer" : ""}`}
         onClick={props.onClick}
         onMouseEnter={props.onMouseEnter}
+        onKeyDown={(e) => {
+          if (props.onClick && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            props.onClick();
+          }
+        }}
       >
         {props.children}
       </div>
@@ -111,6 +126,7 @@ const TopBar = (props: TopBarProps) => {
   const toggleFullScreen = useStore((state) => state.toggleFullScreen);
   const setVolume = useStore((state) => state.setVolume);
   const setBrightness = useStore((state) => state.setBrightness);
+  const openApp = useStore((state) => state.openApp);
 
   useInterval(() => {
     setState((prev) => ({
@@ -243,10 +259,36 @@ const TopBar = (props: TopBarProps) => {
           <span className="size-2 rounded-full bg-green-500 shrink-0" />
           <span className="hidden md:inline">Open to work</span>
         </TopBarItem>
+        <TopBarItem
+          hideOnMobile
+          className="gap-1"
+          onClick={() => openApp("chat")}
+          aria-label="Open AI Chat"
+        >
+          <AiMenuIcon size={14} />
+          <span className="hidden lg:inline text-xs font-medium">AI</span>
+        </TopBarItem>
+        <TopBarItem hideOnMobile className="gap-1" aria-label="Chat on WhatsApp">
+          <a
+            href={profile.contact.whatsapp}
+            target="_blank"
+            rel="noreferrer"
+            className="hstack gap-1 no-underline text-inherit"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img src="/img/icons/whatsapp.svg" alt="" width={14} height={14} className="size-3.5" />
+            <span className="hidden xl:inline text-xs font-medium">WhatsApp</span>
+          </a>
+        </TopBarItem>
         {menuBarWeather && (
-          <TopBarItem hideOnMobile className="text-xs gap-1">
-            <span className="i-heroicons-outline:cloud" />
-            <span>{menuBarWeather.temperature}°C</span>
+          <TopBarItem
+            hideOnMobile
+            className="text-xs gap-1.5"
+            onClick={() => openApp("weather")}
+            aria-label={`Weather ${menuBarWeather.temperature}°C, ${menuBarWeather.label}`}
+          >
+            <WeatherMenuIcon code={menuBarWeather.weatherCode} size={15} />
+            <span className="tabular-nums font-medium">{menuBarWeather.temperature}°</span>
           </TopBarItem>
         )}
         <TopBarItem hideOnMobile={true}>

@@ -27,7 +27,7 @@ export const caseStudies: CaseStudy[] = [
     solution: [
       "Tenant-scoped PostgreSQL isolation with tuned pool sizing per deployment.",
       "NGINX Ingress + cert-manager for per-client certificates.",
-      "Helm-packaged services on on-prem Kubernetes with Longhorn storage.",
+      "Helm-packaged services on on-prem Kubernetes (kOps) with Longhorn storage.",
       "Prometheus/Grafana observability and documented DR/restore runbooks.",
     ],
     stack: [
@@ -44,7 +44,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcomes: [
       "200+ production client deployments on a repeatable platform baseline.",
-      "Zero-downtime rollout patterns for app and schema changes.",
+      "Zero-downtime rollout patterns for app and schema changes (hours → minutes).",
       "Fleet-wide backup/restore and operational visibility.",
     ],
     diagramSteps: [

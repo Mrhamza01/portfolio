@@ -1,15 +1,13 @@
 # Muhammad Hamza (Hamza Ghafoor)
 
-**Senior Full-Stack Software Engineer | DevOps Engineer**  
+**Full Stack Software Engineer | Cloud-Native & SaaS**  
 Faisalabad, Pakistan
 
-**Open to work** — senior Software Engineer · Senior Full-Stack Developer · senior IC roles · remote-friendly
+**Open to work** — Senior · Full Stack · Backend · Cloud · SaaS · remote EU-friendly
 
 ## Professional Summary
 
-Senior Full-Stack Software Engineer and DevOps practitioner with **4+ years** delivering cloud-native and on-prem production systems—from multi-tenant ERP platforms serving **200+ clients** to mission-critical public-sector products. Owns system design, implementation, CI/CD, Kubernetes operations, and reliability (backup/DR, monitoring, zero-downtime releases).
-
-Seeking **senior Software Engineer** and **Full-Stack Developer** opportunities as an individual contributor.
+Full Stack Software Engineer (production since **Nov 2022**) who builds and operates multi-tenant SaaS and on-prem cloud-native systems—from ERP platforms serving **200+ clients** to air-gapped, mission-critical products. Owns system design, implementation, CI/CD, Kubernetes operations, and reliability (backup/DR, monitoring, zero-downtime releases).
 
 ## Contact
 
@@ -22,14 +20,11 @@ Seeking **senior Software Engineer** and **Full-Stack Developer** opportunities 
 ## Technical Skills
 
 **Languages:** TypeScript, JavaScript, Go, SQL  
-**Frontend:** React, Next.js, Tailwind CSS, ShadCN, i18n / localization  
-**Backend:** Node.js, Express, Laravel, REST APIs, GraphQL  
-**Data:** PostgreSQL, MySQL, MongoDB; Prisma, Drizzle, Kysely  
-**DevOps / Platform:** Docker, Kubernetes, Helm, GitHub Actions, Jenkins, NGINX Ingress, cert-manager, Longhorn  
-**Observability & Ops:** Prometheus, Grafana, backup/DR, NFS  
-**Architecture:** System design, microservices, multi-tenant SaaS, high-availability deployments  
-**Cloud & Tools:** AWS, Vercel, Netlify, Heroku; Git, n8n, Firebase, Appwrite, Supabase  
-**AI & Integrations:** LLM-powered summarization, Chrome extensions, WhatsApp Web
+**Frontend:** React, Next.js, Tailwind CSS, ShadCN, i18n  
+**Backend:** Node.js, Express, REST APIs, GraphQL, Laravel, queues / background jobs  
+**Database:** PostgreSQL, MongoDB, MySQL; Prisma, Drizzle, Kysely; Redis  
+**Cloud & DevOps:** Docker, Kubernetes, Helm, GitHub Actions, Jenkins, NGINX Ingress, cert-manager, Longhorn, AWS (S3, SQS, RDS)  
+**Architecture:** Multi-tenant SaaS, system design, microservices, CI/CD, high availability, backup/DR
 
 ## Certifications
 

@@ -19,7 +19,7 @@
     transform: translate(0, 20px) scale(0.9, 1.1);
   }
   100% {
-    transform: translate(var(--window-transform-x), var(--window-transform-y)) scale(0.1, 0.05);
+    transform: translate(var(--window-transform-x, 0px), var(--window-transform-y, 0px)) scale(0.1, 0.05);
     opacity: 0;
     filter: blur(4px);
   }
@@ -27,7 +27,7 @@
 
 @keyframes genie-restore {
   0% {
-    transform: translate(var(--window-transform-x), var(--window-transform-y)) scale(0.1, 0.05);
+    transform: translate(var(--window-transform-x, 0px), var(--window-transform-y, 0px)) scale(0.1, 0.05);
     opacity: 0;
     filter: blur(4px);
   }
@@ -38,5 +38,15 @@
     transform: translate(0, 0) scale(1);
     opacity: 1;
     filter: blur(0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .genie-minimize,
+  .genie-restore {
+    animation: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

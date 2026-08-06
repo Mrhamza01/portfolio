@@ -82,6 +82,9 @@ export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
                       src={app.img}
                       alt={app.title}
                       title={app.title}
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).src = "/img/icons/fallback.svg";
+                      }}
                     />
                   </div>
                 ) : (
@@ -97,6 +100,9 @@ export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
                       src={app.img}
                       alt={app.title}
                       title={app.title}
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).src = "/img/icons/fallback.svg";
+                      }}
                     />
                   </a>
                 )}

@@ -63,8 +63,11 @@ export default function NewsWidget() {
                       src={article.urlToImage}
                       className="size-full object-cover group-hover/item:scale-110 transition-transform duration-500"
                       alt=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).parentElement?.remove();
+                        const wrap = (e.target as HTMLImageElement).parentElement;
+                        if (wrap) wrap.style.display = "none";
                       }}
                     />
                   </div>

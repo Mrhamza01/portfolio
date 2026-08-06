@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Rnd } from "react-rnd";
 import { minMarginX, minMarginY, appBarHeight } from "~/utils";
 import { useStore } from "~/stores";
@@ -134,17 +134,33 @@ const Window = (props: WindowProps) => {
   const height = props.max ? winHeight : state.height;
   const disableMax = props.aspectRatio !== undefined;
 
-  // Genie Effect handling
+  // Genie Effect — skip first paint / missing dock coords (avoids "explosion" glitch on reload)
   const [genieClass, setGenieClass] = useState("");
+  const genieReady = useRef(false);
   useEffect(() => {
+    if (!genieReady.current) {
+      genieReady.current = true;
+      return;
+    }
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setGenieClass("");
+      return;
+    }
     if (props.min) {
       setGenieClass("genie-minimize");
-    } else {
-      if (genieClass === "genie-minimize") {
-        setGenieClass("genie-restore");
-        // After animation, remove class
-        setTimeout(() => setGenieClass(""), 400);
+    } else if (genieClass === "genie-minimize") {
+      const hasDockTarget =
+        document.documentElement.style.getPropertyValue("--window-transform-x") ||
+        (document.querySelector(`#window-${props.id}`) as HTMLElement | null)?.style.getPropertyValue(
+          "--window-transform-x"
+        );
+      if (!hasDockTarget) {
+        setGenieClass("");
+        return;
       }
+      setGenieClass("genie-restore");
+      const t = window.setTimeout(() => setGenieClass(""), 400);
+      return () => window.clearTimeout(t);
     }
   }, [props.min]);
 
@@ -199,11 +215,11 @@ const Window = (props: WindowProps) => {
       lockAspectRatioExtraHeight={props.aspectRatio ? appBarHeight : undefined}
       style={{ zIndex: props.z }}
       onMouseDown={() => props.focus(props.id)}
-      className={`overflow-hidden pointer-events-auto ${round} ${border} shadow-lg shadow-black/30 ${genieClass}`}
+      className={`overflow-hidden pointer-events-auto ${round} ${border} shadow-[var(--shadow-window)] ${genieClass}`}
       id={`window-${props.id}`}
     >
       <div
-        className="window-bar relative h-6 text-center bg-c-200 shadow-sm"
+        className="window-bar relative h-7 text-center bg-c-200/95 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]"
         onDoubleClick={() => !disableMax && props.setMax(props.id)}
       >
         <TrafficLights

@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { setTourState } from "~/utils/tourStorage";
+import { setTourState } from "~/utils";
 
 export interface TourStep {
   id: string;
@@ -12,12 +12,12 @@ const STEPS: TourStep[] = [
   {
     id: "welcome",
     title: "Welcome to Hamza's Portfolio",
-    body: "A macOS-style desktop showcasing senior full-stack and DevOps work. This short tour highlights where to start.",
+    body: "A macOS-style desktop for a Full Stack engineer who builds and operates multi-tenant SaaS and Kubernetes systems. Start with the intro card or Bear for the resume.",
   },
   {
     id: "bear",
     title: "Resume & experience",
-    body: "Open Bear for the full resume, experience, and projects—written in markdown, always in sync.",
+    body: "Open Bear for the full resume, experience, and projects—written in markdown, synced to the latest positioning.",
     target: "#dock-bear",
   },
   {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { apps, wallpapers } from "~/configs";
-import { minMarginY } from "~/utils";
+import { minMarginY, getTourState } from "~/utils";
 import type { MacActions } from "~/types";
 import DesktopIcon from "~/components/DesktopIcon";
 import AppWindow from "~/components/AppWindow";
@@ -15,8 +15,10 @@ import ClockCalendarWidget from "~/components/widgets/ClockCalendarWidget";
 import StocksWidget from "~/components/widgets/StocksWidget";
 import GuidedTour from "~/components/GuidedTour";
 import InstallPrompt from "~/components/InstallPrompt";
+import RecruiterIntro from "~/components/RecruiterIntro";
 import { useStore } from "~/stores";
-import { getTourState } from "~/utils/tourStorage";
+
+const INTRO_KEY = "portfolio-recruiter-intro-dismissed";
 
 export default function Desktop(props: MacActions) {
   const [toggleLaunchpadState, setToggleLaunchpadState] = useState(false);
@@ -24,6 +26,13 @@ export default function Desktop(props: MacActions) {
   const [currentTitle, setCurrentTitle] = useState("Finder");
   const [hideDockAndTopbar, setHideDockAndTopbar] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
+  const [showIntro, setShowIntro] = useState(() => {
+    try {
+      return localStorage.getItem(INTRO_KEY) !== "1";
+    } catch {
+      return true;
+    }
+  });
 
   const [spotlightBtnRef, setSpotlightBtnRef] =
     useState<React.RefObject<HTMLDivElement> | null>(null);
@@ -44,6 +53,15 @@ export default function Desktop(props: MacActions) {
   const toggleQuickLook = useStore((s) => s.toggleQuickLook);
   const lastSelectedIcon = useStore((s) => s.lastSelectedIcon);
   const setLastSelectedIcon = useStore((s) => s.setLastSelectedIcon);
+
+  const dismissIntro = () => {
+    setShowIntro(false);
+    try {
+      localStorage.setItem(INTRO_KEY, "1");
+    } catch {
+      /* ignore */
+    }
+  };
 
   useEffect(() => {
     initApps(apps);
@@ -74,10 +92,10 @@ export default function Desktop(props: MacActions) {
     const r = document.querySelector(`#launchpad`) as HTMLElement;
     if (target) {
       r.style.transform = "scale(1)";
-      r.style.transition = "ease-in 0.2s";
+      r.style.transition = "transform 280ms cubic-bezier(0.32, 0.72, 0, 1)";
     } else {
       r.style.transform = "scale(1.1)";
-      r.style.transition = "ease-out 0.2s";
+      r.style.transition = "transform 180ms cubic-bezier(0.32, 0.72, 0, 1)";
     }
     setToggleLaunchpadState(target);
   };
@@ -102,7 +120,7 @@ export default function Desktop(props: MacActions) {
 
   const openAppHandler = (id: string): void => {
     openApp(id);
-    const app = apps.find(a => a.id === id);
+    const app = apps.find((a) => a.id === id);
     if (app) setCurrentTitle(app.title);
   };
 
@@ -146,7 +164,7 @@ export default function Desktop(props: MacActions) {
 
   return (
     <div
-      className="size-full overflow-hidden bg-center bg-cover"
+      className="size-full overflow-hidden bg-center bg-cover min-h-[100dvh]"
       style={{
         backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`,
         filter: `brightness(${(brightness ?? 80) * 0.7 + 50}%)`
@@ -168,7 +186,7 @@ export default function Desktop(props: MacActions) {
       {/* Desktop widgets - Left Side */}
       <div
         data-tour-id="widgets"
-        className="absolute top-12 left-4 z-10 scale-90 sm:scale-100 origin-top-left flex flex-col gap-3 max-h-[calc(100vh-5rem)] overflow-y-auto scrollbar-hide"
+        className="absolute top-12 left-4 z-10 scale-90 sm:scale-100 origin-top-left flex flex-col gap-3 max-h-[calc(100dvh-5rem)] overflow-y-auto scrollbar-hide max-md:hidden"
       >
         <NewsWidget />
         <WeatherWidget onOpenApp={() => openAppHandler("weather")} />
@@ -177,13 +195,37 @@ export default function Desktop(props: MacActions) {
       </div>
 
       {/* Desktop Icons - Right Side */}
-      <div className="absolute top-12 right-4 flex flex-col gap-2 items-center z-10 text-blue-500">
-        <DesktopIcon id="chat" title="AI Chat" icon="i-fluent:bot-24-filled" openApp={() => openAppHandler("chat")} />
+      <div className="absolute top-12 right-4 flex flex-col gap-2 items-center z-10 text-blue-500 max-md:top-14 max-md:right-2">
+        <DesktopIcon
+          id="chat"
+          title="AI Chat"
+          img="/img/icons/ai-chat.svg"
+          openApp={() => openAppHandler("chat")}
+        />
         <DesktopIcon id="profile" title="Resume" icon="i-fluent:folder-24-filled" openApp={() => openFolder("profile")} />
         <DesktopIcon id="project" title="Projects" icon="i-fluent:folder-24-filled" openApp={() => openFolder("project")} />
-        <DesktopIcon id="education" title="Certificates" icon="i-fluent:folder-24-filled" openApp={() => openAppHandler("certificates")} />
+        <DesktopIcon
+          id="education"
+          title="Certificates"
+          img="/img/icons/certificates.svg"
+          openApp={() => openAppHandler("certificates")}
+        />
         <DesktopIcon id="experience" title="Experience" icon="i-fluent:folder-24-filled" openApp={() => openFolder("profile")} />
       </div>
+
+      {showIntro && (
+        <RecruiterIntro
+          onOpenResume={() => {
+            openFolder("profile");
+            dismissIntro();
+          }}
+          onOpenArchitecture={() => {
+            openAppHandler("architecture");
+            dismissIntro();
+          }}
+          onDismiss={dismissIntro}
+        />
+      )}
 
       <div className="window-bound z-10 absolute" style={{ top: minMarginY }}>
         {renderAppWindows()}

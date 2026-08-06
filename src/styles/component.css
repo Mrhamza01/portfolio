@@ -34,7 +34,7 @@
 }
 
 .innner-window {
-  height: calc(100% - 1.5rem);
+  height: calc(100% - 1.75rem);
 }
 
 .safari-content {
@@ -52,7 +52,13 @@
 /* --------- dock --------- */
 
 .dock ul {
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.17);
+  box-shadow: var(--shadow-dock);
+  transition: box-shadow var(--duration-base) var(--ease-premium);
+}
+
+.dock.window-chrome-dock ul,
+.dock ul {
+  border-color: color-mix(in srgb, var(--color-border) 70%, transparent);
 }
 
 .dock li .tooltip {

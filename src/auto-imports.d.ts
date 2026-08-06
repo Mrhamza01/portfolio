@@ -8,6 +8,7 @@ export {}
 declare global {
   const AboutMacModal: typeof import('./components/menus/AboutMacModal').default
   const Activity: typeof import('react').Activity
+  const AiMenuIcon: typeof import('./components/icons/MenuBarIcons').AiMenuIcon
   const AppStoreModal: typeof import('./components/menus/AppStoreModal').default
   const AppWindow: typeof import('./components/AppWindow').default
   const AppleMenu: typeof import('./components/menus/AppleMenu').default
@@ -37,6 +38,7 @@ declare global {
   const NewsWidget: typeof import('./components/NewsWidget').default
   const Notes: typeof import('./components/apps/Notes').default
   const QuickLook: typeof import('./components/QuickLook').default
+  const RecruiterIntro: typeof import('./components/RecruiterIntro').default
   const Safari: typeof import('./components/apps/Safari').default
   const Siri: typeof import('./components/apps/Siri').default
   const Spotify: typeof import('./components/apps/Spotify').default
@@ -50,6 +52,7 @@ declare global {
   const Typora: typeof import('./components/apps/Typora').default
   const VSCode: typeof import('./components/apps/VSCode').default
   const Weather: typeof import('./components/apps/Weather').default
+  const WeatherMenuIcon: typeof import('./components/icons/MenuBarIcons').WeatherMenuIcon
   const WeatherWidget: typeof import('./components/widgets/WeatherWidget').default
   const WifiMenu: typeof import('./components/menus/WifiMenu').default
   const Window: typeof import('./components/Window')['default']
@@ -87,6 +90,7 @@ declare global {
   const useSyncExternalStore: typeof import('react').useSyncExternalStore
   const useTransition: typeof import('react').useTransition
   const useWindowSize: typeof import('./hooks/useWindowSize').useWindowSize
+  const weatherKindFromCode: typeof import('./components/icons/MenuBarIcons').weatherKindFromCode
 }
 // for type re-export
 declare global {

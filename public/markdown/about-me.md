@@ -2,20 +2,20 @@
 
 ## Introduction
 
-I'm **Muhammad Hamza (Hamza Ghafoor)**, a **Senior Full-Stack Software Engineer** and **DevOps** practitioner based in Faisalabad, Pakistan.
+I'm **Muhammad Hamza (Hamza Ghafoor)**, a **Full Stack Software Engineer** focused on **cloud-native SaaS** and production operations, based in Faisalabad, Pakistan.
 
-**Open to work** — seeking **senior Software Engineer**, **Senior Full-Stack Developer**, and senior **individual contributor (IC)** roles. Remote-friendly.
+**Open to work** — Senior Full Stack, Backend, Cloud, and SaaS roles. Remote EU-friendly.
 
-I specialize in architecting scalable SaaS and ERP platforms—bridging hands-on development with production operations: Kubernetes, CI/CD, multi-tenant systems, and reliable deployments.
+I build and operate multi-tenant SaaS platforms—bridging application development with Kubernetes, CI/CD, and reliable deployments.
 
 **B.S. Computer Science** — Virtual University of Pakistan (2020–2024)
 
 ## Why work with me
 
-- Open to senior engineering roles where I can own delivery end-to-end
-- 4+ years delivering production systems end-to-end
+- Open to Senior roles where I own delivery end-to-end
+- Production experience since Nov 2022
 - 200+ client ERP fleet experience with on-prem Kubernetes
-- Monolith-to-microservices migrations and public-sector delivery
+- Air-gapped / mission-critical deployments and finance-ops integrations
 - Full ownership: design → build → deploy → monitor → recover
 
 ## Contact

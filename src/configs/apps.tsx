@@ -6,7 +6,7 @@ const apps: AppsData[] = [
     id: "launchpad",
     title: "Launchpad",
     desktop: false,
-    img: "img/icons/launchpad.png",
+    img: "/img/icons/launchpad.png",
   },
   {
     id: "bear",
@@ -16,7 +16,7 @@ const apps: AppsData[] = [
     height: 500,
     show: true,
     y: -40,
-    img: "img/icons/bear.png",
+    img: "/img/icons/notes.svg",
     content: <Bear />,
   },
   {
@@ -26,7 +26,7 @@ const apps: AppsData[] = [
     width: 600,
     height: 400,
     show: false,
-    img: "img/ui/avatar.jpg", // Personalized icon for the Profile app
+    img: "/img/ui/avatar.jpg",
     content: <Finder />,
   },
   {
@@ -37,14 +37,14 @@ const apps: AppsData[] = [
     minWidth: 375,
     minHeight: 200,
     x: -20,
-    img: "img/icons/safari.png",
+    img: "/img/icons/safari.png",
     content: <Safari />,
   },
   {
     id: "facetime",
     title: "FaceTime",
     desktop: true,
-    img: "img/icons/facetime.png",
+    img: "/img/icons/facetime.png",
     width: 500 * 1.7,
     height: 500 + appBarHeight,
     minWidth: 350 * 1.7,
@@ -58,15 +58,22 @@ const apps: AppsData[] = [
     id: "terminal",
     title: "Terminal",
     desktop: true,
-    img: "img/icons/terminal.png",
+    img: "/img/icons/terminal.png",
     content: <Terminal />,
   },
   {
     id: "github",
     title: "Github",
     desktop: false,
-    img: "img/icons/github.png",
+    img: "/img/icons/github.png",
     link: "https://github.com/Mrhamza01",
+  },
+  {
+    id: "whatsapp",
+    title: "WhatsApp",
+    desktop: false,
+    img: "/img/icons/whatsapp.svg",
+    link: "https://wa.me/923097906831?text=Hi%20Hamza%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20about%20a%20Full%20Stack%20%2F%20SaaS%20opportunity.",
   },
   {
     id: "spotify",
@@ -76,7 +83,7 @@ const apps: AppsData[] = [
     height: 500,
     show: false,
     y: -40,
-    img: "img/icons/spotify.png",
+    img: "/img/icons/spotify.png",
     content: <Spotify />,
   },
   {
@@ -86,7 +93,7 @@ const apps: AppsData[] = [
     width: 400,
     height: 550,
     show: false,
-    img: "img/icons/chatbot.png", // Custom AI Chatbot icon
+    img: "/img/icons/ai-chat.svg",
     content: <Chat />,
   },
   {
@@ -97,7 +104,7 @@ const apps: AppsData[] = [
     height: 500,
     show: false,
     y: -40,
-    img: "img/icons/siri.png",
+    img: "/img/icons/siri.png",
     content: <Siri />,
   },
   {
@@ -107,7 +114,7 @@ const apps: AppsData[] = [
     width: 400,
     height: 480,
     show: false,
-    img: "img/icons/siri.png",
+    img: "/img/icons/weather.svg",
     content: <Weather />,
   },
   {
@@ -117,7 +124,7 @@ const apps: AppsData[] = [
     width: 280,
     height: 420,
     show: false,
-    img: "img/icons/terminal.png",
+    img: "/img/icons/calculator.svg",
     content: <Calculator />,
   },
   {
@@ -127,7 +134,7 @@ const apps: AppsData[] = [
     width: 400,
     height: 500,
     show: false,
-    img: "img/icons/bear.png",
+    img: "/img/icons/notes.svg",
     content: <Notes />,
   },
   {
@@ -137,7 +144,7 @@ const apps: AppsData[] = [
     width: 380,
     height: 400,
     show: false,
-    img: "img/icons/safari.png",
+    img: "/img/icons/safari.png",
     content: <Stocks />,
   },
   {
@@ -148,7 +155,7 @@ const apps: AppsData[] = [
     height: 560,
     show: false,
     y: -20,
-    img: "img/icons/terminal.png",
+    img: "/img/icons/architecture.svg",
     content: <Architecture />,
   },
   {
@@ -158,7 +165,7 @@ const apps: AppsData[] = [
     width: 480,
     height: 400,
     show: false,
-    img: "img/icons/bear.png",
+    img: "/img/icons/certificates.svg",
     content: <Certificates />,
   },
 ];

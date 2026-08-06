@@ -7,6 +7,7 @@ import {
   useTransform,
   type MotionValue
 } from "framer-motion";
+import { FALLBACK_ICON, assetUrl } from "~/utils/assets";
 
 // Hover effect is adopted from https://github.com/PuruVJ/macos-web/blob/main/src/components/dock/DockItem.tsx
 
@@ -92,6 +93,13 @@ export default function DockItem({
   const imgRef = useRef<HTMLImageElement>(null);
   const { width } = useDockHoverAnimation(mouseX, imgRef, dockSize, dockMag);
   const { winWidth } = useWindowSize();
+  const src = assetUrl(img);
+
+  const onImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const el = e.currentTarget;
+    if (el.src.includes("fallback.svg")) return;
+    el.src = FALLBACK_ICON;
+  };
 
   return (
     <li
@@ -110,20 +118,22 @@ export default function DockItem({
         <a href={link} target="_blank" rel="noreferrer">
           <motion.img
             ref={imgRef}
-            src={img}
+            src={src}
             alt={title}
             title={title}
             draggable={false}
+            onError={onImgError}
             style={winWidth < 640 ? {} : { width, willChange: "width" }}
           />
         </a>
       ) : (
         <motion.img
           ref={imgRef}
-          src={img}
+          src={src}
           alt={title}
           title={title}
           draggable={false}
+          onError={onImgError}
           style={winWidth < 640 ? {} : { width, willChange: "width" }}
         />
       )}

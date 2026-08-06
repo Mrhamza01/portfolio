@@ -1,7 +1,7 @@
 {
   "short_name": "Hamza",
-  "name": "Hamza Ghafoor — Senior Engineer Portfolio",
-  "description": "Senior Full-Stack & DevOps portfolio in macOS style.",
+  "name": "Hamza Ghafoor — Full Stack Portfolio",
+  "description": "Full Stack Software Engineer portfolio in macOS style. Multi-tenant SaaS, Kubernetes, CI/CD.",
   "icons": [
     {
       "src": "/img/ui/avatar.jpg",

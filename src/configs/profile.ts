@@ -40,17 +40,19 @@ export interface CertificationEntry {
 export const profile = {
   name: "Muhammad Hamza",
   displayName: "Hamza Ghafoor",
-  title: "Senior Full-Stack Software Engineer | DevOps Engineer",
+  title: "Full Stack Software Engineer | Cloud-Native & SaaS",
   openToWork:
-    "Open to work — seeking senior Software Engineer, Senior Full-Stack Developer, and senior individual contributor (IC) roles. Remote-friendly.",
+    "Open to work — Senior Full Stack, Backend, Cloud, and SaaS roles. Remote EU-friendly.",
   location: "Faisalabad, Pakistan",
-  version: "Portfolio OS 1.0",
-  productName: "Hamza Ghafoor — Senior Engineer Edition",
+  version: "Portfolio OS 2.0",
+  productName: "Hamza Ghafoor — Full Stack Engineer",
 
   contact: {
     email: "hamza.kamboh035@gmail.com",
     phone: "+92 309 7906831",
     phoneTel: "+923097906831",
+    whatsapp: "https://wa.me/923097906831?text=Hi%20Hamza%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20about%20a%20Full%20Stack%20%2F%20SaaS%20opportunity.",
+    whatsappLabel: "WhatsApp",
     linkedin: "https://linkedin.com/in/hamza-ghafoor",
     linkedinLabel: "linkedin.com/in/hamza-ghafoor",
     github: "https://github.com/Mrhamza01",
@@ -60,46 +62,44 @@ export const profile = {
   },
 
   summary:
-    "Senior Full-Stack Software Engineer and DevOps practitioner with 4+ years delivering cloud-native and on-prem production systems—from multi-tenant ERP platforms serving 200+ clients to mission-critical public-sector products.",
+    "Full Stack Software Engineer (production since Nov 2022) who builds and operates multi-tenant SaaS and on-prem cloud-native systems—from an ERP fleet of 200+ Kubernetes deployments to air-gapped, mission-critical releases.",
 
   whyHireMe: [
-    "Open to work: senior Software Engineer / Full-Stack Developer (IC) roles.",
+    "Open to Senior Full Stack, Backend, Cloud, and SaaS roles — remote EU-friendly.",
     "Owns system design, implementation, CI/CD, Kubernetes operations, and reliability end-to-end.",
     "Proven at scale: 200+ tenant ERP fleet, multi-tenant databases, zero-downtime deployments.",
-    "Led monolith-to-microservices migrations for high load and large data volumes.",
+    "Builds and operates production SaaS—not only application code.",
   ],
 
   specs: {
-    chip: "Full-Stack + DevOps",
-    memory: "4+ years production experience",
-    os: "Open to work · Remote-friendly · K8s",
+    chip: "Full-Stack + Platform",
+    memory: "Production since Nov 2022",
+    os: "Open to work · Remote EU · K8s",
   },
 
   experience: [
     {
       company: "MilestoneZero",
-      role: "Senior Full-Stack Software Engineer",
+      role: "Full Stack Software Engineer",
       period: "Dec 2025 — Present",
       logo: "/companies/milestone_zero_logo.jpg",
       website: "https://milestonezero.net/",
       bullets: [
-        "Organization-scale sustainability software with law enforcement and public safety partners.",
-        "Stabilized legacy codebase; rebuilt backend services and i18n for public-sector law-enforcement platform.",
-        "Enterprise brand-onboarding for regional and international clients.",
-        "Led monolith-to-microservices migration; redesigned service boundaries for scalable system design.",
-        "Technical guidance and modern tooling to accelerate safe delivery.",
+        "Deployed sustainability / public-safety software to air-gapped on-prem Kubernetes with enterprise licensing and domain-authenticated databases.",
+        "Built courier-aggregator finance receivables: reconcile third-party APIs to contracts, detect anomalies, cash-flow analytics.",
+        "Shipped WhatsApp AI order automation (15–30 min capture → seconds); tuned DB/cache and background workers for API latency.",
       ],
     },
     {
       company: "AxonERP / Axon",
-      role: "Senior Full-Stack Software Engineer",
-      period: "May 2021 — Nov 2025",
+      role: "Full Stack Software Engineer",
+      period: "Nov 2022 — Nov 2025",
       logo: "/companies/axon-erp.png",
       website: "https://www.axonerp.com/",
       bullets: [
         "Full-stack ERP: React, Next.js, TypeScript, Node.js, REST/GraphQL, PostgreSQL, MongoDB.",
         "Multi-tenant database design: tenant isolation, connection-pool tuning at scale.",
-        "On-prem Kubernetes for 200+ clients; Helm charts; CI (GitHub Actions) and CD (Jenkins).",
+        "On-prem Kubernetes (kOps) for 200+ clients; Helm; CI (GitHub Actions) and CD (Jenkins); hours → minutes deploys.",
         "NGINX Ingress, Longhorn, cert-manager, Prometheus/Grafana; fleet backup and disaster recovery.",
         "n8n, WhatsApp Business APIs, ops admin panel; code reviews and clean architecture.",
       ],
@@ -108,23 +108,23 @@ export const profile = {
 
   projects: [
     {
-      name: "ARCHARCH",
-      stack: "Go",
-      date: "Sep 2025",
-      description: "CLI tool for standardized folder-structure scaffolding.",
-      link: "https://github.com/Mrhamza01/arch",
-    },
-    {
-      name: "WhatsApp Order Summary",
-      stack: "Chrome Extension, AI",
+      name: "Multi-Tenant ERP Platform",
+      stack: "React, Node.js, PostgreSQL, Kubernetes",
+      date: "AxonERP",
       description:
-        "Chrome extension for WhatsApp Web that summarizes sales conversations and posts structured order summaries in chat.",
+        "Production multi-tenant SaaS ERP with tenant isolation, Helm client deployments, observability, and DR across 200+ on-prem environments.",
     },
     {
       name: "CI/CD & Container Automation",
-      stack: "GitHub Actions, Helm, Kubernetes, Docker",
+      stack: "GitHub Actions, Jenkins, Helm, Docker",
       description:
-        "Production CI/CD; automated Docker build/tag/push; cut deployment time from hours to minutes.",
+        "Pipelines to build/tag/push Docker images and promote Helm releases to Kubernetes; cut deployment cycles from hours to minutes.",
+    },
+    {
+      name: "WhatsApp Order Summary",
+      stack: "Chrome Extension, AI / LLM",
+      description:
+        "Chrome extension for WhatsApp Web that summarizes sales chats and posts structured order summaries to accelerate order capture.",
     },
   ] as ProjectEntry[],
 
@@ -143,14 +143,14 @@ export const profile = {
 
   skills: {
     languages: "TypeScript, JavaScript, Go, SQL",
-    frontend: "React, Next.js, Tailwind CSS, ShadCN, i18n / localization",
-    backend: "Node.js, Express, Laravel, REST APIs, GraphQL",
-    data: "PostgreSQL, MySQL, MongoDB; Prisma, Drizzle, Kysely",
+    frontend: "React, Next.js, Tailwind CSS, ShadCN, i18n",
+    backend: "Node.js, Express, REST APIs, GraphQL, Laravel, queues / background jobs",
+    data: "PostgreSQL, MongoDB, MySQL; Prisma, Drizzle, Kysely; Redis",
     devops:
       "Docker, Kubernetes, Helm, GitHub Actions, Jenkins, NGINX Ingress, cert-manager, Longhorn",
-    observability: "Prometheus, Grafana, backup/DR, NFS",
-    architecture: "System design, microservices, multi-tenant SaaS, high-availability",
-    cloud: "AWS, Vercel, Netlify, Heroku; Git, n8n, Firebase, Appwrite, Supabase",
+    observability: "Prometheus, Grafana, backup/DR",
+    architecture: "Multi-tenant SaaS, system design, microservices, CI/CD, high availability",
+    cloud: "AWS (S3, SQS, RDS), Vercel, Netlify; Git, n8n, Firebase, Appwrite, Supabase",
     ai: "LLM-powered summarization, Chrome extensions, WhatsApp Web",
   },
 
@@ -159,10 +159,10 @@ export const profile = {
       id: "general",
       title: "Why hire Hamza?",
       bullets: [
-        "4+ years shipping production systems from architecture through deployment.",
-        "Open to senior Software Engineer and Full-Stack Developer opportunities (IC, remote-friendly).",
-        "Strong full-stack + DevOps blend—rare combination for senior engineering teams.",
-        "Track record with ERP scale (200+ clients) and mission-critical public-sector delivery.",
+        "Production engineer since Nov 2022—owns delivery from architecture through deployment.",
+        "Open to Senior Full Stack, Backend, Cloud, and SaaS roles (remote EU-friendly).",
+        "Full-stack + platform blend: React/Node and Kubernetes/CI/CD in the same ownership loop.",
+        "Track record with ERP scale (200+ clients) and air-gapped / mission-critical delivery.",
         "Takes ownership: design, build, automate, monitor, and recover.",
       ],
     },
@@ -181,9 +181,9 @@ export const profile = {
       title: "How I work",
       bullets: [
         "Remote-ready: async communication and clear written updates.",
-        "Collaborates with product, QA, and design; leads code reviews.",
-        "Uses modern tooling (e.g. Cursor) to ship faster without sacrificing quality.",
-        "Comfortable guiding teams through architecture and migration decisions.",
+        "Collaborates with product, QA, and design; participates in code reviews.",
+        "Uses modern tooling to ship faster without sacrificing quality.",
+        "Comfortable with architecture and migration decisions on production systems.",
       ],
     },
     {
@@ -215,7 +215,7 @@ export const profile = {
     { id: "kubernetes", name: "Kubernetes", category: "DevOps", icon: "i-simple-icons:kubernetes", featured: true, docUrl: "https://kubernetes.io" },
     { id: "helm", name: "Helm", category: "DevOps", icon: "i-simple-icons:helm", docUrl: "https://helm.sh" },
     { id: "githubactions", name: "GitHub Actions", category: "DevOps", icon: "i-simple-icons:githubactions", featured: true, docUrl: "https://github.com/features/actions" },
-    { id: "jenkins", name: "Jenkins", category: "DevOps", icon: "i-simple-icons:jenkins", docUrl: "https://www.jenkins.io" },
+    { id: "jenkins", name: "Jenkins", category: "DevOps", icon: "i-simple-icons:jenkins", docUrl: "https://jenkins.io" },
     { id: "nginx", name: "NGINX", category: "DevOps", icon: "i-simple-icons:nginx", docUrl: "https://nginx.org" },
     { id: "prometheus", name: "Prometheus", category: "DevOps", icon: "i-simple-icons:prometheus", docUrl: "https://prometheus.io" },
     { id: "grafana", name: "Grafana", category: "DevOps", icon: "i-simple-icons:grafana", docUrl: "https://grafana.com" },
@@ -244,6 +244,30 @@ export function getBioContext(): string {
     null,
     2
   );
+}
+
+/** Compact bio for Gemini — keeps free-tier input tokens low. */
+export function getSlimBioForAI(): string {
+  const exp = profile.experience
+    .map(
+      (e) =>
+        `${e.role} @ ${e.company} (${e.period}): ${e.bullets.slice(0, 3).join(" | ")}`
+    )
+    .join("\n");
+  const projects = profile.projects
+    .map((p) => `${p.name} [${p.stack}]: ${p.description}`)
+    .join("\n");
+  return [
+    `Name: Muhammad Hamza`,
+    `Title: ${profile.title}`,
+    `Location: ${profile.location}`,
+    `Summary: ${profile.summary}`,
+    `OpenToWork: ${profile.openToWork}`,
+    `Skills: ${Object.values(profile.skills).join("; ")}`,
+    `Experience:\n${exp}`,
+    `Projects:\n${projects}`,
+    `Contact: ${profile.contact.email} | WhatsApp wa.me/923097906831 | ${profile.contact.linkedinLabel} | ${profile.contact.githubLabel}`,
+  ].join("\n");
 }
 
 export default profile;

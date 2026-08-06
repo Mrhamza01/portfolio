@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="aiBg" x1="32" y1="24" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="0.5" stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="aiShine" x1="64" y1="40" x2="180" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="aiShadow" x="16" y="20" width="224" height="224" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect x="28" y="28" width="200" height="200" rx="48" fill="url(#aiBg)" filter="url(#aiShadow)"/>
+  <rect x="28" y="28" width="200" height="200" rx="48" fill="url(#aiShine)"/>
+  <path d="M128 72v112M88 104l80 48M168 104l-80 48" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="128" cy="128" r="22" fill="#fff"/>
+  <circle cx="128" cy="128" r="10" fill="#6366F1"/>
+</svg>
