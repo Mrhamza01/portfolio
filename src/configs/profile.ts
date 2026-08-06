@@ -46,6 +46,7 @@ export const profile = {
   location: "Faisalabad, Pakistan",
   version: "Portfolio OS 2.0",
   productName: "Hamza Ghafoor — Full Stack Engineer",
+  // Keep scripts/seo-data.mjs in sync when changing identity / experience / skills / projects.
 
   contact: {
     email: "hamza.kamboh035@gmail.com",

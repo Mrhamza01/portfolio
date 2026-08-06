@@ -3,8 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "node scripts/generate-seo.mjs && vite build",
     "dev": "vite --host",
+    "generate:seo": "node scripts/generate-seo.mjs",
     "lint": "eslint .",
     "prepare": "husky",
     "serve": "vite preview --host"
@@ -45,7 +46,6 @@
     "eslint": "^10.4.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.5",
-    "pnpm": "^11.1.2",
     "rehype-external-links": "^3.0.0",
     "rehype-katex": "7.0.1",
     "remark-gfm": "4.0.1",

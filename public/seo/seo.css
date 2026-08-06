@@ -1,0 +1,94 @@
+:root {
+  --bg: #0f1419;
+  --surface: #1a222d;
+  --text: #e8eef4;
+  --muted: #9aa8b5;
+  --accent: #5b9fd4;
+  --border: #2a3544;
+  --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--surface);
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+.site-header, .site-footer, main {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+}
+.site-header {
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.brand a {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+.brand p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+nav a[aria-current="page"] {
+  font-weight: 700;
+  color: var(--text);
+}
+h1 { font-size: 1.85rem; line-height: 1.25; margin: 0 0 0.75rem; }
+h2 { font-size: 1.35rem; margin: 1.75rem 0 0.5rem; }
+h3 { font-size: 1.1rem; margin: 1.25rem 0 0.4rem; }
+.lede { font-size: 1.1rem; color: var(--muted); }
+.muted { color: var(--muted); font-size: 0.95rem; }
+article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.35rem;
+  margin: 1.25rem 0;
+}
+ul { padding-left: 1.25rem; }
+.cta {
+  display: inline-block;
+  background: var(--accent);
+  color: #0a0e12 !important;
+  font-weight: 700;
+  text-decoration: none !important;
+  padding: 0.65rem 1.1rem;
+  border-radius: 6px;
+}
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+  padding-bottom: 2.5rem;
+}

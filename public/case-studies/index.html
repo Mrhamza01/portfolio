@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Studies — ERP Architecture &amp; Kubernetes CI/CD</title>
+  <meta name="description" content="Engineering case studies: multi-tenant SaaS ERP on Kubernetes and CI/CD pipelines that cut deploy time from hours to minutes." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Muhammad Hamza" />
+  <link rel="canonical" href="https://hamzaghafoor.vercel.app/case-studies/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Hamza Ghafoor — Portfolio" />
+  <meta property="og:url" content="https://hamzaghafoor.vercel.app/case-studies/" />
+  <meta property="og:title" content="Case Studies — ERP Architecture &amp; Kubernetes CI/CD" />
+  <meta property="og:description" content="Engineering case studies: multi-tenant SaaS ERP on Kubernetes and CI/CD pipelines that cut deploy time from hours to minutes." />
+  <meta property="og:image" content="https://hamzaghafoor.vercel.app/img/ui/avatar.jpg" />
+  <meta property="og:image:alt" content="Muhammad Hamza — Full Stack Software Engineer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Case Studies — ERP Architecture &amp; Kubernetes CI/CD" />
+  <meta name="twitter:description" content="Engineering case studies: multi-tenant SaaS ERP on Kubernetes and CI/CD pipelines that cut deploy time from hours to minutes." />
+  <meta name="twitter:image" content="https://hamzaghafoor.vercel.app/img/ui/avatar.jpg" />
+  <link rel="icon" href="/logo/favicon.ico" />
+  <link rel="stylesheet" href="/seo/seo.css" />
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://hamzaghafoor.vercel.app/#person",
+    "name": "Muhammad Hamza",
+    "alternateName": "Hamza Ghafoor",
+    "jobTitle": "Full Stack Software Engineer | Cloud-Native & SaaS",
+    "description": "Full Stack Software Engineer (production since Nov 2022) who builds and operates multi-tenant SaaS and on-prem cloud-native systems—from an ERP fleet of 200+ Kubernetes deployments to air-gapped, mission-critical releases.",
+    "url": "https://hamzaghafoor.vercel.app/",
+    "image": "https://hamzaghafoor.vercel.app/img/ui/avatar.jpg",
+    "email": "hamza.kamboh035@gmail.com",
+    "telephone": "+92 309 7906831",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Faisalabad",
+      "addressCountry": "PK"
+    },
+    "sameAs": [
+      "https://linkedin.com/in/hamza-ghafoor",
+      "https://github.com/Mrhamza01",
+      "https://hamzaghafoor.vercel.app/"
+    ],
+    "knowsAbout": [
+      "TypeScript",
+      "JavaScript",
+      "Go",
+      "SQL",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "ShadCN",
+      "i18n",
+      "Node.js",
+      "Express",
+      "REST APIs",
+      "GraphQL",
+      "Laravel",
+      "queues / background jobs",
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "Prisma",
+      "Drizzle",
+      "Kysely",
+      "Redis",
+      "Docker",
+      "Kubernetes",
+      "Helm",
+      "GitHub Actions",
+      "Jenkins",
+      "NGINX Ingress",
+      "cert-manager",
+      "Longhorn",
+      "Prometheus",
+      "Grafana",
+      "backup/DR",
+      "Multi-tenant SaaS",
+      "system design",
+      "microservices",
+      "CI/CD",
+      "high availability",
+      "AWS (S3, SQS, RDS)",
+      "Vercel",
+      "Netlify",
+      "Git",
+      "n8n",
+      "Firebase",
+      "Appwrite",
+      "Supabase",
+      "LLM-powered summarization",
+      "Chrome extensions",
+      "WhatsApp Web",
+      "Full Stack Software Engineer",
+      "SaaS Platform Developer",
+      "ERP System Architect",
+      "Kubernetes / Cloud Engineer",
+      "Backend Engineer",
+      "Product-focused Engineer"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Virtual University of Pakistan (VU)"
+    },
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Full Stack Software Engineer",
+      "occupationLocation": {
+        "@type": "Country",
+        "name": "Pakistan"
+      },
+      "skills": "TypeScript, JavaScript, Go, SQL; React, Next.js, Tailwind CSS, ShadCN, i18n; Node.js, Express, REST APIs, GraphQL, Laravel, queues / background jobs; PostgreSQL, MongoDB, MySQL; Prisma, Drizzle, Kysely; Redis; Docker, Kubernetes, Helm, GitHub Actions, Jenkins, NGINX Ingress, cert-manager, Longhorn; Prometheus, Grafana, backup/DR; Multi-tenant SaaS, system design, microservices, CI/CD, high availability; AWS (S3, SQS, RDS), Vercel, Netlify; Git, n8n, Firebase, Appwrite, Supabase; LLM-powered summarization, Chrome extensions, WhatsApp Web"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://hamzaghafoor.vercel.app/#website",
+    "name": "Hamza Ghafoor — Portfolio",
+    "url": "https://hamzaghafoor.vercel.app/",
+    "description": "Full Stack Software Engineer (production since Nov 2022) who builds and operates multi-tenant SaaS and on-prem cloud-native systems—from an ERP fleet of 200+ Kubernetes deployments to air-gapped, mission-critical releases.",
+    "inLanguage": "en",
+    "publisher": {
+      "@id": "https://hamzaghafoor.vercel.app/#person"
+    },
+    "author": {
+      "@id": "https://hamzaghafoor.vercel.app/#person"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://hamzaghafoor.vercel.app/case-studies/#webpage",
+    "url": "https://hamzaghafoor.vercel.app/case-studies/",
+    "name": "Case Studies — ERP Architecture & Kubernetes CI/CD",
+    "description": "Engineering case studies: multi-tenant SaaS ERP on Kubernetes and CI/CD pipelines that cut deploy time from hours to minutes.",
+    "isPartOf": {
+      "@id": "https://hamzaghafoor.vercel.app/#website"
+    },
+    "about": {
+      "@id": "https://hamzaghafoor.vercel.app/#person"
+    },
+    "author": {
+      "@id": "https://hamzaghafoor.vercel.app/#person"
+    },
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://hamzaghafoor.vercel.app/case-studies/#erp-platform",
+    "headline": "Multi-Tenant ERP Platform",
+    "description": "On-prem Kubernetes fleet · 200+ client deployments",
+    "about": "SaaS ERP serving hundreds of isolated tenants with strict data boundaries. Connection-pool exhaustion and noisy-neighbor risk at scale. Per-client TLS, backups, and upgrades without fleet-wide downtime.",
+    "keywords": "React, Next.js, TypeScript, Node.js, PostgreSQL, Kubernetes, Helm, NGINX Ingress, Prometheus, Grafana",
+    "author": {
+      "@id": "https://hamzaghafoor.vercel.app/#person"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://hamzaghafoor.vercel.app/case-studies/#cicd-pipeline",
+    "headline": "CI/CD & Container Automation",
+    "description": "GitHub Actions → Docker → Helm → Kubernetes",
+    "about": "Manual builds and deploys taking hours across many client environments. Inconsistent image tags and rollback difficulty. Limited visibility when pipelines failed mid-fleet.",
+    "keywords": "GitHub Actions, Jenkins, Docker, Helm, Kubernetes, Git",
+    "author": {
+      "@id": "https://hamzaghafoor.vercel.app/#person"
+    }
+  }
+]
+</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="brand">
+      <a href="/">Hamza Ghafoor</a>
+      <p>Full Stack Software Engineer | Cloud-Native &amp; SaaS</p>
+    </div>
+    <nav aria-label="Primary">
+    <ul>
+      <li><a href="/">Portfolio</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/experience/">Experience</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/case-studies/" aria-current="page">Case Studies</a></li>
+      <li><a href="/skills/">Skills</a></li>
+      <li><a href="/resume.pdf">Resume PDF</a></li>
+    </ul>
+  </nav>
+  </header>
+  <main id="main">
+
+    <h1>Engineering Case Studies</h1>
+    <p class="lede">Detailed context for AI systems and recruiters: problem, architecture, implementation, and outcomes.</p>
+    
+      <article id="erp-platform">
+        <h2>Multi-Tenant ERP Platform</h2>
+        <p class="muted">On-prem Kubernetes fleet · 200+ client deployments</p>
+        <h3>Problem</h3>
+        <ul>
+  <li>SaaS ERP serving hundreds of isolated tenants with strict data boundaries.</li>
+  <li>Connection-pool exhaustion and noisy-neighbor risk at scale.</li>
+  <li>Per-client TLS, backups, and upgrades without fleet-wide downtime.</li>
+</ul>
+        <h3>Architecture &amp; solution</h3>
+        <ul>
+  <li>Tenant-scoped PostgreSQL isolation with tuned pool sizing per deployment.</li>
+  <li>NGINX Ingress + cert-manager for per-client certificates.</li>
+  <li>Helm-packaged services on on-prem Kubernetes (kOps) with Longhorn storage.</li>
+  <li>Prometheus/Grafana observability and documented DR/restore runbooks.</li>
+</ul>
+        <h3>Technical implementation</h3>
+        <p><strong>Stack:</strong> React, Next.js, TypeScript, Node.js, PostgreSQL, Kubernetes, Helm, NGINX Ingress, Prometheus, Grafana</p>
+        <h3>Results</h3>
+        <ul>
+  <li>200+ production client deployments on a repeatable platform baseline.</li>
+  <li>Zero-downtime rollout patterns for app and schema changes (hours → minutes).</li>
+  <li>Fleet-wide backup/restore and operational visibility.</li>
+</ul>
+      </article>
+
+      <article id="cicd-pipeline">
+        <h2>CI/CD &amp; Container Automation</h2>
+        <p class="muted">GitHub Actions → Docker → Helm → Kubernetes</p>
+        <h3>Problem</h3>
+        <ul>
+  <li>Manual builds and deploys taking hours across many client environments.</li>
+  <li>Inconsistent image tags and rollback difficulty.</li>
+  <li>Limited visibility when pipelines failed mid-fleet.</li>
+</ul>
+        <h3>Architecture &amp; solution</h3>
+        <ul>
+  <li>GitHub Actions for build, test, and Docker publish on merge.</li>
+  <li>Jenkins CD stages for environment promotion and Helm releases.</li>
+  <li>Immutable image tags and chart version pinning per client.</li>
+  <li>Automated migrations gated behind pipeline checks.</li>
+</ul>
+        <h3>Technical implementation</h3>
+        <p><strong>Stack:</strong> GitHub Actions, Jenkins, Docker, Helm, Kubernetes, Git</p>
+        <h3>Results</h3>
+        <ul>
+  <li>Deployment cycle reduced from hours to minutes.</li>
+  <li>Repeatable, auditable releases across the ERP fleet.</li>
+  <li>Safer rollbacks via versioned charts and images.</li>
+</ul>
+      </article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <a class="cta" href="/">Open interactive macOS portfolio</a>
+    </p>
+    <p>
+      <a href="https://linkedin.com/in/hamza-ghafoor">LinkedIn</a> ·
+      <a href="https://github.com/Mrhamza01">GitHub</a> ·
+      <a href="mailto:hamza.kamboh035@gmail.com">Email</a> ·
+      <a href="/resume.pdf">Resume PDF</a>
+    </p>
+    <p class="muted">© 2026 Muhammad Hamza (Hamza Ghafoor)</p>
+  </footer>
+</body>
+</html>

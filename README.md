@@ -15,19 +15,19 @@ Powered by [React](https://reactjs.org/) + [Zustand](https://zustand-demo.pmnd.r
 Clone the repo and install dependencies:
 
 ```bash
-pnpm install
+npm install
 ```
 
 Start dev server (with hot reloading):
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 Build for production with minification to the `dist` folder:
 
 ```bash
-pnpm build
+npm run build
 ```
 &nbsp;
 

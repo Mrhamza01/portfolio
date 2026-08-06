@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - esbuild
+  - husky
+
+allowBuilds:
+  esbuild: true
+  husky: true
