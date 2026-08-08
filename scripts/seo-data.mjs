@@ -10,12 +10,11 @@ export const profile = {
   displayName: "Hamza Ghafoor",
   title: "Full Stack Software Engineer | Cloud-Native & SaaS",
   openToWork:
-    "Open to work — Senior Full Stack, Backend, Cloud, and SaaS roles. Remote EU-friendly.",
+    "Available for Full Stack, Backend, Cloud, and SaaS roles.",
   location: "Faisalabad, Pakistan",
   summary:
     "Full Stack Software Engineer (production since Nov 2022) who builds and operates multi-tenant SaaS and on-prem cloud-native systems—from an ERP fleet of 200+ Kubernetes deployments to air-gapped, mission-critical releases.",
   whyHireMe: [
-    "Open to Senior Full Stack, Backend, Cloud, and SaaS roles — remote EU-friendly.",
     "Owns system design, implementation, CI/CD, Kubernetes operations, and reliability end-to-end.",
     "Proven at scale: 200+ tenant ERP fleet, multi-tenant databases, zero-downtime deployments.",
     "Builds and operates production SaaS—not only application code.",
@@ -195,7 +194,7 @@ export const pages = [
     path: "/about/",
     title: "About Hamza Ghafoor — Full Stack Software Engineer",
     description:
-      "Muhammad Hamza (Hamza Ghafoor) is a Full Stack Software Engineer specializing in multi-tenant SaaS, ERP systems, and Kubernetes. Open to Senior roles (remote EU).",
+      "Muhammad Hamza (Hamza Ghafoor) is a Full Stack Software Engineer specializing in multi-tenant SaaS, ERP systems, and Kubernetes.",
     priority: "0.9",
   },
   {

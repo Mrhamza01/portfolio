@@ -469,7 +469,7 @@ function writeLlmsTxt() {
 - Name: ${profile.name} (professional: ${profile.displayName})
 - Title: ${profile.title}
 - Location: ${profile.location}
-- Preferred roles: Senior Full Stack, Backend, Cloud, SaaS (remote EU-friendly)
+- Preferred roles: Full Stack, Backend, Cloud, SaaS
 - Roles fit: ${profile.roles.join("; ")}
 - Website (interactive portfolio): ${SITE_URL}/
 - Resume PDF: ${SITE_URL}/resume.pdf

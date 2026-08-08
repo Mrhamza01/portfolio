@@ -42,7 +42,7 @@ export const profile = {
   displayName: "Hamza Ghafoor",
   title: "Full Stack Software Engineer | Cloud-Native & SaaS",
   openToWork:
-    "Open to work — Senior Full Stack, Backend, Cloud, and SaaS roles. Remote EU-friendly.",
+    "Available for Full Stack, Backend, Cloud, and SaaS roles.",
   location: "Faisalabad, Pakistan",
   version: "Portfolio OS 2.0",
   productName: "Hamza Ghafoor — Full Stack Engineer",
@@ -66,7 +66,6 @@ export const profile = {
     "Full Stack Software Engineer (production since Nov 2022) who builds and operates multi-tenant SaaS and on-prem cloud-native systems—from an ERP fleet of 200+ Kubernetes deployments to air-gapped, mission-critical releases.",
 
   whyHireMe: [
-    "Open to Senior Full Stack, Backend, Cloud, and SaaS roles — remote EU-friendly.",
     "Owns system design, implementation, CI/CD, Kubernetes operations, and reliability end-to-end.",
     "Proven at scale: 200+ tenant ERP fleet, multi-tenant databases, zero-downtime deployments.",
     "Builds and operates production SaaS—not only application code.",
@@ -75,7 +74,7 @@ export const profile = {
   specs: {
     chip: "Full-Stack + Platform",
     memory: "Production since Nov 2022",
-    os: "Open to work · Remote EU · K8s",
+    os: "Available · Full Stack · K8s",
   },
 
   experience: [
@@ -161,7 +160,6 @@ export const profile = {
       title: "Why hire Hamza?",
       bullets: [
         "Production engineer since Nov 2022—owns delivery from architecture through deployment.",
-        "Open to Senior Full Stack, Backend, Cloud, and SaaS roles (remote EU-friendly).",
         "Full-stack + platform blend: React/Node and Kubernetes/CI/CD in the same ownership loop.",
         "Track record with ERP scale (200+ clients) and air-gapped / mission-critical delivery.",
         "Takes ownership: design, build, automate, monitor, and recover.",

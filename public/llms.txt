@@ -5,7 +5,7 @@
 - Name: Muhammad Hamza (professional: Hamza Ghafoor)
 - Title: Full Stack Software Engineer | Cloud-Native & SaaS
 - Location: Faisalabad, Pakistan
-- Preferred roles: Senior Full Stack, Backend, Cloud, SaaS (remote EU-friendly)
+- Preferred roles: Full Stack, Backend, Cloud, SaaS
 - Roles fit: Full Stack Software Engineer; SaaS Platform Developer; ERP System Architect; Kubernetes / Cloud Engineer; Backend Engineer; Product-focused Engineer
 - Website (interactive portfolio): https://hamzaghafoor.vercel.app/
 - Resume PDF: https://hamzaghafoor.vercel.app/resume.pdf
@@ -28,10 +28,9 @@
 
 ## Professional summary
 
-Open to work — Senior Full Stack, Backend, Cloud, and SaaS roles. Remote EU-friendly.
+Available for Full Stack, Backend, Cloud, and SaaS roles.
 
 Why hire:
-- Open to Senior Full Stack, Backend, Cloud, and SaaS roles — remote EU-friendly.
 - Owns system design, implementation, CI/CD, Kubernetes operations, and reliability end-to-end.
 - Proven at scale: 200+ tenant ERP fleet, multi-tenant databases, zero-downtime deployments.
 - Builds and operates production SaaS—not only application code.

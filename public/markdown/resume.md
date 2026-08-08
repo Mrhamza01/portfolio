@@ -3,11 +3,11 @@
 **Full Stack Software Engineer | Cloud-Native & SaaS**  
 Faisalabad, Pakistan
 
-**Open to work** — Senior · Full Stack · Backend · Cloud · SaaS · remote EU-friendly
-
 ## Professional Summary
 
 Full Stack Software Engineer (production since **Nov 2022**) who builds and operates multi-tenant SaaS and on-prem cloud-native systems—from ERP platforms serving **200+ clients** to air-gapped, mission-critical products. Owns system design, implementation, CI/CD, Kubernetes operations, and reliability (backup/DR, monitoring, zero-downtime releases).
+
+**200+** client Kubernetes deployments · ERP full-stack delivery · zero-downtime upgrades (hours → minutes) · air-gapped on-prem K8s · React / Next.js / TypeScript / Node.js / PostgreSQL / Docker / Helm
 
 ## Contact
 
@@ -28,5 +28,5 @@ Full Stack Software Engineer (production since **Nov 2022**) who builds and oper
 
 ## Certifications
 
-- **Back End Development and APIs** — freeCodeCamp
-- **IBM Full Stack Software Developer Specialization** — Coursera
+- Back End Development and APIs — freeCodeCamp
+- IBM Full Stack Software Developer Specialization — Coursera
