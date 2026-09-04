@@ -9,7 +9,7 @@ interface Message {
 
 export default function Chat() {
     const [messages, setMessages] = useState<Message[]>([
-        { role: "assistant", content: "Hi! I'm Muhammad Hamza's AI assistant. Ask about his work, experience, or try an interview simulation." }
+        { role: "assistant", content: "Hi! I'm Hamza Ghafoor's AI assistant. Ask about his work, experience, or try an interview simulation." }
     ]);
     const [input, setInput] = useState("");
     const [isTyping, setIsTyping] = useState(false);

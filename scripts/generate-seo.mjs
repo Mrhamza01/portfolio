@@ -36,12 +36,11 @@ function write(filePath, content) {
 }
 
 function personJsonLd(extra = {}) {
-  return {
+  const person = {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${SITE_URL}/#person`,
     name: profile.name,
-    alternateName: profile.displayName,
     jobTitle: profile.title,
     description: profile.summary,
     url: SITE_URL + "/",
@@ -82,6 +81,10 @@ function personJsonLd(extra = {}) {
     },
     ...extra,
   };
+  if (profile.displayName && profile.displayName !== profile.name) {
+    person.alternateName = profile.displayName;
+  }
+  return person;
 }
 
 function websiteJsonLd() {
@@ -231,7 +234,7 @@ ${body}
       <a href="mailto:${esc(profile.contact.email)}">Email</a> ·
       <a href="/resume.pdf">Resume PDF</a>
     </p>
-    <p class="muted">© ${new Date().getFullYear()} ${esc(profile.name)} (${esc(profile.displayName)})</p>
+    <p class="muted">© ${new Date().getFullYear()} ${esc(profile.displayName)}</p>
   </footer>
 </body>
 </html>
@@ -246,9 +249,9 @@ function aboutBody() {
   return `
     <article>
       <h1>About ${esc(profile.displayName)}</h1>
-      <p class="lede"><strong>${esc(profile.name)}</strong> (professionally <strong>${esc(profile.displayName)}</strong>) is a ${esc(profile.title)} based in ${esc(profile.location)}.</p>
+      <p class="lede"><strong>${esc(profile.displayName)}</strong> is a ${esc(profile.title)} based in ${esc(profile.location)}.</p>
       <section>
-        <h2>Who is Muhammad Hamza?</h2>
+        <h2>Who is ${esc(profile.displayName)}?</h2>
         <p>${esc(profile.summary)}</p>
         <p>${esc(profile.openToWork)}</p>
       </section>
@@ -462,14 +465,14 @@ function writeLlmsTxt() {
 
   write(
     path.join(publicDir, "llms.txt"),
-    `# ${profile.displayName} (${profile.name})
+    `# ${profile.displayName}
 
 > ${profile.summary}
 
-- Name: ${profile.name} (professional: ${profile.displayName})
+- Name: ${profile.displayName}
 - Title: ${profile.title}
 - Location: ${profile.location}
-- Preferred roles: Full Stack, Backend, Cloud, SaaS
+- Preferred roles: Senior Full Stack, Backend, Platform
 - Roles fit: ${profile.roles.join("; ")}
 - Website (interactive portfolio): ${SITE_URL}/
 - Resume PDF: ${SITE_URL}/resume.pdf

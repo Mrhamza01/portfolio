@@ -11,7 +11,7 @@ const bear: BearData[] = [
         title: "Resume",
         file: "markdown/resume.md",
         icon: "i-la:file-pdf",
-        excerpt: "Full professional resume of Muhammad Hamza..."
+        excerpt: "Full professional resume of Hamza Ghafoor..."
       },
       {
         id: "experience",

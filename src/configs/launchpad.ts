@@ -24,10 +24,10 @@ const launchpadApps: LaunchpadData[] = [
     link: "https://github.com/Mrhamza01/arch",
   },
   {
-    id: "whatsapp-extension",
-    title: "WhatsApp Summary",
+    id: "ai-summarizer",
+    title: "AI Summarizer",
     img: "/img/icons/ai-chat.svg",
-    link: "https://github.com/Mrhamza01",
+    link: "https://github.com/Mrhamza01/AI-summarizer",
   },
   {
     id: "whatsapp-chat",

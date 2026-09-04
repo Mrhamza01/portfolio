@@ -11,7 +11,7 @@ export interface TourStep {
 const STEPS: TourStep[] = [
   {
     id: "welcome",
-    title: "Welcome to Hamza's Portfolio",
+    title: "Welcome to Hamza Ghafoor's Portfolio",
     body: "A macOS-style desktop for a Full Stack engineer who builds and operates multi-tenant SaaS and Kubernetes systems. Start with the intro card or Bear for the resume.",
   },
   {

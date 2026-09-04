@@ -38,11 +38,11 @@ export interface CertificationEntry {
 }
 
 export const profile = {
-  name: "Muhammad Hamza",
+  name: "Hamza Ghafoor",
   displayName: "Hamza Ghafoor",
-  title: "Full Stack Software Engineer | Cloud-Native & SaaS",
+  title: "Full Stack Software Engineer | Backend & Platform Systems",
   openToWork:
-    "Available for Full Stack, Backend, Cloud, and SaaS roles.",
+    "Available for Senior Full Stack, Backend, and Platform Engineering roles.",
   location: "Faisalabad, Pakistan",
   version: "Portfolio OS 2.0",
   productName: "Hamza Ghafoor — Full Stack Engineer",
@@ -63,12 +63,12 @@ export const profile = {
   },
 
   summary:
-    "Full Stack Software Engineer (production since Nov 2022) who builds and operates multi-tenant SaaS and on-prem cloud-native systems—from an ERP fleet of 200+ Kubernetes deployments to air-gapped, mission-critical releases.",
+    "Full-Stack Software Engineer (production since Nov 2022) who designs, builds, and operates systems end-to-end—features, APIs, queues, CI/CD, and Kubernetes—across SaaS products and restricted enterprise infrastructure.",
 
   whyHireMe: [
-    "Owns system design, implementation, CI/CD, Kubernetes operations, and reliability end-to-end.",
-    "Proven at scale: 200+ tenant ERP fleet, multi-tenant databases, zero-downtime deployments.",
-    "Builds and operates production SaaS—not only application code.",
+    "End-to-end ownership: application code through CI/CD, Kubernetes, and production recovery.",
+    "Proven depth: air-gapped enterprise delivery, 100K+ async logistics processing, Stripe Connect marketplace payments, and a 200+ client ERP fleet.",
+    "Builds production systems that stay reliable under third-party failure, load, and operational constraints.",
   ],
 
   specs: {
@@ -85,9 +85,11 @@ export const profile = {
       logo: "/companies/milestone_zero_logo.jpg",
       website: "https://milestonezero.net/",
       bullets: [
-        "Deployed sustainability / public-safety software to air-gapped on-prem Kubernetes with enterprise licensing and domain-authenticated databases.",
-        "Built courier-aggregator finance receivables: reconcile third-party APIs to contracts, detect anomalies, cash-flow analytics.",
-        "Shipped WhatsApp AI order automation (15–30 min capture → seconds); tuned DB/cache and background workers for API latency.",
+        "Designed, delivered, and deployed a sustainability platform for Abu Dhabi Police to on-premises, air-gapped Kubernetes with licensed software, domain-authenticated databases, and Linux–Windows/Kerberos constraints.",
+        "Built multi-courier logistics integration and settlement across 9 providers (including PostEx, Leopards, and M&P)—provider abstraction, data normalization, reconciliation, returns/claims, and net receivables—not raw API wrappers.",
+        "Designed BullMQ / Amazon SQS async workers for 100K+ order capacity with concurrency controls, rate-limit awareness, retries, DLQs, and failure isolation.",
+        "Owned Stripe Connect marketplace payment infrastructure: Connected Accounts, fund holding, delayed business-rule payouts, transfers, and refunds on an international events product.",
+        "Shipped production AI features—message generation, booking-agent order summaries, and WhatsApp order-creation agents that cut a 15–30 minute capture task to seconds.",
       ],
     },
     {
@@ -97,16 +99,30 @@ export const profile = {
       logo: "/companies/axon-erp.png",
       website: "https://www.axonerp.com/",
       bullets: [
-        "Full-stack ERP: React, Next.js, TypeScript, Node.js, REST/GraphQL, PostgreSQL, MongoDB.",
-        "Multi-tenant database design: tenant isolation, connection-pool tuning at scale.",
-        "On-prem Kubernetes (kOps) for 200+ clients; Helm; CI (GitHub Actions) and CD (Jenkins); hours → minutes deploys.",
-        "NGINX Ingress, Longhorn, cert-manager, Prometheus/Grafana; fleet backup and disaster recovery.",
-        "n8n, WhatsApp Business APIs, ops admin panel; code reviews and clean architecture.",
+        "Designed and shipped full-stack ERP features and an ops admin panel with React, Next.js, TypeScript, Node.js, REST/GraphQL, PostgreSQL, and MongoDB.",
+        "Designed and operated on-prem Kubernetes (kOps/Helm) for 200+ client deployments with multi-tenant isolation, Dockerized apps/databases, PV/PVC storage, and Redis-backed workloads.",
+        "Led the move from manual releases to GitHub Actions and Jenkins with image builds, migrations, seeding, and zero-downtime Helm upgrades—hours to minutes.",
+        "Operated NGINX Ingress, cert-manager, Prometheus/Grafana, Longhorn backups, and cluster/database restore practices.",
+        "Integrated n8n and WhatsApp Business APIs; contributed to code reviews and clean-architecture standards.",
       ],
     },
   ] as ExperienceEntry[],
 
   projects: [
+    {
+      name: "Multi-Courier Logistics & Settlement Platform",
+      stack: "Node.js, BullMQ, Amazon SQS, PostgreSQL",
+      date: "MilestoneZero",
+      description:
+        "Scalable multi-provider logistics processing: 9 courier integrations, domain normalization, async workers for 100K+ orders, DLQ recovery, CPR/invoice reconciliation, and settlement workflows.",
+    },
+    {
+      name: "Stripe Connect Marketplace Payments",
+      stack: "Stripe Connect, Node.js, TypeScript",
+      date: "MilestoneZero",
+      description:
+        "Marketplace payment infrastructure for an international events product—Connected Accounts, ticket payments, fund holding, delayed payouts, transfers, and refunds driven by business rules.",
+    },
     {
       name: "Multi-Tenant ERP Platform",
       stack: "React, Node.js, PostgreSQL, Kubernetes",
@@ -121,10 +137,18 @@ export const profile = {
         "Pipelines to build/tag/push Docker images and promote Helm releases to Kubernetes; cut deployment cycles from hours to minutes.",
     },
     {
-      name: "WhatsApp Order Summary",
-      stack: "Chrome Extension, AI / LLM",
+      name: "Production AI Order Agents",
+      stack: "LLM agents, WhatsApp automation",
       description:
-        "Chrome extension for WhatsApp Web that summarizes sales chats and posts structured order summaries to accelerate order capture.",
+        "AI message generation, booking-agent order summaries, and order-creation agents with validation—compressing a 15–30 minute manual capture flow to seconds.",
+    },
+    {
+      name: "ARCHARCH / Arch CLI",
+      stack: "Go, Clean Architecture",
+      date: "Sep 2025",
+      description:
+        "Open-source Go CLI that scaffolds feature-based Clean Architecture folder structures to standardize and accelerate project setup.",
+      link: "https://github.com/Mrhamza01/arch",
     },
   ] as ProjectEntry[],
 
@@ -143,15 +167,16 @@ export const profile = {
 
   skills: {
     languages: "TypeScript, JavaScript, Go, SQL",
-    frontend: "React, Next.js, Tailwind CSS, ShadCN, i18n",
-    backend: "Node.js, Express, REST APIs, GraphQL, Laravel, queues / background jobs",
-    data: "PostgreSQL, MongoDB, MySQL; Prisma, Drizzle, Kysely; Redis",
+    frontend: "React, Next.js, Tailwind CSS, ShadCN",
+    backend: "Node.js, Express, REST APIs, GraphQL, Laravel, BullMQ, Amazon SQS",
+    data: "PostgreSQL, MongoDB, MySQL; Prisma, Drizzle, Kysely; Redis; partitioning & warm cache",
     devops:
-      "Docker, Kubernetes, Helm, GitHub Actions, Jenkins, NGINX Ingress, cert-manager, Longhorn",
+      "Docker, Kubernetes, Helm, kOps, GitHub Actions, Jenkins, NGINX Ingress, cert-manager, Longhorn",
     observability: "Prometheus, Grafana, backup/DR",
-    architecture: "Multi-tenant SaaS, system design, microservices, CI/CD, high availability",
+    architecture:
+      "Multi-tenant SaaS, provider abstraction, async processing, Stripe Connect, air-gapped on-prem delivery",
     cloud: "AWS (S3, SQS, RDS), Vercel, Netlify; Git, n8n, Firebase, Appwrite, Supabase",
-    ai: "LLM-powered summarization, Chrome extensions, WhatsApp Web",
+    ai: "LLM agents, AI message generation, order summarization, WhatsApp automation",
   },
 
   preferences: [
@@ -159,9 +184,9 @@ export const profile = {
       id: "general",
       title: "Why hire Hamza?",
       bullets: [
-        "Production engineer since Nov 2022—owns delivery from architecture through deployment.",
+        "Production engineer since Nov 2022—owns delivery from architecture through deployment and recovery.",
         "Full-stack + platform blend: React/Node and Kubernetes/CI/CD in the same ownership loop.",
-        "Track record with ERP scale (200+ clients) and air-gapped / mission-critical delivery.",
+        "Track record spanning ERP fleets (200+ clients), air-gapped enterprise delivery, logistics at 100K+ orders, and marketplace payments.",
         "Takes ownership: design, build, automate, monitor, and recover.",
       ],
     },
@@ -169,10 +194,10 @@ export const profile = {
       id: "displays",
       title: "What I deliver",
       bullets: [
-        "Full-stack features: React, Next.js, TypeScript, Node.js, REST/GraphQL.",
-        "Platform engineering: Kubernetes, Helm, CI/CD, observability stacks.",
-        "Data layers: PostgreSQL, MongoDB, multi-tenant isolation and performance tuning.",
-        "Integrations: WhatsApp Business APIs, workflow automation (n8n), admin tooling.",
+        "Full-stack product features: React, Next.js, TypeScript, Node.js, REST/GraphQL.",
+        "Integration architecture: multi-provider abstraction, normalization, reconciliation, and settlement.",
+        "Async systems: BullMQ/SQS workers, retries, DLQs, rate-limit-aware concurrency.",
+        "Platform engineering: Kubernetes, Helm, CI/CD, observability, backup/DR.",
       ],
     },
     {
@@ -180,8 +205,8 @@ export const profile = {
       title: "How I work",
       bullets: [
         "Remote-ready: async communication and clear written updates.",
-        "Collaborates with product, QA, and design; participates in code reviews.",
-        "Uses modern tooling to ship faster without sacrificing quality.",
+        "Collaborates with product, QA, and design; participates in code reviews and hiring interviews.",
+        "Uses modern AI-assisted tooling to ship faster without sacrificing quality.",
         "Comfortable with architecture and migration decisions on production systems.",
       ],
     },
@@ -190,9 +215,9 @@ export const profile = {
       title: "Reliability mindset",
       bullets: [
         "Zero-downtime deployments and automated database migrations.",
+        "Fault isolation via DLQs and reprocessing—failures must not stall the pipeline.",
         "Fleet-wide backup, restore, and disaster recovery practices.",
-        "Prometheus/Grafana monitoring; proactive operational visibility.",
-        "Security-conscious multi-tenant isolation and per-client TLS (cert-manager).",
+        "Security-conscious multi-tenant isolation and restricted/on-prem delivery patterns.",
       ],
     },
   ] as PreferenceSection[],
@@ -207,10 +232,12 @@ export const profile = {
     { id: "laravel", name: "Laravel", category: "Backend", icon: "i-simple-icons:laravel", docUrl: "https://laravel.com" },
     { id: "graphql", name: "GraphQL", category: "Backend", icon: "i-simple-icons:graphql", docUrl: "https://graphql.org" },
     { id: "go", name: "Go", category: "Backend", icon: "i-simple-icons:go", featured: true, docUrl: "https://go.dev" },
+    { id: "stripe", name: "Stripe", category: "Backend", icon: "i-simple-icons:stripe", featured: true, docUrl: "https://stripe.com/docs/connect" },
     { id: "postgresql", name: "PostgreSQL", category: "Data", icon: "i-simple-icons:postgresql", featured: true, docUrl: "https://www.postgresql.org" },
     { id: "mongodb", name: "MongoDB", category: "Data", icon: "i-simple-icons:mongodb", docUrl: "https://www.mongodb.com" },
     { id: "prisma", name: "Prisma", category: "Data", icon: "i-simple-icons:prisma", docUrl: "https://www.prisma.io" },
-    { id: "docker", name: "Docker", category: "DevOps", icon: "i-simple-icons:docker", featured: true, docUrl: "https://www.docker.com" },
+    { id: "redis", name: "Redis", category: "Data", icon: "i-simple-icons:redis", docUrl: "https://redis.io" },
+    { id: "docker", name: "Docker", category: "DevOps", icon: "i-simple-icons:docker", featured: true, docUrl: "https://docker.com" },
     { id: "kubernetes", name: "Kubernetes", category: "DevOps", icon: "i-simple-icons:kubernetes", featured: true, docUrl: "https://kubernetes.io" },
     { id: "helm", name: "Helm", category: "DevOps", icon: "i-simple-icons:helm", docUrl: "https://helm.sh" },
     { id: "githubactions", name: "GitHub Actions", category: "DevOps", icon: "i-simple-icons:githubactions", featured: true, docUrl: "https://github.com/features/actions" },
@@ -221,8 +248,7 @@ export const profile = {
     { id: "aws", name: "AWS", category: "Cloud", icon: "i-simple-icons:amazonwebservices", docUrl: "https://aws.amazon.com" },
     { id: "vercel", name: "Vercel", category: "Cloud", icon: "i-simple-icons:vercel", docUrl: "https://vercel.com" },
     { id: "firebase", name: "Firebase", category: "Cloud", icon: "i-simple-icons:firebase", docUrl: "https://firebase.google.com" },
-    { id: "openai", name: "AI / LLM", category: "AI & Integrations", icon: "i-simple-icons:openai", docUrl: "https://openai.com" },
-    { id: "chrome", name: "Chrome Extensions", category: "AI & Integrations", icon: "i-simple-icons:googlechrome", docUrl: "https://developer.chrome.com/docs/extensions" },
+    { id: "openai", name: "AI / LLM", category: "AI & Integrations", icon: "i-simple-icons:openai", featured: true, docUrl: "https://openai.com" },
     { id: "git", name: "Git", category: "Tools", icon: "i-simple-icons:git", docUrl: "https://git-scm.com" },
   ] as TechTool[],
 };
@@ -257,7 +283,7 @@ export function getSlimBioForAI(): string {
     .map((p) => `${p.name} [${p.stack}]: ${p.description}`)
     .join("\n");
   return [
-    `Name: Muhammad Hamza`,
+    `Name: Hamza Ghafoor`,
     `Title: ${profile.title}`,
     `Location: ${profile.location}`,
     `Summary: ${profile.summary}`,

@@ -7,9 +7,12 @@
 *Dec 2025 — Present*
 
 - [Website](https://milestonezero.net/)
-- Deployed sustainability / public-safety software to **air-gapped on-prem Kubernetes** with enterprise licensing, domain-authenticated databases, and Linux–Windows integration.
-- Built **courier-aggregator finance receivables**: reconcile third-party payment/charge APIs to contracts, detect anomalies, and expose cash-flow analytics.
-- Shipped **WhatsApp AI order automation** (15–30 min capture → seconds); tuned DB/cache and background workers for API latency under load.
+- Designed, delivered, and deployed a sustainability platform for **Abu Dhabi Police** to on-premises, **air-gapped Kubernetes** with licensed software, domain-authenticated databases, and Linux–Windows/Kerberos constraints.
+- Built **multi-courier logistics integration and settlement** across **9 providers** (including PostEx, Leopards, and M&P)—provider abstraction, data normalization, reconciliation, returns/claims, and net receivables.
+- Designed **BullMQ / Amazon SQS** async workers for **100K+ order** capacity with concurrency controls, rate-limit awareness, retries, DLQs, and failure isolation.
+- Owned **Stripe Connect** marketplace payment infrastructure: Connected Accounts, fund holding, delayed business-rule payouts, transfers, and refunds on an international events product.
+- Shipped production **AI features**—message generation, booking-agent order summaries, and WhatsApp order-creation agents that cut a **15–30 minute** capture task to **seconds**.
+- Conducts hiring / technical interviews while solving production integration challenges.
 
 ## AxonERP / Axon
 ![AxonERP](/companies/axon-erp.png)
@@ -18,8 +21,8 @@
 *Nov 2022 — Nov 2025*
 
 - [Website](https://www.axonerp.com/)
-- Designed and shipped full-stack ERP features (React, Next.js, TypeScript, Node.js, REST/GraphQL, PostgreSQL, MongoDB).
-- Owned **multi-tenant database** system design: tenant isolation, connection-pool tuning at scale.
-- Operated **on-prem Kubernetes** (kOps) for **200+ clients**; Helm charts; CI (GitHub Actions) and CD (Jenkins); zero-downtime upgrades (hours → minutes).
-- Ran NGINX Ingress, Longhorn, cert-manager, Prometheus/Grafana; fleet-wide backup and disaster recovery.
-- Integrated n8n and WhatsApp Business APIs; built ops admin panel; code reviews with product, QA, and design.
+- Designed and shipped full-stack ERP features and an ops admin panel (React, Next.js, TypeScript, Node.js, REST/GraphQL, PostgreSQL, MongoDB).
+- Designed and operated **on-prem Kubernetes** (kOps/Helm) for **200+ client deployments** with multi-tenant isolation, Dockerized apps/databases, PV/PVC storage, and Redis-backed workloads.
+- Led the move from manual releases to **GitHub Actions** and **Jenkins** with image builds, migrations, seeding, and zero-downtime Helm upgrades (**hours → minutes**).
+- Operated NGINX Ingress, cert-manager, Prometheus/Grafana, Longhorn backups, and cluster/database restore practices.
+- Integrated n8n and WhatsApp Business APIs; contributed to code reviews and clean-architecture standards.

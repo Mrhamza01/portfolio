@@ -31,9 +31,10 @@ export default function RecruiterIntro({
             {profile.title}
           </p>
           <p className="mt-3 text-[13px] leading-relaxed text-[color:var(--color-secondary)]">
-            Builds and operates multi-tenant SaaS and on-prem Kubernetes systems —
-            ERP fleet of <strong className="text-[color:var(--color-foreground)]">200+ clients</strong>,
-            zero-downtime CI/CD, air-gapped deployments.
+            Builds and operates production systems end-to-end —
+            <strong className="text-[color:var(--color-foreground)]">9-courier logistics</strong>,
+            Stripe Connect marketplace payments, AI order agents, and an ERP fleet of{" "}
+            <strong className="text-[color:var(--color-foreground)]">200+ clients</strong>.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2">
