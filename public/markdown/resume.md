@@ -18,8 +18,8 @@ Full-Stack Software Engineer (production since **Nov 2022**) who designs, builds
 
 ## Technical Skills
 
-**Languages:** TypeScript, JavaScript, Go, SQL  
-**Frontend:** React, Next.js, Tailwind CSS, ShadCN  
+**Languages:** TypeScript, JavaScript, Go, Python, SQL  
+**Frontend:** React, React Native, Next.js, Tailwind CSS, ShadCN  
 **Backend:** Node.js, Express, REST APIs, GraphQL, Laravel, BullMQ, Amazon SQS  
 **Database:** PostgreSQL, MongoDB, MySQL; Prisma, Drizzle, Kysely; Redis  
 **Cloud & DevOps:** Docker, Kubernetes, Helm, kOps, GitHub Actions, Jenkins, NGINX Ingress, cert-manager, Longhorn, AWS (S3, SQS, RDS)  

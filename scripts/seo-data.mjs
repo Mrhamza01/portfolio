@@ -10,7 +10,7 @@ export const profile = {
   displayName: "Hamza Ghafoor",
   title: "Full Stack Software Engineer | Backend & Platform Systems",
   openToWork:
-    "Available for Senior Full Stack, Backend, and Platform Engineering roles.",
+    "Available for Senior Full Stack, Backend, and Platform Engineering roles. Remote, any time zone.",
   location: "Faisalabad, Pakistan",
   summary:
     "Full-Stack Software Engineer (production since Nov 2022) who designs, builds, and operates systems end-to-end—features, APIs, queues, CI/CD, and Kubernetes—across SaaS products and restricted enterprise infrastructure.",
@@ -109,17 +109,17 @@ export const profile = {
     {
       name: "Back End Development and APIs",
       issuer: "freeCodeCamp",
-      year: "2024",
+      year: "2023",
     },
     {
       name: "IBM Full Stack Software Developer Specialization",
       issuer: "Coursera",
-      year: "2024",
+      year: "2023",
     },
   ],
   skills: {
-    languages: "TypeScript, JavaScript, Go, SQL",
-    frontend: "React, Next.js, Tailwind CSS, ShadCN",
+    languages: "TypeScript, JavaScript, Go, Python, SQL",
+    frontend: "React, React Native, Next.js, Tailwind CSS, ShadCN",
     backend: "Node.js, Express, REST APIs, GraphQL, Laravel, BullMQ, Amazon SQS",
     data: "PostgreSQL, MongoDB, MySQL; Prisma, Drizzle, Kysely; Redis; partitioning & warm cache",
     devops:

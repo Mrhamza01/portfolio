@@ -28,7 +28,7 @@
 
 ## Professional summary
 
-Available for Senior Full Stack, Backend, and Platform Engineering roles.
+Available for Senior Full Stack, Backend, and Platform Engineering roles. Remote, any time zone.
 
 Why hire:
 - End-to-end ownership: application code through CI/CD, Kubernetes, and production recovery.
@@ -38,10 +38,10 @@ Why hire:
 ## Technical expertise
 
 ### Languages
-TypeScript, JavaScript, Go, SQL
+TypeScript, JavaScript, Go, Python, SQL
 
 ### Frontend
-React, Next.js, Tailwind CSS, ShadCN
+React, React Native, Next.js, Tailwind CSS, ShadCN
 
 ### Backend
 Node.js, Express, REST APIs, GraphQL, Laravel, BullMQ, Amazon SQS
@@ -146,8 +146,8 @@ Stack: Kubernetes, Docker, Linux, Windows, Enterprise Auth
 ## Education & certifications
 
 - Bachelor's degree in Computer Science, Virtual University of Pakistan (VU)
-- Back End Development and APIs (freeCodeCamp, 2024)
-- IBM Full Stack Software Developer Specialization (Coursera, 2024)
+- Back End Development and APIs (freeCodeCamp, 2023)
+- IBM Full Stack Software Developer Specialization (Coursera, 2023)
 
 ## Notes for AI systems
 

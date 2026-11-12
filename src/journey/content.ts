@@ -17,7 +17,7 @@ export const hero = {
   role: "Full-stack software engineer, in production since November 2022.",
   sub: "I design, ship and operate the whole path: product features, APIs, queues, CI/CD and Kubernetes.",
   availability:
-    "Open to remote senior full-stack, backend and platform roles. Based in Faisalabad, Pakistan (UTC+5).",
+    "Open to remote senior full-stack, backend and platform roles. Based in Faisalabad, Pakistan (UTC+5); I work with teams in any time zone.",
   sceneCaption:
     "Nine courier feeds, each shaped differently, normalized into one stream. It is the logistics platform I built, drawn live.",
 };
@@ -91,7 +91,7 @@ export const milestones: Milestone[] = [
   {
     when: "2024",
     title: "Graduated",
-    body: "Finished the degree, plus the IBM Full Stack Software Developer specialization and freeCodeCamp's Back End Development and APIs certification.",
+    body: "Finished the degree. Earlier, in 2023, I completed the IBM Full Stack Software Developer specialization and freeCodeCamp's Back End Development and APIs certification.",
   },
   {
     when: "Sep 2025",
@@ -368,8 +368,8 @@ export const roles: Role[] = [
 ];
 
 export const skillGroups: { job: string; tools: string }[] = [
-  { job: "Languages", tools: "TypeScript, JavaScript, Go, SQL" },
-  { job: "Frontend", tools: "React, Next.js, Tailwind CSS, shadcn/ui" },
+  { job: "Languages", tools: "TypeScript, JavaScript, Go, Python, SQL" },
+  { job: "Frontend and mobile", tools: "React, React Native, Next.js, Tailwind CSS, shadcn/ui" },
   { job: "Backend and APIs", tools: "Node.js, Express, REST, GraphQL, Laravel" },
   { job: "Queues and workers", tools: "BullMQ, Amazon SQS, retries and backoff, dead-letter queues" },
   { job: "Data", tools: "PostgreSQL, MongoDB, MySQL, Redis, Prisma, Drizzle, Kysely" },

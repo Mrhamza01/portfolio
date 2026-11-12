@@ -42,7 +42,7 @@ export const profile = {
   displayName: "Hamza Ghafoor",
   title: "Full Stack Software Engineer | Backend & Platform Systems",
   openToWork:
-    "Available for Senior Full Stack, Backend, and Platform Engineering roles.",
+    "Available for Senior Full Stack, Backend, and Platform Engineering roles. Remote, any time zone.",
   location: "Faisalabad, Pakistan",
   version: "Portfolio OS 2.0",
   productName: "Hamza Ghafoor — Full Stack Engineer",
@@ -156,18 +156,18 @@ export const profile = {
     {
       name: "Back End Development and APIs",
       issuer: "freeCodeCamp",
-      year: "2024",
+      year: "2023",
     },
     {
       name: "IBM Full Stack Software Developer Specialization",
       issuer: "Coursera",
-      year: "2024",
+      year: "2023",
     },
   ] as CertificationEntry[],
 
   skills: {
-    languages: "TypeScript, JavaScript, Go, SQL",
-    frontend: "React, Next.js, Tailwind CSS, ShadCN",
+    languages: "TypeScript, JavaScript, Go, Python, SQL",
+    frontend: "React, React Native, Next.js, Tailwind CSS, ShadCN",
     backend: "Node.js, Express, REST APIs, GraphQL, Laravel, BullMQ, Amazon SQS",
     data: "PostgreSQL, MongoDB, MySQL; Prisma, Drizzle, Kysely; Redis; partitioning & warm cache",
     devops:
@@ -226,12 +226,14 @@ export const profile = {
     { id: "react", name: "React", category: "Frontend", icon: "i-simple-icons:react", featured: true, docUrl: "https://react.dev" },
     { id: "nextjs", name: "Next.js", category: "Frontend", icon: "i-simple-icons:nextdotjs", featured: true, docUrl: "https://nextjs.org" },
     { id: "typescript", name: "TypeScript", category: "Frontend", icon: "i-simple-icons:typescript", featured: true, docUrl: "https://www.typescriptlang.org" },
+    { id: "reactnative", name: "React Native", category: "Frontend", icon: "i-simple-icons:react", docUrl: "https://reactnative.dev" },
     { id: "tailwind", name: "Tailwind CSS", category: "Frontend", icon: "i-simple-icons:tailwindcss", docUrl: "https://tailwindcss.com" },
     { id: "nodejs", name: "Node.js", category: "Backend", icon: "i-simple-icons:nodedotjs", featured: true, docUrl: "https://nodejs.org" },
     { id: "express", name: "Express", category: "Backend", icon: "i-simple-icons:express", docUrl: "https://expressjs.com" },
     { id: "laravel", name: "Laravel", category: "Backend", icon: "i-simple-icons:laravel", docUrl: "https://laravel.com" },
     { id: "graphql", name: "GraphQL", category: "Backend", icon: "i-simple-icons:graphql", docUrl: "https://graphql.org" },
     { id: "go", name: "Go", category: "Backend", icon: "i-simple-icons:go", featured: true, docUrl: "https://go.dev" },
+    { id: "python", name: "Python", category: "Backend", icon: "i-simple-icons:python", docUrl: "https://www.python.org" },
     { id: "stripe", name: "Stripe", category: "Backend", icon: "i-simple-icons:stripe", featured: true, docUrl: "https://stripe.com/docs/connect" },
     { id: "postgresql", name: "PostgreSQL", category: "Data", icon: "i-simple-icons:postgresql", featured: true, docUrl: "https://www.postgresql.org" },
     { id: "mongodb", name: "MongoDB", category: "Data", icon: "i-simple-icons:mongodb", docUrl: "https://www.mongodb.com" },
