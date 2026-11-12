@@ -3,50 +3,39 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="theme-color" content="#f3f5f7" />
+    <title>Hamza Ghafoor — Full-Stack Software Engineer</title>
     <meta
       name="description"
-      content="Hamza Ghafoor — Full Stack Software Engineer. Multi-courier logistics, Stripe Connect, Kubernetes fleets, and production CI/CD."
+      content="Hamza Ghafoor — Full-Stack Software Engineer. Multi-courier logistics, Stripe Connect payments, Kubernetes fleets and production CI/CD. Choose the new interactive portfolio or the classic macOS one."
     />
-
     <link rel="canonical" href="https://hamzaghafoor.vercel.app/" />
-
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Hamza Ghafoor" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Hamza Ghafoor — Portfolio" />
     <meta property="og:url" content="https://hamzaghafoor.vercel.app/" />
-    <meta property="og:title" content="Hamza Ghafoor — Full Stack Software Engineer" />
+    <meta property="og:title" content="Hamza Ghafoor — Full-Stack Software Engineer" />
     <meta
       property="og:description"
-      content="Builds and operates production systems end-to-end—logistics platforms, marketplace payments, AI agents, and Kubernetes fleets."
+      content="I build systems that keep moving when integrations, infrastructure and money get complicated."
     />
-    <meta property="og:image" content="https://hamzaghafoor.vercel.app/img/ui/avatar.jpg" />
-    <meta property="og:image:width" content="1000" />
-    <meta property="og:image:height" content="1000" />
-    <meta property="og:image:alt" content="Hamza Ghafoor — Full Stack Software Engineer" />
-
+    <meta property="og:image" content="https://hamzaghafoor.vercel.app/img/portfolio/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Hamza Ghafoor, full-stack software engineer: I build systems that keep moving when integrations, infrastructure and money get complicated." />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Hamza Ghafoor — Full Stack Software Engineer" />
+    <meta name="twitter:title" content="Hamza Ghafoor — Full-Stack Software Engineer" />
     <meta
       name="twitter:description"
-      content="Builds and operates production systems end-to-end—logistics platforms, marketplace payments, AI agents, and Kubernetes fleets."
+      content="I build systems that keep moving when integrations, infrastructure and money get complicated."
     />
-    <meta name="twitter:image" content="https://hamzaghafoor.vercel.app/img/ui/avatar.jpg" />
-
+    <meta name="twitter:image" content="https://hamzaghafoor.vercel.app/img/portfolio/og-cover.png" />
     <link rel="icon" href="/logo/favicon.ico" />
     <link rel="apple-touch-icon" href="/img/ui/avatar.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Matemasie&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="manifest" href="/manifest.json" />
-
-    <title>Hamza Ghafoor — Full Stack Software Engineer</title>
-      <!-- SEO:JSON-LD -->
+    <!-- SEO:JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -193,7 +182,57 @@
 <!-- /SEO:JSON-LD -->
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main class="chooser">
+        <header class="chooser-head">
+          <p class="chooser-name">Hamza Ghafoor</p>
+          <p class="chooser-role">Full-stack software engineer</p>
+        </header>
+        <h1>Two ways to look at my work</h1>
+        <div class="chooser-grid">
+          <a class="choice choice-new" href="/journey/">
+            <span class="choice-shot">
+              <img
+                src="/img/portfolio/preview-journey.jpg"
+                alt="Preview of the new portfolio: a large headline beside streams of dots converging into one line"
+                width="1280"
+                height="800"
+              />
+            </span>
+            <span class="choice-tag">New portfolio</span>
+            <span class="choice-title">The journey</span>
+            <span class="choice-text"
+              >A scroll-through story of the systems I have built, with live diagrams. The best place to start if you
+              are hiring.</span
+            >
+            <span class="choice-go">Open the new portfolio</span>
+          </a>
+          <a class="choice choice-old" href="/classic/">
+            <span class="choice-shot">
+              <img
+                src="/img/portfolio/preview-classic.jpg"
+                alt="Preview of the previous portfolio: a macOS-style desktop with a dock and app windows"
+                width="1280"
+                height="800"
+              />
+            </span>
+            <span class="choice-tag">Previous portfolio</span>
+            <span class="choice-title">The macOS desktop</span>
+            <span class="choice-text"
+              >My original portfolio, kept as it was: a working macOS-style desktop with apps to click through.</span
+            >
+            <span class="choice-go">Open the previous portfolio</span>
+          </a>
+        </div>
+        <footer class="chooser-foot">
+          <span>In a hurry?</span>
+          <a href="/resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
+          <a href="mailto:hamza.kamboh035@gmail.com">Email</a>
+          <a href="https://linkedin.com/in/hamza-ghafoor" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/Mrhamza01" target="_blank" rel="noopener">GitHub</a>
+        </footer>
+      </main>
+    </div>
     <!-- SEO:NOSCRIPT -->
     <noscript>
   <div style="max-width:48rem;margin:2rem auto;padding:1.5rem;font-family:system-ui,sans-serif;line-height:1.6">
@@ -242,12 +281,8 @@
   </div>
 </noscript>
     <!-- /SEO:NOSCRIPT -->
-    <script type="module" src="/src/index.tsx"></script>
-
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-DSL4Z03NFE"
-    ></script>
+    <script type="module" src="/src/selector/main.ts"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DSL4Z03NFE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {

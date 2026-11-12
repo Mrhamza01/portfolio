@@ -1,0 +1,129 @@
+%-------------------------------------------------------------------------------
+% Hamza Ghafoor - Resume
+% Single-column, text-only layout for ATS parsing. No tables, columns, icons or
+% graphics. Build: pdflatex hamza-ghafoor-resume.tex (run twice), or ./build.sh
+%-------------------------------------------------------------------------------
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=0.5in,top=0.42in,bottom=0.4in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+% Machine-readable text: map glyphs to Unicode so copy/paste and ATS parsers get real characters.
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\hypersetup{
+  pdftitle={Hamza Ghafoor - Full-Stack Software Engineer - Resume},
+  pdfauthor={Hamza Ghafoor},
+  pdfsubject={Resume: Full-Stack Software Engineer, Backend and Platform Systems},
+  pdfkeywords={Full-Stack Software Engineer, Backend Engineer, Platform Engineer, TypeScript, Node.js, React, Next.js, PostgreSQL, Kubernetes, Docker, CI/CD, BullMQ, Amazon SQS, Stripe Connect}
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedbottom
+\raggedright
+
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{1pt}\titlerule\vspace{0pt}]
+\titlespacing*{\section}{0pt}{6.5pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.15em,itemsep=1.2pt,topsep=2.5pt,parsep=0pt,partopsep=0pt,label=\textbullet}
+
+% \role{Title}{Dates}{Company}{Location}
+\newcommand{\role}[4]{%
+  \textbf{#1}\hfill #2\par
+  \textit{#3}\hfill \textit{#4}\par}
+
+\begin{document}
+
+%----------------------------------- Header ------------------------------------
+\begin{center}
+  {\LARGE\bfseries Hamza Ghafoor}\\[3pt]
+  {\large Full-Stack Software Engineer | Backend \& Platform Systems}\\[3pt]
+  Faisalabad, Pakistan (UTC+5, open to remote) | +92 309 7906831 | \href{mailto:hamza.kamboh035@gmail.com}{hamza.kamboh035@gmail.com}\\[1pt]
+  \href{https://linkedin.com/in/hamza-ghafoor}{linkedin.com/in/hamza-ghafoor} |
+  \href{https://github.com/Mrhamza01}{github.com/Mrhamza01} |
+  \href{https://hamzaghafoor.vercel.app}{hamzaghafoor.vercel.app}
+\end{center}
+\vspace{-6pt}
+
+%----------------------------------- Summary -----------------------------------
+\section{Professional Summary}
+Full-stack software engineer with 4 years of production experience designing, building, and operating systems
+end to end: product features, APIs, asynchronous workers, CI/CD, and Kubernetes. Architected a multi-courier
+logistics and settlement platform (9 providers, designed for 100K+ orders), owns Stripe Connect marketplace
+payments, ships production AI agents, and ran a 200+ deployment Kubernetes fleet. Delivers across SaaS,
+on-premises, and air-gapped enterprise environments.
+
+%----------------------------------- Skills ------------------------------------
+\section{Technical Skills}
+\textbf{Languages:} TypeScript, JavaScript, Go, SQL, HTML, CSS\par
+\textbf{Backend:} Node.js, Express, REST APIs, GraphQL, Laravel, BullMQ, Amazon SQS, Stripe Connect\par
+\textbf{Frontend:} React, Next.js, Tailwind CSS, shadcn/ui\par
+\textbf{Data:} PostgreSQL, MongoDB, MySQL, Redis, Prisma, Drizzle, Kysely\par
+\textbf{Cloud \& DevOps:} Docker, Kubernetes, Helm, kOps, GitHub Actions, Jenkins, NGINX Ingress, cert-manager,
+Longhorn, Prometheus, Grafana, AWS (S3, SQS, RDS)\par
+\textbf{Architecture:} Multi-tenant SaaS, async processing, provider abstraction, backup/DR, on-prem and
+air-gapped delivery
+
+%---------------------------------- Experience ---------------------------------
+\section{Professional Experience}
+\role{Full-Stack Software Engineer}{Dec 2025 -- Present}{MilestoneZero}{Pakistan}
+\begin{itemize}
+  \item Architected integration and settlement workflows across 9 courier providers (including PostEx, Leopards,
+        and M\&P), normalizing heterogeneous APIs, statuses, charges, invoices, returns, and claims into one
+        logistics domain model.
+  \item Built BullMQ and Amazon SQS worker pipelines designed for 100K+ orders, with scheduling, concurrency and
+        rate-limit controls, retries with backoff, dead-letter queues (DLQs), and reprocessing to isolate provider failures.
+  \item Implemented reconciliation and settlement (CPR/invoice ingestion, contract-based charge matching,
+        discrepancy analysis, returns/claims, net receivables) for finance and operations cash-flow visibility.
+  \item Own Stripe Connect payment infrastructure for an international events marketplace: host Connected
+        Accounts, fund holding, business-rule-driven delayed transfers and payouts, refunds, and reversals.
+  \item Designed and deployed a sustainability platform for Abu Dhabi Police on air-gapped, on-premises
+        Kubernetes, within licensed-software, domain-authenticated database, and Linux--Windows/Kerberos
+        constraints.
+  \item Shipped production AI features (personalized message generation, booking-agent order summaries, and a
+        WhatsApp order-creation agent with user and address validation), reducing a 15--30 minute order-capture
+        task to seconds.
+  \item Conduct hiring and technical interviews; resolve production integration and microservice issues.
+\end{itemize}
+\vspace{5pt}
+
+\role{Full-Stack Software Engineer}{Nov 2022 -- Nov 2025}{AxonERP (core product; scaled from Multi-Techno)}{Pakistan}
+\begin{itemize}
+  \item Designed and operated on-premises Kubernetes (kOps, Helm) for 200+ client deployments with multi-tenant
+        isolation, Dockerized applications and databases, PV/PVC storage, and Redis-backed workloads.
+  \item Led the migration from manual releases to GitHub Actions and Jenkins CI/CD (image builds, database
+        migrations, seeding, zero-downtime Helm upgrades), cutting deployment cycles from hours to minutes.
+  \item Designed and shipped ERP features and a client-operations admin panel with React, Next.js, TypeScript,
+        Node.js, REST/GraphQL, PostgreSQL, and MongoDB, focused on performance and data integrity.
+  \item Operated NGINX Ingress, cert-manager, Prometheus/Grafana monitoring, Longhorn backups, and
+        cluster and database restore procedures for stable production delivery.
+  \item Integrated n8n and WhatsApp Business APIs; collaborated with product, design, and QA; contributed to
+        code reviews and clean-architecture standards.
+\end{itemize}
+
+%----------------------------------- Projects ----------------------------------
+\section{Open-Source Projects}
+\begin{itemize}
+  \item \textbf{Arch CLI} (Go, Sep 2025): CLI that scaffolds feature-based Clean Architecture projects.
+        \href{https://github.com/Mrhamza01/arch}{github.com/Mrhamza01/arch}
+  \item \textbf{AI Article Summarizer} (GPT-4, React, Vite): article summarization.
+        \href{https://github.com/Mrhamza01/AI-summarizer}{github.com/Mrhamza01/AI-summarizer}
+\end{itemize}
+
+%-------------------------- Education and certifications -----------------------
+\section{Education}
+\textbf{B.S. Computer Science}, Virtual University of Pakistan\hfill 2020 -- 2024
+
+\section{Certifications}
+IBM Full Stack Software Developer Specialization (Coursera) | Back End Development and APIs (freeCodeCamp)
+
+\end{document}

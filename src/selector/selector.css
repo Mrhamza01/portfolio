@@ -1,0 +1,172 @@
+/* Portfolio chooser: shares tokens and type with the Journey portfolio. */
+:root {
+  --paper: #f3f5f7;
+  --ink: #0e1b2c;
+  --slate: #4d5c70;
+  --rule: #c8d0da;
+  --route: #1f4fd8;
+  --display: "Archivo Variable", "Arial Narrow", system-ui, sans-serif;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.55 "Archivo Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+p {
+  margin: 0;
+}
+.chooser {
+  min-height: 100svh;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vh, 2.25rem) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 3vh, 2rem);
+}
+.chooser-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.chooser-name {
+  font: 800 1.125rem/1 var(--display);
+  font-stretch: 75%;
+}
+.chooser-role {
+  font-size: 0.9375rem;
+  color: var(--slate);
+}
+.chooser h1 {
+  font: 800 clamp(2.25rem, 4.6vw, 3.75rem) / 0.96 var(--display);
+  font-stretch: 62%;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+.chooser-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+}
+.choice {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ink);
+}
+.choice-shot {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fff;
+  aspect-ratio: 16 / 9;
+}
+.choice-old .choice-shot {
+  aspect-ratio: 16 / 10;
+}
+.choice-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.choice:hover img,
+.choice:focus-visible img {
+  transform: scale(1.03);
+}
+.choice-tag {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--slate);
+}
+.choice-title {
+  font: 800 clamp(1.75rem, 3.2vw, 2.75rem) / 1 var(--display);
+  font-stretch: 62%;
+  margin-top: 0.15rem;
+}
+.choice-old .choice-title {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+}
+.choice-text {
+  margin-top: 0.5rem;
+  max-width: 34rem;
+  color: var(--slate);
+}
+.choice-go {
+  align-self: flex-start;
+  margin-top: 1rem;
+  padding: 0.7rem 1.3rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.choice-new .choice-go {
+  background: var(--ink);
+  color: var(--paper);
+}
+.choice:hover .choice-go,
+.choice:focus-visible .choice-go {
+  background: var(--route);
+  border-color: var(--route);
+  color: #fff;
+}
+:focus-visible {
+  outline: 2px solid var(--route);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.chooser-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9375rem;
+  color: var(--slate);
+}
+.chooser-foot a {
+  display: inline-block;
+  padding-block: 0.6rem;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration-color: var(--route);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+.chooser-foot a:hover {
+  color: var(--route);
+}
+@media (max-width: 759px) {
+  .chooser-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .chooser-head {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

@@ -413,6 +413,8 @@ Sitemap: ${SITE_URL}/sitemap.xml
 function writeSitemap() {
   const urls = [
     { loc: `${SITE_URL}/`, priority: "1.0", changefreq: "weekly" },
+    { loc: `${SITE_URL}/journey/`, priority: "1.0", changefreq: "weekly" },
+    { loc: `${SITE_URL}/classic/`, priority: "0.5", changefreq: "monthly" },
     ...pages.map((p) => ({
       loc: `${SITE_URL}${p.path}`,
       priority: p.priority,

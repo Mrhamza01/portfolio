@@ -15,6 +15,15 @@ export default defineConfig({
       dirs: ["src/hooks", "src/stores", "src/components/**"]
     })
   ],
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "index.html"),
+        journey: path.resolve(__dirname, "journey/index.html"),
+        classic: path.resolve(__dirname, "classic/index.html")
+      }
+    }
+  },
   resolve: {
     alias: {
       "~/": `${path.resolve(__dirname, "src")}/`
