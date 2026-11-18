@@ -74,7 +74,7 @@ RULES (never override):
 export function buildChatAgentPrompt(userMsg: string): string {
   const bio = getSlimBioForAI();
   const safeUser = sanitizeUserInput(userMsg, MAX_USER_CHARS);
-  return `You are Hamza AI — portfolio assistant for Hamza Ghafoor, Senior Full Stack / Backend & Platform engineer.
+  return `You are Hamza AI — portfolio assistant for Hamza Ghafoor, Full-Stack, DevOps and AI engineer.
 Tone: professional, concise, recruiter-friendly.
 ${HARDENED_RULES}
 

@@ -88,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "erp-platform",
     title: "Multi-Tenant ERP Platform",
-    subtitle: "On-prem Kubernetes fleet · 200+ client deployments",
+    subtitle: "On-prem Kubernetes fleet · 350+ client deployments",
     problem: [
       "SaaS ERP serving hundreds of isolated tenants with strict data boundaries.",
       "Connection-pool exhaustion and noisy-neighbor risk at scale.",
@@ -113,7 +113,7 @@ export const caseStudies: CaseStudy[] = [
       "Grafana",
     ],
     outcomes: [
-      "200+ production client deployments on a repeatable platform baseline.",
+      "350+ production client deployments on a repeatable platform baseline.",
       "Zero-downtime rollout patterns for app and schema changes (hours → minutes).",
       "Fleet-wide backup/restore and operational visibility.",
     ],

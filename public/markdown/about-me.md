@@ -4,13 +4,13 @@
 
 I'm **Hamza Ghafoor**, a **Full Stack Software Engineer** who designs, builds, and operates production systems end-to-end—from product features and APIs to queues, CI/CD, and Kubernetes—based in Faisalabad, Pakistan.
 
-My work sits at the intersection of full-stack product engineering, backend/async systems, and cloud-native (including air-gapped on-prem) delivery. I've shipped multi-courier logistics platforms, marketplace payment infrastructure, production AI agents, and ERP fleets serving 200+ clients.
+My work sits at the intersection of full-stack product engineering, backend/async systems, and cloud-native (including air-gapped on-prem) delivery. I've shipped multi-courier logistics platforms, marketplace payment infrastructure, production AI agents, and ERP fleets serving 350+ clients.
 
 **B.S. Computer Science** — Virtual University of Pakistan (2020–2024)
 
 ## Career arc
 
-- **Nov 2022 – Nov 2025:** Full-stack + platform engineer on AxonERP (originated at Multi-Techno)—features, multi-tenant data, CI/CD, and on-prem Kubernetes for 200+ clients.
+- **Nov 2022 – Nov 2025:** Full-stack + platform engineer on AxonERP (originated at Multi-Techno)—features, multi-tenant data, CI/CD, and on-prem Kubernetes for 350+ clients.
 - **Dec 2025 – Present:** MilestoneZero—air-gapped enterprise delivery (Abu Dhabi Police), multi-courier logistics & settlement, Stripe Connect marketplace payments, and production AI workflows.
 
 ## Why work with me

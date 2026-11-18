@@ -40,7 +40,7 @@ export const ledger: LedgerRow[] = [
     meaning: "Async processing capacity the queue and worker pipeline is designed for.",
   },
   {
-    figure: "200+",
+    figure: "350+",
     unit: "client deployments",
     meaning: "The on-prem Kubernetes fleet I designed and operated at AxonERP.",
   },
@@ -81,7 +81,7 @@ export const milestones: Milestone[] = [
   {
     when: "AxonERP",
     title: "From features to the platform",
-    body: "Took on how the product runs, not only what it does: on-prem Kubernetes with kOps and Helm, tenant isolation, storage and backups, for a fleet of 200+ client deployments.",
+    body: "Took on how the product runs, not only what it does: on-prem Kubernetes with kOps and Helm, tenant isolation, storage and backups, for a fleet of 350+ client deployments.",
   },
   {
     when: "AxonERP",
@@ -248,7 +248,7 @@ export const systems: SystemStudy[] = [
   {
     id: "fleet",
     company: "AxonERP",
-    title: "A 200+ deployment ERP fleet, released by pipeline",
+    title: "A 350+ deployment ERP fleet, released by pipeline",
     lede: "Hundreds of isolated client environments on one repeatable baseline.",
     problem:
       "A multi-tenant ERP served hundreds of clients with strict data boundaries. Releases were manual and took hours, image tags drifted, and rollbacks were hard.",
@@ -271,7 +271,7 @@ export const systems: SystemStudy[] = [
       },
     ],
     outcome: [
-      "200+ production client deployments on one platform baseline.",
+      "350+ production client deployments on one platform baseline.",
       "Release cycle cut from hours to minutes with zero-downtime Helm upgrades.",
     ],
     stack: [
@@ -359,7 +359,7 @@ export const roles: Role[] = [
     note: "Core product, scaled from Multi-Techno",
     points: [
       "Shipped ERP features and a client-operations admin panel with React, Next.js, TypeScript, Node.js, REST and GraphQL.",
-      "Designed and operated on-prem Kubernetes for 200+ client deployments with multi-tenant isolation.",
+      "Designed and operated on-prem Kubernetes for 350+ client deployments with multi-tenant isolation.",
       "Led the move to GitHub Actions and Jenkins, cutting releases from hours to minutes.",
       "Ran ingress, TLS, monitoring, backups and restore practice for the fleet.",
       "Integrated n8n and WhatsApp Business APIs. Reviewed code and helped set clean-architecture standards.",
@@ -380,7 +380,8 @@ export const skillGroups: { job: string; tools: string }[] = [
   { job: "Observability and recovery", tools: "Prometheus, Grafana, backup and disaster recovery" },
   { job: "Cloud", tools: "AWS (S3, SQS, RDS), Vercel" },
   { job: "Payments", tools: "Stripe Connect: Connected Accounts, holds, delayed payouts, refunds" },
-  { job: "AI and automation", tools: "LLM agents, message generation, order summarization, WhatsApp automation, n8n" },
+  { job: "AI engineering", tools: "LLM agents, tool calling, prompt design, OpenAI GPT-4, n8n AI workflows, WhatsApp automation" },
+  { job: "Mobile apps", tools: "React Native: HRM app and Order Booking app (freelance)" },
 ];
 
 export const principles: { title: string; body: string; proof: string }[] = [
@@ -402,7 +403,7 @@ export const principles: { title: string; body: string; proof: string }[] = [
   {
     title: "Make releases boring",
     body: "If a deploy needs a person and an afternoon, it will be skipped or rushed. Automate it until it is uneventful.",
-    proof: "Hours to minutes, with zero-downtime Helm upgrades across 200+ deployments.",
+    proof: "Hours to minutes, with zero-downtime Helm upgrades across 350+ deployments.",
   },
   {
     title: "Recovery is a feature",

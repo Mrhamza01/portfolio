@@ -34,7 +34,7 @@ export default function RecruiterIntro({
             Builds and operates production systems end-to-end —
             <strong className="text-[color:var(--color-foreground)]">9-courier logistics</strong>,
             Stripe Connect marketplace payments, AI order agents, and an ERP fleet of{" "}
-            <strong className="text-[color:var(--color-foreground)]">200+ clients</strong>.
+            <strong className="text-[color:var(--color-foreground)]">350+ clients</strong>.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2">

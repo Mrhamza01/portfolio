@@ -22,7 +22,7 @@
 
 - [Website](https://www.axonerp.com/)
 - Designed and shipped full-stack ERP features and an ops admin panel (React, Next.js, TypeScript, Node.js, REST/GraphQL, PostgreSQL, MongoDB).
-- Designed and operated **on-prem Kubernetes** (kOps/Helm) for **200+ client deployments** with multi-tenant isolation, Dockerized apps/databases, PV/PVC storage, and Redis-backed workloads.
+- Designed and operated **on-prem Kubernetes** (kOps/Helm) for **350+ client deployments** with multi-tenant isolation, Dockerized apps/databases, PV/PVC storage, and Redis-backed workloads.
 - Led the move from manual releases to **GitHub Actions** and **Jenkins** with image builds, migrations, seeding, and zero-downtime Helm upgrades (**hours → minutes**).
 - Operated NGINX Ingress, cert-manager, Prometheus/Grafana, Longhorn backups, and cluster/database restore practices.
 - Integrated n8n and WhatsApp Business APIs; contributed to code reviews and clean-architecture standards.

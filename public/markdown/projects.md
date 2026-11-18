@@ -13,7 +13,7 @@ Marketplace payment infrastructure for an international events product—Connect
 ## Multi-Tenant ERP Platform
 *AxonERP · React · Node.js · PostgreSQL · Kubernetes*
 
-Production multi-tenant SaaS ERP with tenant isolation, Helm client deployments, observability, and disaster-recovery runbooks across 200+ on-prem environments.
+Production multi-tenant SaaS ERP with tenant isolation, Helm client deployments, observability, and disaster-recovery runbooks across 350+ on-prem environments.
 
 ## CI/CD & Container Automation
 *GitHub Actions · Jenkins · Helm · Docker · Kubernetes*

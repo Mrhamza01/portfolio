@@ -40,9 +40,9 @@ export interface CertificationEntry {
 export const profile = {
   name: "Hamza Ghafoor",
   displayName: "Hamza Ghafoor",
-  title: "Full Stack Software Engineer | Backend & Platform Systems",
+  title: "Full-Stack Engineer | DevOps Engineer | AI Engineer",
   openToWork:
-    "Available for Senior Full Stack, Backend, and Platform Engineering roles. Remote, any time zone.",
+    "Available for Full-Stack, DevOps, AI Engineering, and React Native roles. Remote, any time zone.",
   location: "Faisalabad, Pakistan",
   version: "Portfolio OS 2.0",
   productName: "Hamza Ghafoor — Full Stack Engineer",
@@ -63,11 +63,11 @@ export const profile = {
   },
 
   summary:
-    "Full-Stack Software Engineer (production since Nov 2022) who designs, builds, and operates systems end-to-end—features, APIs, queues, CI/CD, and Kubernetes—across SaaS products and restricted enterprise infrastructure.",
+    "Full-Stack, DevOps and AI Engineer (production since Nov 2022) who designs, builds, and operates systems end-to-end—web and React Native apps, APIs, queues, CI/CD, Kubernetes, and LLM agents—across SaaS products and restricted enterprise infrastructure.",
 
   whyHireMe: [
     "End-to-end ownership: application code through CI/CD, Kubernetes, and production recovery.",
-    "Proven depth: air-gapped enterprise delivery, 100K+ async logistics processing, Stripe Connect marketplace payments, and a 200+ client ERP fleet.",
+    "Proven depth: air-gapped enterprise delivery, 100K+ async logistics processing, Stripe Connect marketplace payments, and a 350+ client ERP fleet.",
     "Builds production systems that stay reliable under third-party failure, load, and operational constraints.",
   ],
 
@@ -100,7 +100,7 @@ export const profile = {
       website: "https://www.axonerp.com/",
       bullets: [
         "Designed and shipped full-stack ERP features and an ops admin panel with React, Next.js, TypeScript, Node.js, REST/GraphQL, PostgreSQL, and MongoDB.",
-        "Designed and operated on-prem Kubernetes (kOps/Helm) for 200+ client deployments with multi-tenant isolation, Dockerized apps/databases, PV/PVC storage, and Redis-backed workloads.",
+        "Designed and operated on-prem Kubernetes (kOps/Helm) for 350+ client deployments with multi-tenant isolation, Dockerized apps/databases, PV/PVC storage, and Redis-backed workloads.",
         "Led the move from manual releases to GitHub Actions and Jenkins with image builds, migrations, seeding, and zero-downtime Helm upgrades—hours to minutes.",
         "Operated NGINX Ingress, cert-manager, Prometheus/Grafana, Longhorn backups, and cluster/database restore practices.",
         "Integrated n8n and WhatsApp Business APIs; contributed to code reviews and clean-architecture standards.",
@@ -128,7 +128,7 @@ export const profile = {
       stack: "React, Node.js, PostgreSQL, Kubernetes",
       date: "AxonERP",
       description:
-        "Production multi-tenant SaaS ERP with tenant isolation, Helm client deployments, observability, and DR across 200+ on-prem environments.",
+        "Production multi-tenant SaaS ERP with tenant isolation, Helm client deployments, observability, and DR across 350+ on-prem environments.",
     },
     {
       name: "CI/CD & Container Automation",
@@ -141,6 +141,26 @@ export const profile = {
       stack: "LLM agents, WhatsApp automation",
       description:
         "AI message generation, booking-agent order summaries, and order-creation agents with validation—compressing a 15–30 minute manual capture flow to seconds.",
+    },
+    {
+      name: "n8n AI Workflows",
+      stack: "n8n, LLMs, WhatsApp Business API",
+      description:
+        "Automation workflows that link LLM steps to WhatsApp Business messaging for order intake and customer follow-up.",
+    },
+    {
+      name: "HRM Mobile App",
+      stack: "React Native",
+      date: "Freelance",
+      description:
+        "Employee mobile app for attendance, leave, and HR requests.",
+    },
+    {
+      name: "Order Booking Mobile App",
+      stack: "React Native",
+      date: "Freelance",
+      description:
+        "Field sales app for browsing products and booking customer orders on the go.",
     },
     {
       name: "ARCHARCH / Arch CLI",
@@ -176,7 +196,8 @@ export const profile = {
     architecture:
       "Multi-tenant SaaS, provider abstraction, async processing, Stripe Connect, air-gapped on-prem delivery",
     cloud: "AWS (S3, SQS, RDS), Vercel, Netlify; Git, n8n, Firebase, Appwrite, Supabase",
-    ai: "LLM agents, AI message generation, order summarization, WhatsApp automation",
+    ai: "LLM agents, tool/function calling, prompt design, OpenAI GPT-4, n8n AI workflows, WhatsApp automation",
+    mobile: "React Native (HRM and Order Booking apps)",
   },
 
   preferences: [
@@ -186,7 +207,7 @@ export const profile = {
       bullets: [
         "Production engineer since Nov 2022—owns delivery from architecture through deployment and recovery.",
         "Full-stack + platform blend: React/Node and Kubernetes/CI/CD in the same ownership loop.",
-        "Track record spanning ERP fleets (200+ clients), air-gapped enterprise delivery, logistics at 100K+ orders, and marketplace payments.",
+        "Track record spanning ERP fleets (350+ clients), air-gapped enterprise delivery, logistics at 100K+ orders, and marketplace payments.",
         "Takes ownership: design, build, automate, monitor, and recover.",
       ],
     },

@@ -1,11 +1,11 @@
 # Hamza Ghafoor
 
-**Full Stack Software Engineer | Backend & Platform Systems**  
+**Full-Stack Engineer | DevOps Engineer | AI Engineer**  
 Faisalabad, Pakistan
 
 ## Professional Summary
 
-Full-Stack Software Engineer (production since **Nov 2022**) who designs, builds, and operates systems end-to-end—features, APIs, queues, CI/CD, and Kubernetes—across SaaS products and restricted enterprise infrastructure. Strongest work: multi-courier logistics (9 providers, 100K+ async orders), Stripe Connect marketplace payments, air-gapped enterprise delivery, and a **200+** client ERP Kubernetes fleet.
+Full-Stack Software Engineer (production since **Nov 2022**) who designs, builds, and operates systems end-to-end—features, APIs, queues, CI/CD, and Kubernetes—across SaaS products and restricted enterprise infrastructure. Strongest work: multi-courier logistics (9 providers, 100K+ async orders), Stripe Connect marketplace payments, air-gapped enterprise delivery, and a **350+** client ERP Kubernetes fleet.
 
 ## Contact
 
